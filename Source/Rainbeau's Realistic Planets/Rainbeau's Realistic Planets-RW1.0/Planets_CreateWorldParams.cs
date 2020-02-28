@@ -10,127 +10,84 @@ using Verse.Sound;
 
 namespace Planets_Code
 {
-	public class Planets_CreateWorldParams : Page
-	{
+	public class Planets_CreateWorldParams : Page {
 		private bool initialized;
-
 		private string seedString;
-
 		private float planetCoverage;
-
 		private string worldPreset;
-
 		private RainfallModifier rainfallMod;
 		private OverallRainfall rainfall;
 		private OverallTemperature temperature;
-
 		private readonly static float[] PlanetCoverages;
 		private readonly static string[] WorldPresets;
-
-		public override string PageTitle
-		{
-			get
-			{
-				return "CreateWorld".Translate();
-			}
+		public override string PageTitle {
+			get { return "CreateWorld".Translate(); }
 		}
-
-		static Planets_CreateWorldParams()
-		{
-			Planets_CreateWorldParams.PlanetCoverages = new float[]
-			{
-				0.05f, 0.1f, 0.15f, 0.2f, 0.25f, 0.3f, 0.35f, 0.4f, 0.45f, 0.5f,
+		static Planets_CreateWorldParams() {
+			Planets_CreateWorldParams.PlanetCoverages = new float[] { 
+				0.05f, 0.1f, 0.15f, 0.2f, 0.25f, 0.3f, 0.35f, 0.4f, 0.45f, 0.5f, 
 				0.55f, 0.6f, 0.65f, 0.7f, 0.75f, 0.8f, 0.85f, 0.9f, 0.95f, 1f
 			};
-			Planets_CreateWorldParams.WorldPresets = new string[]
-			{
-				"Planets.Vanilla",
+			Planets_CreateWorldParams.WorldPresets = new string[] { 
+				"Planets.Vanilla", 
 				"Planets.Desert",
 				"Planets.Frozen",
 				"Planets.Earthlike",
 				"Planets.Forest",
-				"Planets.Iceball",
+				"Planets.Iceball", 
 				"Planets.Jungle",
-				"Planets.Ocean",
+				"Planets.Ocean", 
 				"Planets.Custom"
 			};
 		}
-
-		public Planets_CreateWorldParams()
-		{
-		}
-
-		protected override bool CanDoNext()
-		{
-			if (!base.CanDoNext())
-			{
+		public Planets_CreateWorldParams() { }
+		protected override bool CanDoNext() {
+			if (!base.CanDoNext()) {
 				return false;
 			}
-			if (Planets_GameComponent.worldType == WorldType.Waterworld)
-			{
-				if (this.rainfallMod == RainfallModifier.Little)
-				{
-					this.rainfall = OverallRainfall.LittleBitMore;
-				}
-				else if (this.rainfallMod == RainfallModifier.LittleBitLess)
-				{
-					this.rainfall = OverallRainfall.High;
-				}
-				else if (this.rainfallMod == RainfallModifier.Normal)
-				{
-					this.rainfall = OverallRainfall.VeryHigh;
-				}
-				else if (this.rainfallMod == RainfallModifier.LittleBitMore)
-				{
-					this.rainfall = OverallRainfall.VeryHigh;
-				}
-				else
-				{
-					this.rainfall = OverallRainfall.VeryHigh;
-				}
+			if (Planets_GameComponent.worldType == WorldType.Waterworld) {
+				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.LittleBitMore; }
+				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.High; }
+				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.VeryHigh; }
+				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.VeryHigh; }
+				else { this.rainfall = OverallRainfall.VeryHigh; }
 			}
-			else if (Planets_GameComponent.worldType == WorldType.Islands)
-			{
+			else if (Planets_GameComponent.worldType == WorldType.Islands) {
 				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.Normal; }
 				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.LittleBitMore; }
 				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.High; }
 				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.VeryHigh; }
 				else { this.rainfall = OverallRainfall.VeryHigh; }
 			}
-			else if (Planets_GameComponent.worldType == WorldType.Earthlike)
-			{
+			else if (Planets_GameComponent.worldType == WorldType.Earthlike) {
 				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.LittleBitLess; }
 				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.Normal; }
 				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.LittleBitMore; }
 				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.High; }
 				else { this.rainfall = OverallRainfall.VeryHigh; }
 			}
-			else if (Planets_GameComponent.worldType == WorldType.Vanilla)
-			{
+			else if (Planets_GameComponent.worldType == WorldType.Vanilla) {
 				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.Little; }
 				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.LittleBitLess; }
 				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.LittleBitMore; }
 				else if (this.rainfallMod == RainfallModifier.High) { this.rainfall = OverallRainfall.High; }
 				else { this.rainfall = OverallRainfall.Normal; }
 			}
-			else if (Planets_GameComponent.worldType == WorldType.Dry)
-			{
+			else if (Planets_GameComponent.worldType == WorldType.Dry) {
 				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.AlmostNone; }
 				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.Little; }
 				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.LittleBitLess; }
 				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.Normal; }
 				else { this.rainfall = OverallRainfall.LittleBitMore; }
 			}
-			else if (Planets_GameComponent.worldType == WorldType.VeryDry)
-			{
+			else if (Planets_GameComponent.worldType == WorldType.VeryDry) {
 				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.AlmostNone; }
 				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.AlmostNone; }
 				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.Little; }
 				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.LittleBitLess; }
 				else { this.rainfall = OverallRainfall.Normal; }
 			}
-			else
-			{
+			else {
 				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.AlmostNone; }
 				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.AlmostNone; }
 				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.AlmostNone; }
@@ -139,8 +96,7 @@ namespace Planets_Code
 			}
 			Planets_TemperatureTuning.SetSeasonalCurve();
 			string generationString = "GeneratingWorld";
-			if (Controller.Settings.randomPlanet.Equals(true))
-			{
+			if (Controller.Settings.randomPlanet.Equals(true)) {
 				generationString = "Planets.GeneratingRandom";
 				Controller.Settings.randomPlanet = false;
 			}
@@ -148,8 +104,7 @@ namespace Planets_Code
 				Find.GameInitData.ResetWorldRelatedMapInitData();
 				Current.Game.World = WorldGenerator.GenerateWorld(this.planetCoverage, this.seedString, this.rainfall, this.temperature);
 				LongEventHandler.ExecuteWhenFinished(() => {
-					if (this.next != null)
-					{
+					if (this.next != null) {
 						Find.WindowStack.Add(this.next);
 					}
 					MemoryUtility.UnloadUnusedUnityAssets();
@@ -159,8 +114,7 @@ namespace Planets_Code
 			}, generationString, true, null);
 			return false;
 		}
-		public override void DoWindowContents(Rect rect)
-		{
+		public override void DoWindowContents(Rect rect) {
 			base.DrawPageTitle(rect);
 			GUI.BeginGroup(base.GetMainRect(rect, 0f, false));
 			Text.Font = GameFont.Small;
@@ -173,16 +127,14 @@ namespace Planets_Code
 			this.seedString = Widgets.TextField(rect1, this.seedString);
 			single += 40f;
 			Rect rect2 = new Rect(200f, single, 200f, 30f);
-			if (Widgets.ButtonText(rect2, "RandomizeSeed".Translate(), true, false, true))
-			{
+			if (Widgets.ButtonText(rect2, "RandomizeSeed".Translate(), true, false, true)) {
 				SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(null);
 				this.seedString = GenText.RandomSeedString();
 			}
 			//
 			// PLANET SIZE (IF "MY LITTLE PLANET" IS IN USE)
 			//
-			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("My Little Planet")))
-			{
+			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("My Little Planet"))) {
 				single += 80f;
 				Widgets.Label(new Rect(0f, single, 200f, 30f), "MLPWorldPlanetSize".Translate());
 				Rect rect7 = new Rect(200f, single, 200f, 30f);
@@ -194,24 +146,19 @@ namespace Planets_Code
 			single += 80f;
 			Widgets.Label(new Rect(0f, single, 200f, 30f), "PlanetCoverage".Translate());
 			Rect rect3 = new Rect(200f, single, 200f, 30f);
-			if (Widgets.ButtonText(rect3, this.planetCoverage.ToStringPercent(), true, false, true))
-			{
+			if (Widgets.ButtonText(rect3, this.planetCoverage.ToStringPercent(), true, false, true)) {
 				List<FloatMenuOption> floatMenuOptions = new List<FloatMenuOption>();
 				float[] singleArray = Planets_CreateWorldParams.PlanetCoverages;
-				for (int i = 0; i < (int)singleArray.Length; i++)
-				{
+				for (int i = 0; i < (int)singleArray.Length; i++) {
 					float single1 = singleArray[i];
 					string stringPercent = single1.ToStringPercent();
 					FloatMenuOption floatMenuOption = new FloatMenuOption(stringPercent, () => {
-						if (this.planetCoverage != single1)
-						{
+						if (this.planetCoverage != single1) {
 							this.planetCoverage = single1;
-							if (this.planetCoverage < 0.15f)
-							{
+							if (this.planetCoverage < 0.15f) {
 								Messages.Message("Planets.MessageLowPlanetCoverageWarning".Translate(), MessageTypeDefOf.CautionInput, false);
 							}
-							if (this.planetCoverage > 0.7f)
-							{
+							if (this.planetCoverage > 0.7f) {
 								Messages.Message("MessageMaxPlanetCoveragePerformanceWarning".Translate(), MessageTypeDefOf.CautionInput, false);
 							}
 						}
@@ -227,69 +174,58 @@ namespace Planets_Code
 			single += 80f;
 			Widgets.Label(new Rect(0f, single, 200f, 30f), "Planets.WorldPresets".Translate());
 			Rect rect8 = new Rect(200f, single, 200f, 30f);
-			if (Widgets.ButtonText(rect8, this.worldPreset.Translate(), true, false, true))
-			{
+			if (Widgets.ButtonText(rect8, this.worldPreset.Translate(), true, false, true)) {
 				List<FloatMenuOption> floatMenuOptions = new List<FloatMenuOption>();
 				string[] singleArray = Planets_CreateWorldParams.WorldPresets;
-				for (int i = 0; i < (int)singleArray.Length; i++)
-				{
+				for (int i = 0; i < (int)singleArray.Length; i++) {
 					string single1 = singleArray[i];
 					string single1Translated = single1.Translate();
 					FloatMenuOption floatMenuOption = new FloatMenuOption(single1Translated, () => {
-						if (this.worldPreset != single1)
-						{
+						if (this.worldPreset != single1) {
 							this.worldPreset = single1;
-							if (this.worldPreset == "Planets.Vanilla")
-							{
+							if (this.worldPreset == "Planets.Vanilla") {
 								Planets_GameComponent.worldType = WorldType.Vanilla;
 								Planets_GameComponent.axialTilt = AxialTilt.Normal;
 								this.rainfallMod = RainfallModifier.Normal;
 								this.temperature = OverallTemperature.Normal;
 							}
-							else if (this.worldPreset == "Planets.Desert")
-							{
+							else if (this.worldPreset == "Planets.Desert") {
 								Planets_GameComponent.worldType = WorldType.Dry;
 								Planets_GameComponent.axialTilt = AxialTilt.Normal;
 								this.rainfallMod = RainfallModifier.LittleBitLess;
 								this.temperature = OverallTemperature.LittleBitWarmer;
 							}
-							else if (this.worldPreset == "Planets.Frozen")
-							{
+							else if (this.worldPreset == "Planets.Frozen") {
 								Planets_GameComponent.worldType = WorldType.VeryDry;
 								Planets_GameComponent.axialTilt = AxialTilt.Normal;
 								this.rainfallMod = RainfallModifier.LittleBitLess;
 								this.temperature = OverallTemperature.Cold;
 							}
-							else if (this.worldPreset == "Planets.Earthlike")
-							{
+							else if (this.worldPreset == "Planets.Earthlike") {
 								Planets_GameComponent.worldType = WorldType.Earthlike;
 								Planets_GameComponent.axialTilt = AxialTilt.Normal;
 								this.rainfallMod = RainfallModifier.Normal;
 								this.temperature = OverallTemperature.Normal;
 							}
-							else if (this.worldPreset == "Planets.Forest")
-							{
+							else if (this.worldPreset == "Planets.Forest") {
 								Planets_GameComponent.worldType = WorldType.Vanilla;
 								Planets_GameComponent.axialTilt = AxialTilt.Normal;
 								this.rainfallMod = RainfallModifier.LittleBitMore;
 								this.temperature = OverallTemperature.LittleBitColder;
 							}
-							else if (this.worldPreset == "Planets.Iceball")
-							{
+							else if (this.worldPreset == "Planets.Iceball") {
 								Planets_GameComponent.worldType = WorldType.Vanilla;
 								Planets_GameComponent.axialTilt = AxialTilt.Normal;
 								this.rainfallMod = RainfallModifier.Normal;
 								this.temperature = OverallTemperature.VeryCold;
 							}
-							else if (this.worldPreset == "Planets.Jungle")
-							{
+							else if (this.worldPreset == "Planets.Jungle") {
 								Planets_GameComponent.worldType = WorldType.Earthlike;
 								Planets_GameComponent.axialTilt = AxialTilt.Normal;
 								this.rainfallMod = RainfallModifier.LittleBitMore;
 								this.temperature = OverallTemperature.LittleBitWarmer;
 							}
-							else if (this.worldPreset == "Planets.Ocean")
-							{
+							else if (this.worldPreset == "Planets.Ocean") {
 								Planets_GameComponent.worldType = WorldType.Waterworld;
 								Planets_GameComponent.axialTilt = AxialTilt.Normal;
 								this.rainfallMod = RainfallModifier.Normal;
@@ -348,25 +284,18 @@ namespace Planets_Code
 			//
 			base.DoBottomButtons(rect, "WorldGenerate".Translate(), "Planets.Random".Translate(), new Action(this.Randomize), true, true);
 		}
-
-		public override void PostOpen()
-		{
+		public override void PostOpen() {
 			base.PostOpen();
 			TutorSystem.Notify_Event("PageStart-CreateWorldParams");
 		}
-
-		public override void PreOpen()
-		{
+		public override void PreOpen() {
 			base.PreOpen();
-			if (!this.initialized)
-			{
+			if (!this.initialized) {
 				this.Reset();
 				this.initialized = true;
 			}
 		}
-
-		public void Reset()
-		{
+		public void Reset() {
 			this.seedString = GenText.RandomSeedString();
 			this.planetCoverage = 0.3f;
 			this.worldPreset = "Planets.Vanilla";
@@ -376,9 +305,7 @@ namespace Planets_Code
 			this.rainfallMod = RainfallModifier.Normal;
 			this.temperature = OverallTemperature.Normal;
 		}
-
-		public void Randomize()
-		{
+		public void Randomize() {
 			this.seedString = GenText.RandomSeedString();
 			float randTilt = Rand.Value;
 			if (randTilt > 0.8) { Planets_GameComponent.axialTilt = AxialTilt.VeryLow; }
@@ -409,11 +336,10 @@ namespace Planets_Code
 			else if (randTemp > 0.14) { this.temperature = OverallTemperature.Hot; }
 			else { this.temperature = OverallTemperature.VeryHot; }
 			Controller.Settings.randomPlanet = true;
-			if (this.CanDoNext())
-			{
+			if (this.CanDoNext()) {
 				this.DoNext();
 			}
 		}
-
 	}
+	
 }

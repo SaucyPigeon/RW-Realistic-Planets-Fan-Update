@@ -39,8 +39,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
+    <Compile Include="AxialTilt.cs" />
+    <Compile Include="AxialTiltUtility.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_BoFoUrban.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_NPS_Oasis.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_NPS_SaltFlats.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_AridShrubland.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_BorealForest.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_ColdBog.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_Desert.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_Grassland.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_Grassland_Mod.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_IceSheet.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_Oasis.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_Permafrost.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_Savanna.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_Savanna_Mod.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_SeaIce.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_Steppes.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_TemperateDesert.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_TemperateForest.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_TemperateSwamp.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_TropicalRainforest.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_TropicalSwamp.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_TeFoUrban.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_TeSwUrban.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_TrRaUrban.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_TrSwUrban.cs" />
+    <Compile Include="Controller.cs" />
+    <Compile Include="Patches\FactionGenerator_GenerateFactionsIntoWorld.cs" />
+    <Compile Include="Patches\FactionGenerator_NewGeneratedFaction.cs" />
+    <Compile Include="Patches\GenTemperature_SeasonalShiftAmplitudeAt.cs" />
+    <Compile Include="Patches\OverallTemperatureUtility_GetTemperatureCurve.cs" />
+    <Compile Include="Patches\PageUtility_StitchedPages.cs" />
+    <Compile Include="Patches\PlanetShapeGenerator_DoGenerate.cs" />
+    <Compile Include="Planets_CreateWorldParams.cs" />
+    <Compile Include="Planets_GameComponent.cs" />
+    <Compile Include="Planets_Initializer.cs" />
+    <Compile Include="Planets_TemperatureTuning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RainfallModifier.cs" />
+    <Compile Include="RainfallModifierUtility.cs" />
+    <Compile Include="Patches\SavedGameLoaderNow_LoadGameFromSaveFileNow.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="TempCheck.cs" />
+    <Compile Include="Patches\TileFinder_RandomSettlementTileFor.cs" />
+    <Compile Include="Patches\WorldGenStep_Terrain_SetupElevationNoise.cs" />
+    <Compile Include="WorldType.cs" />
+    <Compile Include="WorldTypeUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">
@@ -50,5 +96,6 @@
       <Version>1.2.0.1</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
