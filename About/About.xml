@@ -2,10 +2,19 @@
 <ModMetaData>
 
 	<name>[RF] Realistic Planets [1.0]</name>
-	<author>Rainbeau Flambe</author>
+	<author>Saucy_Pigeon</author>
 	<url>https://ludeon.com/forums/index.php?topic=46165</url>
-	<targetVersion>1.0.0</targetVersion>
-	<description>(Last update: 12/05/2018)
+	<supportedVersions>
+		<li>1.0</li>
+		<li>1.1</li>
+	</supportedVersions>
+	<description>
+	
+NOTE: I (Saucy_Pigeon) am not the original author of this mod. The original author is Rainbeau Flambe, who has provided permission for modders to use his mods as the basis of derivative mods on the condition of notifying him.
+
+Original description:
+
+=====
 
 Have you ever noticed that RimWorld's planets all seem sort of the same? Or maybe you think they have too much land and not enough ocean? Or perhaps you've been bothered by the odd placement of certain biomes?
 
@@ -94,5 +103,7 @@ If you're a modpack maker and want to include "Realistic Planets" in your pack, 
 If you have any (helpful) suggestions for improvement, please let me know!
 
 	</description>
+	
+	<packageId>RainbeauFlambe.RealisticPlanets.SPUpdate</packageId>
 
 </ModMetaData>
