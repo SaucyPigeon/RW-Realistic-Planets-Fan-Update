@@ -2,7 +2,7 @@
 <ModMetaData>
 
 	<name>Realistic Planets - Fan Update</name>
-	<author>Saucy_Pigeon</author>
+	<author>Updated by Saucy_Pigeon</author>
 	<url>https://ludeon.com/forums/index.php?topic=46165</url>
 	<supportedVersions>
 		<li>1.0</li>
@@ -104,6 +104,6 @@ If you have any (helpful) suggestions for improvement, please let me know!
 
 	</description>
 	
-	<packageId>RainbeauFlambe.RealisticPlanets.FanUpdate</packageId>
+	<packageId>Saucy_Pigeon.RealisticPlanets</packageId>
 
 </ModMetaData>

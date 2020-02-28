@@ -17,7 +17,7 @@ namespace Planets_Code
 		public override void DoSettingsWindowContents(Rect canvas) { Settings.DoWindowContents(canvas); }
 
 		public Controller(ModContentPack content) : base(content) {
-			const bool Debug = true;
+			const bool Debug = false;
 			const string Id = "net.rainbeau.rimworld.mod.realisticplanets";
 
 			if (Debug)
