@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 
-	<name>[RF] Realistic Planets [1.0]</name>
+	<name>Realistic Planets - Fan Update</name>
 	<author>Saucy_Pigeon</author>
 	<url>https://ludeon.com/forums/index.php?topic=46165</url>
 	<supportedVersions>
@@ -104,6 +104,6 @@ If you have any (helpful) suggestions for improvement, please let me know!
 
 	</description>
 	
-	<packageId>RainbeauFlambe.RealisticPlanets.SPUpdate</packageId>
+	<packageId>RainbeauFlambe.RealisticPlanets.FanUpdate</packageId>
 
 </ModMetaData>
