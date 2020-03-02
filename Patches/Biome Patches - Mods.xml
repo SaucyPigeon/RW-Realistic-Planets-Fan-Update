@@ -95,5 +95,15 @@
 			<workerClass>Planets_Code.BiomeWorker_TrSwUrban</workerClass>
 		</value>
 	</Operation>
+	
+	<!-- More Vanilla Biomes -->
+	
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName = "ZBiome_Grasslands"]/workerClass</xpath>
+		<success>Always</success>
+		<value>
+			<workerClass>Planets_Code.BiomeWorker_RRP_Grassland_Mod</workerClass>
+		</value>
+	</Operation>
 
 </Patch>
