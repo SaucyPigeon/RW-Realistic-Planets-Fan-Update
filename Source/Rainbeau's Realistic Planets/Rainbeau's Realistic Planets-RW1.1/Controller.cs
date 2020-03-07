@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using Verse;
+using System.Linq;
 
 namespace Planets_Code
 {
@@ -16,7 +17,8 @@ namespace Planets_Code
 		public override string SettingsCategory() { return "Planets.ModName".Translate(); }
 		public override void DoSettingsWindowContents(Rect canvas) { Settings.DoWindowContents(canvas); }
 
-		public Controller(ModContentPack content) : base(content) {
+		public Controller(ModContentPack content) : base(content)
+		{
 			const bool Debug = false;
 			const string Id = "net.rainbeau.rimworld.mod.realisticplanets";
 
@@ -27,7 +29,8 @@ namespace Planets_Code
 			}
 
 			var harmony = new Harmony(Id);
-			harmony.PatchAll( Assembly.GetExecutingAssembly() );
+			harmony.PatchAll(Assembly.GetExecutingAssembly());
+
 			Settings = GetSettings<Settings>();
 		}
 	}
