@@ -269,21 +269,22 @@ namespace Planets_Code
 			}
 			TooltipHandler.TipRegion(new Rect(0f, single, rect8.xMax, rect8.height), "Planets.WorldPresetsTip".Translate());
 
-			single += 80f;
-			DoSeaLevelSlider(single);
+			{
+				single += 80f;
+				DoSeaLevelSlider(single);
 
-			single += 40f;
-			DoRainfallSlider(single);
+				single += 40f;
+				DoRainfallSlider(single);
 
-			single += 40f;
-			DoTemperatureSlider(single);
+				single += 40f;
+				DoTemperatureSlider(single);
 
-			single += 40f;
-			DoAxialTiltSlider(single);
+				single += 40f;
+				DoAxialTiltSlider(single);
 
-			single += 40f;
-			DoPopulationSlider(single);
-
+				single += 40f;
+				DoPopulationSlider(single);
+			}
 			GUI.EndGroup();
 
 			//
@@ -297,8 +298,17 @@ namespace Planets_Code
 			Widgets.Label(new Rect(0f, single, 200f, 30f), "Planets.OceanType".Translate());
 			Rect rect = new Rect(200f, single, 200f, 30f);
 			WorldType worldTypeCheck = Planets_GameComponent.worldType;
-			Planets_GameComponent.worldType = (WorldType)Mathf.RoundToInt(Widgets.HorizontalSlider(rect, (float)Planets_GameComponent.worldType, 0f, (float)(WorldTypeUtility.EnumValuesCount - 1), true, "Planets.SeaLevel_Normal".Translate(), "Planets.SeaLevel_High".Translate(), "Planets.SeaLevel_Low".Translate(), 1f));
-			if (Planets_GameComponent.worldType != worldTypeCheck) { this.worldPreset = "Planets.Custom"; }
+
+			var lowString = "Planets.SeaLevel_Low".Translate();
+			var normalString = "Planets.SeaLevel_Normal".Translate();
+			var highString = "Planets.SeaLevel_High".Translate();
+
+			float slider = Widgets.HorizontalSlider(rect, (float)Planets_GameComponent.worldType, WorldTypeUtility.EnumValuesCount - 1, 0f, true, normalString, lowString, highString, 1f);
+			Planets_GameComponent.worldType = (WorldType)Mathf.RoundToInt(slider);
+			if (Planets_GameComponent.worldType != worldTypeCheck)
+			{
+				this.worldPreset = "Planets.Custom";
+			}
 			TooltipHandler.TipRegion(new Rect(0f, single, rect.xMax, rect.height), "Planets.OceanTypeTip".Translate());
 		}
 
