@@ -30,7 +30,8 @@ namespace Planets_Code
 			get { return "CreateWorld".Translate(); }
 		}
 
-		static Planets_CreateWorldParams() {
+		static Planets_CreateWorldParams()
+		{
 			Planets_CreateWorldParams.PlanetCoverages = new float[] { 
 				0.05f, 0.1f, 0.15f, 0.2f, 0.25f, 0.3f, 0.35f, 0.4f, 0.45f, 0.5f, 
 				0.55f, 0.6f, 0.65f, 0.7f, 0.75f, 0.8f, 0.85f, 0.9f, 0.95f, 1f
@@ -131,7 +132,8 @@ namespace Planets_Code
 			return false;
 		}
 
-		public override void DoWindowContents(Rect rect) {
+		public override void DoWindowContents(Rect rect)
+		{
 			base.DrawPageTitle(rect);
 			GUI.BeginGroup(base.GetMainRect(rect, 0f, false));
 			Text.Font = GameFont.Small;
@@ -323,18 +325,24 @@ namespace Planets_Code
 			//
 			base.DoBottomButtons(rect, "WorldGenerate".Translate(), "Planets.Random".Translate(), new Action(this.Randomize), true, true);
 		}
-		public override void PostOpen() {
+		public override void PostOpen()
+		{
 			base.PostOpen();
 			TutorSystem.Notify_Event("PageStart-CreateWorldParams");
 		}
-		public override void PreOpen() {
+
+		public override void PreOpen()
+		{
 			base.PreOpen();
-			if (!this.initialized) {
+			if (!this.initialized)
+			{
 				this.Reset();
 				this.initialized = true;
 			}
 		}
-		public void Reset() {
+
+		public void Reset()
+		{
 			this.seedString = GenText.RandomSeedString();
 			this.planetCoverage = 0.3f;
 			this.worldPreset = "Planets.Vanilla";
@@ -345,38 +353,21 @@ namespace Planets_Code
 			this.temperature = OverallTemperature.Normal;
 			this.population = OverallPopulation.Normal;
 		}
-		public void Randomize() {
+
+		public void Randomize()
+		{
 			this.seedString = GenText.RandomSeedString();
-			float randTilt = Rand.Value;
-			if (randTilt > 0.8) { Planets_GameComponent.axialTilt = AxialTilt.VeryLow; }
-			else if (randTilt > 0.6) { Planets_GameComponent.axialTilt = AxialTilt.Low; }
-			else if (randTilt > 0.4) { Planets_GameComponent.axialTilt = AxialTilt.Normal; }
-			else if (randTilt > 0.2) { Planets_GameComponent.axialTilt = AxialTilt.High; }
-			else { Planets_GameComponent.axialTilt = AxialTilt.VeryHigh; }
-			float randType = Rand.Value;
-			if (randType > 0.86) { Planets_GameComponent.worldType = WorldType.Waterworld; }
-			else if (randType > 0.72) { Planets_GameComponent.worldType = WorldType.Islands; }
-			else if (randType > 0.58) { Planets_GameComponent.worldType = WorldType.Earthlike; }
-			else if (randType > 0.42) { Planets_GameComponent.worldType = WorldType.Vanilla; }
-			else if (randType > 0.28) { Planets_GameComponent.worldType = WorldType.Dry; }
-			else if (randType > 0.14) { Planets_GameComponent.worldType = WorldType.VeryDry; }
-			else { Planets_GameComponent.worldType = WorldType.Barren; }
-			float randRain = Rand.Value;
-			if (randRain > 0.8) { this.rainfallMod = RainfallModifier.Little; }
-			else if (randRain > 0.6) { this.rainfallMod = RainfallModifier.LittleBitLess; }
-			else if (randRain > 0.4) { this.rainfallMod = RainfallModifier.Normal; }
-			else if (randRain > 0.2) { this.rainfallMod = RainfallModifier.LittleBitMore; }
-			else { this.rainfallMod = RainfallModifier.High; }
-			float randTemp = Rand.Value;
-			if (randTemp > 0.86) { this.temperature = OverallTemperature.VeryCold; }
-			else if (randTemp > 0.72) { this.temperature = OverallTemperature.Cold; }
-			else if (randTemp > 0.58) { this.temperature = OverallTemperature.LittleBitColder; }
-			else if (randTemp > 0.42) { this.temperature = OverallTemperature.Normal; }
-			else if (randTemp > 0.28) { this.temperature = OverallTemperature.LittleBitWarmer; }
-			else if (randTemp > 0.14) { this.temperature = OverallTemperature.Hot; }
-			else { this.temperature = OverallTemperature.VeryHot; }
+
+			Planets_GameComponent.axialTilt = Planets_Random.GetRandomAxialTilt();
+			Planets_GameComponent.worldType = Planets_Random.GetRandomWorldType();
+			this.rainfallMod = Planets_Random.GetRandomRainfallModifier();
+			this.temperature = Planets_Random.GetRandomTemperature();
+			this.population = Planets_Random.GetRandomPopulation();
+
 			Controller.Settings.randomPlanet = true;
-			if (this.CanDoNext()) {
+
+			if (this.CanDoNext())
+			{
 				this.DoNext();
 			}
 		}
