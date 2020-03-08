@@ -6,12 +6,16 @@ namespace Planets_Code
 	public class Settings : ModSettings {
 		public bool otherGrassland = false;
 		public bool otherSavanna = false;
+		public bool otherOasis = false;
 		public bool usingMLP = false;
 		public bool usingFactionControl = false;
 		public bool randomPlanet = false;
 		public bool checkTemp = true;
 		public float factionGrouping = 2.5f;
-		public void DoWindowContents(Rect canvas) {
+
+
+		public void DoWindowContents(Rect canvas)
+		{
 			Listing_Standard list = new Listing_Standard();
 			list.ColumnWidth = canvas.width;
 			list.Begin(canvas);

@@ -163,6 +163,7 @@ namespace Planets_Code
 			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("More Vanilla Biomes")))
 			{
 				Controller.Settings.otherGrassland = true;
+				Controller.Settings.otherOasis = true;
 			}
 			EditPlantDefs();
 			EditAnimalDefs();

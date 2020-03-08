@@ -55,6 +55,7 @@
     <Compile Include="BiomeWorkers\BiomeWorker_RRP_Grassland.cs" />
     <Compile Include="BiomeWorkers\BiomeWorker_RRP_Grassland_Mod.cs" />
     <Compile Include="BiomeWorkers\BiomeWorker_RRP_IceSheet.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_RRP_Oasis_Mod.cs" />
     <Compile Include="BiomeWorkers\BiomeWorker_RRP_Oasis.cs" />
     <Compile Include="BiomeWorkers\BiomeWorker_RRP_Permafrost.cs" />
     <Compile Include="BiomeWorkers\BiomeWorker_RRP_Savanna.cs" />

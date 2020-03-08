@@ -4,16 +4,11 @@ using Verse;
 
 namespace Planets_Code
 {
-	public class BiomeWorker_RRP_Oasis : BiomeWorker
+	public class BiomeWorker_RRP_Oasis_Mod : BiomeWorker
 		{
-			public BiomeWorker_RRP_Oasis() { }
+			public BiomeWorker_RRP_Oasis_Mod() { }
 			public override float GetScore(Tile tile, int tileID)
 			{
-				if (Controller.Settings.otherOasis.Equals(true))
-				{
-					return -100f;
-				}
-
 				if (tile.WaterCovered)
 				{
 					return -100f;

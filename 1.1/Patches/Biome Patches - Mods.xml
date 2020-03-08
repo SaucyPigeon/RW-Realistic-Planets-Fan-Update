@@ -105,5 +105,22 @@
 			<workerClass>Planets_Code.BiomeWorker_RRP_Grassland_Mod</workerClass>
 		</value>
 	</Operation>
+	
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName = "ZBiome_Grasslands"]/texture</xpath>
+		<success>Always</success>
+		<value>
+			<!-- MVB texture can be hard to see against steppes -->
+			<texture>Grassland</texture>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName = "ZBiome_DesertOasis"]/workerClass</xpath>
+		<success>Always</success>
+		<value>
+			<workerClass>Planets_Code.BiomeWorker_RRP_Oasis_Mod</workerClass>
+		</value>
+	</Operation>
 
 </Patch>
