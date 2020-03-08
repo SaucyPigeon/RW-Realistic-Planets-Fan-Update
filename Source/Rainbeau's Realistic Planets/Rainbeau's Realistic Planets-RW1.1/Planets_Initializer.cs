@@ -3,7 +3,6 @@ using System.Linq;
 using Verse;
 using HarmonyLib;
 using RimWorld.Planet;
-using System.Reflection;
 using UnityEngine;
 
 namespace Planets_Code
@@ -131,7 +130,6 @@ namespace Planets_Code
 		}
 
 		static Planets_Initializer() {
-
 			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("My Little Planet"))) {
 				Controller.Settings.usingMLP = true;
 			}
