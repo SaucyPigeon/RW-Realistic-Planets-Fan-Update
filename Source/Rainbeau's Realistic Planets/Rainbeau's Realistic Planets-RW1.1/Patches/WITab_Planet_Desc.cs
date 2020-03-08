@@ -34,7 +34,7 @@ namespace Planets_Code.Patches
 				var axialTilt = Planets_Strings.GetAxialTilt();
 				var population = Planets_Strings.GetPopulation();
 
-				sb.Append("Planets.Preset", preset);
+				sb.Append("Planets.WorldPresets", preset);
 				sb.Append("Planets.OceanType", worldType);
 				sb.Append("PlanetRainfall", rainfall);
 				sb.Append("PlanetTemperature", temperature);
