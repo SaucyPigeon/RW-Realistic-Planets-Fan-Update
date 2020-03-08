@@ -79,10 +79,13 @@
     <Compile Include="Patches\PlanetShapeGenerator_DoGenerate.cs" />
     <Compile Include="Patches\SavedGameLoaderNow_LoadGameFromSaveFileNow.cs" />
     <Compile Include="Patches\TileFinder_RandomSettlementTileFor.cs" />
+    <Compile Include="Patches\WITab_Planet_Desc.cs" />
     <Compile Include="Patches\WorldGenStep_Terrain_SetupElevationNoise.cs" />
     <Compile Include="Planets_CreateWorldParams.cs" />
     <Compile Include="Planets_GameComponent.cs" />
     <Compile Include="Planets_Initializer.cs" />
+    <Compile Include="Planets_Random.cs" />
+    <Compile Include="Planets_Strings.cs" />
     <Compile Include="Planets_TemperatureTuning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RainfallModifier.cs" />

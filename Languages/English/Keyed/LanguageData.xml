@@ -43,26 +43,47 @@
 	<!-- Sea level -->
 	
 	<Planets.OceanType>Sea level</Planets.OceanType>
-	<Planets.OceanTypeTip>This setting determines how extensive ocean coverage will be on the world you generate. Watery worlds are mostly covered in water, with only a few small land masses. Arid planets, at the other extreme, have little or no surface water.</Planets.OceanTypeTip>
+	<Planets.OceanTypeTip>This setting determines how extensive ocean coverage will be on the world you generate. Worlds with a high sea level are mostly covered in water, with only a few small land masses. Planets with a low sea level, at the other extreme, have little or no surface water.</Planets.OceanTypeTip>
 
-	<Planets.OceanType_Earthlike>Earthlike</Planets.OceanType_Earthlike>
-	<Planets.OceanType_Waterworld>Watery</Planets.OceanType_Waterworld>
-	<Planets.OceanType_Barren>Arid</Planets.OceanType_Barren>
-
-	<!-- Axial tilt -->
-
-	<Planets.AxialTilt>Axial tilt</Planets.AxialTilt>
-	<Planets.AxialTiltTip>Planets with a low axial tilt will have very consistent temperatures all year, even near the poles. Planets with a high axial tilt, on the other hand, will have significant seasonal temperature variations even near the equator, and extreme variations closer to the poles.</Planets.AxialTiltTip>
-	
-	<Planets.AxialTilt_Normal>Normal</Planets.AxialTilt_Normal>
-	<Planets.AxialTilt_Low>Low</Planets.AxialTilt_Low>
-	<Planets.AxialTilt_High>High</Planets.AxialTilt_High>
+	<Planets.SeaLevel_VeryHigh>Very high</Planets.SeaLevel_VeryHigh>
+	<Planets.SeaLevel_High>High</Planets.SeaLevel_High>
+	<Planets.SeaLevel_SlightlyHigh>Slightly high</Planets.SeaLevel_SlightlyHigh>
+	<Planets.SeaLevel_Normal>Normal</Planets.SeaLevel_Normal>
+	<Planets.SeaLevel_SlightlyLow>Slightly low</Planets.SeaLevel_SlightlyLow>
+	<Planets.SeaLevel_Low>Low</Planets.SeaLevel_Low>
+	<Planets.SeaLevel_VeryLow>Very low</Planets.SeaLevel_VeryLow>
 	
 	<!-- Rainfall -->
 	
 	<Planets.RainfallTip>This slider influences the planet's overall rainfall. Keep in mind that this is a relative, rather than absolute, setting. An arid planet with "high" rainfall will still be much drier than a watery world with "low" rainfall.</Planets.RainfallTip>
 	
+	<Planets.Rainfall_VeryLow>Very low</Planets.Rainfall_VeryLow>
+	<Planets.Rainfall_Low>Low</Planets.Rainfall_Low>
+	<Planets.Rainfall_SlightlyLow>Slightly low</Planets.Rainfall_SlightlyLow>
+	<Planets.Rainfall_Normal>Normal</Planets.Rainfall_Normal>
+	<Planets.Rainfall_SlightlyHigh>Slightly high</Planets.Rainfall_SlightlyHigh>
+	<Planets.Rainfall_High>High</Planets.Rainfall_High>
+	<Planets.Rainfall_VeryHigh>Very high</Planets.Rainfall_VeryHigh>
 	
+	<!-- Temperature -->
 	
+	<Planets.Temperature_VeryLow>Very low</Planets.Temperature_VeryLow>
+	<Planets.Temperature_Low>Low</Planets.Temperature_Low>
+	<Planets.Temperature_SlightlyLow>Slightly low</Planets.Temperature_SlightlyLow>
+	<Planets.Temperature_Normal>Normal</Planets.Temperature_Normal>
+	<Planets.Temperature_SlightlyHigh>Slightly high</Planets.Temperature_SlightlyHigh>
+	<Planets.Temperature_High>High</Planets.Temperature_High>
+	<Planets.Temperature_VeryHigh>Very high</Planets.Temperature_VeryHigh>
+	
+	<!-- Axial tilt -->
+
+	<Planets.AxialTilt>Axial tilt</Planets.AxialTilt>
+	<Planets.AxialTiltTip>Planets with a low axial tilt will have very consistent temperatures all year, even near the poles. Planets with a high axial tilt, on the other hand, will have significant seasonal temperature variations even near the equator, and extreme variations closer to the poles.</Planets.AxialTiltTip>
+	
+	<Planets.AxialTilt_VeryLow>Very low</Planets.AxialTilt_VeryLow>
+	<Planets.AxialTilt_Low>Low</Planets.AxialTilt_Low>
+	<Planets.AxialTilt_Normal>Normal</Planets.AxialTilt_Normal>
+	<Planets.AxialTilt_High>High</Planets.AxialTilt_High>
+	<Planets.AxialTilt_VeryHigh>Very high</Planets.AxialTilt_VeryHigh>
 
 </LanguageData>

@@ -275,7 +275,7 @@ namespace Planets_Code
 			Widgets.Label(new Rect(0f, single, 200f, 30f), "Planets.OceanType".Translate());
 			Rect rect6 = new Rect(200f, single, 200f, 30f);
 			WorldType worldTypeCheck = Planets_GameComponent.worldType;
-			Planets_GameComponent.worldType = (WorldType)Mathf.RoundToInt(Widgets.HorizontalSlider(rect6, (float)Planets_GameComponent.worldType, 0f, (float)(WorldTypeUtility.EnumValuesCount - 1), true, "Planets.OceanType_Earthlike".Translate(), "Planets.OceanType_Waterworld".Translate(), "Planets.OceanType_Barren".Translate(), 1f));
+			Planets_GameComponent.worldType = (WorldType)Mathf.RoundToInt(Widgets.HorizontalSlider(rect6, (float)Planets_GameComponent.worldType, 0f, (float)(WorldTypeUtility.EnumValuesCount - 1), true, "Planets.SeaLevel_Normal".Translate(), "Planets.SeaLevel_High".Translate(), "Planets.SeaLevel_Low".Translate(), 1f));
 			if (Planets_GameComponent.worldType != worldTypeCheck) { this.worldPreset = "Planets.Custom"; }
 			TooltipHandler.TipRegion(new Rect(0f, single, rect6.xMax, rect6.height), "Planets.OceanTypeTip".Translate());
 			//
