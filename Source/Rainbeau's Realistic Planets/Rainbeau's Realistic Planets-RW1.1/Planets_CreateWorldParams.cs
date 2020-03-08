@@ -268,30 +268,22 @@ namespace Planets_Code
 				Find.WindowStack.Add(new FloatMenu(floatMenuOptions));
 			}
 			TooltipHandler.TipRegion(new Rect(0f, single, rect8.xMax, rect8.height), "Planets.WorldPresetsTip".Translate());
-			//
-			// OCEAN SLIDER
-			//
+
 			single += 80f;
 			DoSeaLevelSlider(single);
-			//
-			// RAINFALL SLIDER
-			//
+
 			single += 40f;
 			DoRainfallSlider(single);
-			//
-			// TEMPERATURE SLIDER
-			//
+
 			single += 40f;
 			DoTemperatureSlider(single);
-			//
-			// AXIAL TILT
-			//
+
 			single += 40f;
 			DoAxialTiltSlider(single);
 
-			// Planet population
 			single += 40f;
 			DoPopulationSlider(single);
+
 			GUI.EndGroup();
 
 			//
