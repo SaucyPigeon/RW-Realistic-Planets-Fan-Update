@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	
+	<!-- Main -->
+	
 	<Planets.ModName>Rainbeau's Realistic Planets</Planets.ModName>
+	
+	<!-- Settings -->
 	
 	<Planets.SettingsDisabled>Since you're also using "Faction Control," the faction placement options in "Realistic Planets" have been disabled to avoid conflicts.</Planets.SettingsDisabled>
 	
@@ -14,7 +18,14 @@
 	<Planets.FactionGroupingTight>Tight. The settlements belonging to any particular faction group will be in reasonably close proximity to each other, and except for pirate band faction groups, there won't be a large amount of overlap. There will be a distinct sense of actual nations existing on the world map, albeit with very rough borders.</Planets.FactionGroupingTight>
 	<Planets.FactionGroupingVeryTight>Very tight. Except for pirate band faction groups, each faction group's settlements will be very closely clumped. There won't be much overlap at all, but there may be large "open" spaces of unoccupied territory between them.</Planets.FactionGroupingVeryTight>
 
+	<!-- Generation -->
+
 	<Planets.MessageLowPlanetCoverageWarning>Warning: At very low coverage settings, there may not be enough land for all the faction settlements the game tries to generate.</Planets.MessageLowPlanetCoverageWarning>
+	
+	<Planets.Random>Random planet</Planets.Random>
+	<Planets.GeneratingRandom>Generating random world</Planets.GeneratingRandom>
+
+	<!-- World presets -->
 
 	<Planets.WorldPresets>World type</Planets.WorldPresets>
 	<Planets.WorldPresetsTip>The preset options in this list will let you quickly adjust the sliders below to generate specific types of planets. The presets aren't perfect, of course, and in any event, few planets are covered entirely by but a single biome, but using them, you should get planets predominantly characterized by the sort of environment you'd expect from the name.</Planets.WorldPresetsTip>
@@ -29,12 +40,16 @@
 	<Planets.Ocean>Ocean world</Planets.Ocean>
 	<Planets.Custom>(Custom settings)</Planets.Custom>
 	
+	<!-- Sea level -->
+	
 	<Planets.OceanType>Sea level</Planets.OceanType>
 	<Planets.OceanTypeTip>This setting determines how extensive ocean coverage will be on the world you generate. Watery worlds are mostly covered in water, with only a few small land masses. Arid planets, at the other extreme, have little or no surface water.</Planets.OceanTypeTip>
 
 	<Planets.OceanType_Earthlike>Earthlike</Planets.OceanType_Earthlike>
 	<Planets.OceanType_Waterworld>Watery</Planets.OceanType_Waterworld>
 	<Planets.OceanType_Barren>Arid</Planets.OceanType_Barren>
+
+	<!-- Axial tilt -->
 
 	<Planets.AxialTilt>Axial tilt</Planets.AxialTilt>
 	<Planets.AxialTiltTip>Planets with a low axial tilt will have very consistent temperatures all year, even near the poles. Planets with a high axial tilt, on the other hand, will have significant seasonal temperature variations even near the equator, and extreme variations closer to the poles.</Planets.AxialTiltTip>
@@ -43,10 +58,11 @@
 	<Planets.AxialTilt_Low>Low</Planets.AxialTilt_Low>
 	<Planets.AxialTilt_High>High</Planets.AxialTilt_High>
 	
+	<!-- Rainfall -->
+	
 	<Planets.RainfallTip>This slider influences the planet's overall rainfall. Keep in mind that this is a relative, rather than absolute, setting. An arid planet with "high" rainfall will still be much drier than a watery world with "low" rainfall.</Planets.RainfallTip>
 	
-	<Planets.Random>Random planet</Planets.Random>
-
-	<Planets.GeneratingRandom>Generating random world</Planets.GeneratingRandom>
+	
+	
 
 </LanguageData>
