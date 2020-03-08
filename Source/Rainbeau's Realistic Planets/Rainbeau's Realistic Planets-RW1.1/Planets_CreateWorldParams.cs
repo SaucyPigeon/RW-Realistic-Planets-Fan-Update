@@ -364,6 +364,7 @@ namespace Planets_Code
 			this.rainfallMod = Planets_Random.GetRandomRainfallModifier();
 			this.temperature = Planets_Random.GetRandomTemperature();
 			this.population = Planets_Random.GetRandomPopulation();
+			this.worldPreset = "Planets.Custom";
 
 			Controller.Settings.randomPlanet = true;
 
