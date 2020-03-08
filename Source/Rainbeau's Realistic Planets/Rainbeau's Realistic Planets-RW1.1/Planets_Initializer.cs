@@ -146,10 +146,6 @@ namespace Planets_Code
 			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("Advanced Biomes"))) {
 				Controller.Settings.otherSavanna = true;
 			}
-			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("More Vanilla Biomes")))
-			{
-				Controller.Settings.otherGrassland = true;
-			}
 			EditPlantRecords();
 			EditAnimalRecords();
 
