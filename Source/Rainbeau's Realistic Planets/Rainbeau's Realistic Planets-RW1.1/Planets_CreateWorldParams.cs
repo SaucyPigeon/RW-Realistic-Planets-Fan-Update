@@ -305,9 +305,8 @@ namespace Planets_Code
 			Planets_GameComponent.axialTilt = (AxialTilt)Mathf.RoundToInt(Widgets.HorizontalSlider(rect9, (float)Planets_GameComponent.axialTilt, 0f, (float)(AxialTiltUtility.EnumValuesCount - 1), true, "Planets.AxialTilt_Normal".Translate(), "Planets.AxialTilt_Low".Translate(), "Planets.AxialTilt_High".Translate(), 1f));
 			if (Planets_GameComponent.axialTilt != axialTiltCheck) { this.worldPreset = "Planets.Custom"; }
 			TooltipHandler.TipRegion(new Rect(0f, single, rect9.xMax, rect9.height), "Planets.AxialTiltTip".Translate());
-			//
+
 			// Planet population
-			//
 			single += 40f;
 			Widgets.Label(new Rect(0f, single, 200f, 30f), "PlanetPopulation".Translate());
 			Rect rect10 = new Rect(200f, single, 200f, 30f);
