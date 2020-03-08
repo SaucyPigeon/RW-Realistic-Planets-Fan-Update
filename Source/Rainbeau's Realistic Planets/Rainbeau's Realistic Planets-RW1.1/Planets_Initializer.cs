@@ -160,6 +160,10 @@ namespace Planets_Code
 			{
 				Controller.Settings.otherSavanna = true;
 			}
+			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("More Vanilla Biomes")))
+			{
+				Controller.Settings.otherGrassland = true;
+			}
 			EditPlantDefs();
 			EditAnimalDefs();
 			IncreasePlanetTabWinSize();
