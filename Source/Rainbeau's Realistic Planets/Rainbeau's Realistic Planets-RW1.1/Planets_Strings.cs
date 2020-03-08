@@ -24,5 +24,31 @@ namespace Planets_Code
 		//
 		// *already in vanilla
 
+		// {KEY}: {VALUE}
+
+		public static string GetWorldType()
+		{
+
+		}
+
+		public static string GetRainfall()
+		{
+
+		}
+
+		public static string GetTemperature()
+		{
+
+		}
+
+		public static string GetAxialTilt()
+		{
+
+		}
+
+		public static string GetPopulation()
+		{
+
+		}
 	}
 }
