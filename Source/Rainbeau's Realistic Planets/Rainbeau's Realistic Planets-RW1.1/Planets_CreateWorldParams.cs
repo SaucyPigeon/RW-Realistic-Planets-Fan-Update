@@ -325,6 +325,7 @@ namespace Planets_Code
 			//
 			base.DoBottomButtons(rect, "WorldGenerate".Translate(), "Planets.Random".Translate(), new Action(this.Randomize), true, true);
 		}
+
 		public override void PostOpen()
 		{
 			base.PostOpen();
