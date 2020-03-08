@@ -272,58 +272,83 @@ namespace Planets_Code
 			// OCEAN SLIDER
 			//
 			single += 80f;
-			Widgets.Label(new Rect(0f, single, 200f, 30f), "Planets.OceanType".Translate());
-			Rect rect6 = new Rect(200f, single, 200f, 30f);
-			WorldType worldTypeCheck = Planets_GameComponent.worldType;
-			Planets_GameComponent.worldType = (WorldType)Mathf.RoundToInt(Widgets.HorizontalSlider(rect6, (float)Planets_GameComponent.worldType, 0f, (float)(WorldTypeUtility.EnumValuesCount - 1), true, "Planets.SeaLevel_Normal".Translate(), "Planets.SeaLevel_High".Translate(), "Planets.SeaLevel_Low".Translate(), 1f));
-			if (Planets_GameComponent.worldType != worldTypeCheck) { this.worldPreset = "Planets.Custom"; }
-			TooltipHandler.TipRegion(new Rect(0f, single, rect6.xMax, rect6.height), "Planets.OceanTypeTip".Translate());
+			DoSeaLevelSlider(single);
 			//
 			// RAINFALL SLIDER
 			//
 			single += 40f;
-			Widgets.Label(new Rect(0f, single, 200f, 30f), "PlanetRainfall".Translate());
-			Rect rect4 = new Rect(200f, single, 200f, 30f);
-			RainfallModifier rainfallModCheck = this.rainfallMod;
-			this.rainfallMod = (RainfallModifier)Mathf.RoundToInt(Widgets.HorizontalSlider(rect4, (float)this.rainfallMod, 0f, (float)(RainfallModifierUtility.EnumValuesCount - 1), true, "PlanetRainfall_Normal".Translate(), "PlanetRainfall_Low".Translate(), "PlanetRainfall_High".Translate(), 1f));
-			if (this.rainfallMod != rainfallModCheck) { this.worldPreset = "Planets.Custom"; }
-			TooltipHandler.TipRegion(new Rect(0f, single, rect4.xMax, rect4.height), "Planets.RainfallTip".Translate());
+			DoRainfallSlider(single);
 			//
 			// TEMPERATURE SLIDER
 			//
 			single += 40f;
-			Widgets.Label(new Rect(0f, single, 200f, 30f), "PlanetTemperature".Translate());
-			Rect rect5 = new Rect(200f, single, 200f, 30f);
-			OverallTemperature temperatureCheck = this.temperature;
-			this.temperature = (OverallTemperature)Mathf.RoundToInt(Widgets.HorizontalSlider(rect5, (float)this.temperature, 0f, (float)(OverallTemperatureUtility.EnumValuesCount - 1), true, "PlanetTemperature_Normal".Translate(), "PlanetTemperature_Low".Translate(), "PlanetTemperature_High".Translate(), 1f));
-			if (this.temperature != temperatureCheck) { this.worldPreset = "Planets.Custom"; }
+			DoTemperatureSlider(single);
 			//
 			// AXIAL TILT
 			//
 			single += 40f;
-			Widgets.Label(new Rect(0f, single, 200f, 30f), "Planets.AxialTilt".Translate());
-			Rect rect9 = new Rect(200f, single, 200f, 30f);
-			AxialTilt axialTiltCheck = Planets_GameComponent.axialTilt;
-			Planets_GameComponent.axialTilt = (AxialTilt)Mathf.RoundToInt(Widgets.HorizontalSlider(rect9, (float)Planets_GameComponent.axialTilt, 0f, (float)(AxialTiltUtility.EnumValuesCount - 1), true, "Planets.AxialTilt_Normal".Translate(), "Planets.AxialTilt_Low".Translate(), "Planets.AxialTilt_High".Translate(), 1f));
-			if (Planets_GameComponent.axialTilt != axialTiltCheck) { this.worldPreset = "Planets.Custom"; }
-			TooltipHandler.TipRegion(new Rect(0f, single, rect9.xMax, rect9.height), "Planets.AxialTiltTip".Translate());
+			DoAxialTiltSlider(single);
 
 			// Planet population
 			single += 40f;
-			Widgets.Label(new Rect(0f, single, 200f, 30f), "PlanetPopulation".Translate());
-			Rect rect10 = new Rect(200f, single, 200f, 30f);
-			var populationCheck = this.population;
-			this.population = (OverallPopulation)Mathf.RoundToInt(Widgets.HorizontalSlider(rect10, (float)this.population, 0f, (float)(OverallPopulationUtility.EnumValuesCount - 1), true, "PlanetPopulation_Normal".Translate(), "PlanetPopulation_Low".Translate(), "PlanetPopulation_High".Translate(), 1f));
-			if (this.population != populationCheck)
-			{
-				this.worldPreset = "Planets.Custom";
-			}
+			DoPopulationSlider(single);
 			GUI.EndGroup();
 
 			//
 			// BOTTOM BUTTONS
 			//
 			base.DoBottomButtons(rect, "WorldGenerate".Translate(), "Planets.Random".Translate(), new Action(this.Randomize), true, true);
+		}
+
+		private void DoSeaLevelSlider(float single)
+		{
+			Widgets.Label(new Rect(0f, single, 200f, 30f), "Planets.OceanType".Translate());
+			Rect rect = new Rect(200f, single, 200f, 30f);
+			WorldType worldTypeCheck = Planets_GameComponent.worldType;
+			Planets_GameComponent.worldType = (WorldType)Mathf.RoundToInt(Widgets.HorizontalSlider(rect, (float)Planets_GameComponent.worldType, 0f, (float)(WorldTypeUtility.EnumValuesCount - 1), true, "Planets.SeaLevel_Normal".Translate(), "Planets.SeaLevel_High".Translate(), "Planets.SeaLevel_Low".Translate(), 1f));
+			if (Planets_GameComponent.worldType != worldTypeCheck) { this.worldPreset = "Planets.Custom"; }
+			TooltipHandler.TipRegion(new Rect(0f, single, rect.xMax, rect.height), "Planets.OceanTypeTip".Translate());
+		}
+
+		private void DoRainfallSlider(float single)
+		{
+			Widgets.Label(new Rect(0f, single, 200f, 30f), "PlanetRainfall".Translate());
+			Rect rect = new Rect(200f, single, 200f, 30f);
+			RainfallModifier rainfallModCheck = this.rainfallMod;
+			this.rainfallMod = (RainfallModifier)Mathf.RoundToInt(Widgets.HorizontalSlider(rect, (float)this.rainfallMod, 0f, (float)(RainfallModifierUtility.EnumValuesCount - 1), true, "PlanetRainfall_Normal".Translate(), "PlanetRainfall_Low".Translate(), "PlanetRainfall_High".Translate(), 1f));
+			if (this.rainfallMod != rainfallModCheck) { this.worldPreset = "Planets.Custom"; }
+			TooltipHandler.TipRegion(new Rect(0f, single, rect.xMax, rect.height), "Planets.RainfallTip".Translate());
+		}
+
+		private void DoTemperatureSlider(float single)
+		{
+			Widgets.Label(new Rect(0f, single, 200f, 30f), "PlanetTemperature".Translate());
+			Rect rect = new Rect(200f, single, 200f, 30f);
+			OverallTemperature temperatureCheck = this.temperature;
+			this.temperature = (OverallTemperature)Mathf.RoundToInt(Widgets.HorizontalSlider(rect, (float)this.temperature, 0f, (float)(OverallTemperatureUtility.EnumValuesCount - 1), true, "PlanetTemperature_Normal".Translate(), "PlanetTemperature_Low".Translate(), "PlanetTemperature_High".Translate(), 1f));
+			if (this.temperature != temperatureCheck) { this.worldPreset = "Planets.Custom"; }
+		}
+
+		private void DoAxialTiltSlider(float single)
+		{
+			Widgets.Label(new Rect(0f, single, 200f, 30f), "Planets.AxialTilt".Translate());
+			Rect rect = new Rect(200f, single, 200f, 30f);
+			AxialTilt axialTiltCheck = Planets_GameComponent.axialTilt;
+			Planets_GameComponent.axialTilt = (AxialTilt)Mathf.RoundToInt(Widgets.HorizontalSlider(rect, (float)Planets_GameComponent.axialTilt, 0f, (float)(AxialTiltUtility.EnumValuesCount - 1), true, "Planets.AxialTilt_Normal".Translate(), "Planets.AxialTilt_Low".Translate(), "Planets.AxialTilt_High".Translate(), 1f));
+			if (Planets_GameComponent.axialTilt != axialTiltCheck) { this.worldPreset = "Planets.Custom"; }
+			TooltipHandler.TipRegion(new Rect(0f, single, rect.xMax, rect.height), "Planets.AxialTiltTip".Translate());
+		}
+
+		private void DoPopulationSlider(float single)
+		{
+			Widgets.Label(new Rect(0f, single, 200f, 30f), "PlanetPopulation".Translate());
+			Rect rect = new Rect(200f, single, 200f, 30f);
+			var populationCheck = this.population;
+			this.population = (OverallPopulation)Mathf.RoundToInt(Widgets.HorizontalSlider(rect, (float)this.population, 0f, (float)(OverallPopulationUtility.EnumValuesCount - 1), true, "PlanetPopulation_Normal".Translate(), "PlanetPopulation_Low".Translate(), "PlanetPopulation_High".Translate(), 1f));
+			if (this.population != populationCheck)
+			{
+				this.worldPreset = "Planets.Custom";
+			}
 		}
 
 		public override void PostOpen()
