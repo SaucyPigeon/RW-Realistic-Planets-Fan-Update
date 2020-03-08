@@ -95,5 +95,12 @@
 	<Planets.Population_SlightlyHigh>Slightly high</Planets.Population_SlightlyHigh>
 	<Planets.Population_High>High</Planets.Population_High>
 	<Planets.Population_VeryHigh>Very high</Planets.Population_VeryHigh>
+	
+	<!-- For compatibility with 1.0 -->
+	<!-- Please do not remove -->
+	
+	<Planets.OceanType_Earthlike>Earthlike</Planets.OceanType_Earthlike>
+	<Planets.OceanType_Waterworld>Watery</Planets.OceanType_Waterworld>
+	<Planets.OceanType_Barren>Arid</Planets.OceanType_Barren>
 
 </LanguageData>
