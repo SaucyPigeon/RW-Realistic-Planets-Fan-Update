@@ -85,5 +85,15 @@
 	<Planets.AxialTilt_Normal>Normal</Planets.AxialTilt_Normal>
 	<Planets.AxialTilt_High>High</Planets.AxialTilt_High>
 	<Planets.AxialTilt_VeryHigh>Very high</Planets.AxialTilt_VeryHigh>
+	
+	<!-- Population -->
+	
+	<Planets.Population_VeryLow>Very low</Planets.Population_VeryLow>
+	<Planets.Population_Low>Low</Planets.Population_Low>
+	<Planets.Population_SlightlyLow>Slightly low</Planets.Population_SlightlyLow>
+	<Planets.Population_Normal>Normal</Planets.Population_Normal>
+	<Planets.Population_SlightlyHigh>Slightly high</Planets.Population_SlightlyHigh>
+	<Planets.Population_High>High</Planets.Population_High>
+	<Planets.Population_VeryHigh>Very high</Planets.Population_VeryHigh>
 
 </LanguageData>
