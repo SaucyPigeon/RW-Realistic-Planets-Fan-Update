@@ -273,7 +273,7 @@ namespace Planets_Code
 			Widgets.Label(new Rect(0f, single, 200f, 30f), "Planets.OceanType".Translate());
 			Rect rect6 = new Rect(200f, single, 200f, 30f);
 			WorldType worldTypeCheck = Planets_GameComponent.worldType;
-			Planets_GameComponent.worldType = (WorldType)Mathf.RoundToInt(Widgets.HorizontalSlider(rect6, (float)Planets_GameComponent.worldType, 0f, (float)(WorldTypeUtility.EnumValuesCount - 1), true, "Planets.OceanType_Vanilla".Translate(), "Planets.OceanType_Waterworld".Translate(), "Planets.OceanType_Barren".Translate(), 1f));
+			Planets_GameComponent.worldType = (WorldType)Mathf.RoundToInt(Widgets.HorizontalSlider(rect6, (float)Planets_GameComponent.worldType, 0f, (float)(WorldTypeUtility.EnumValuesCount - 1), true, "Planets.OceanType_Earthlike".Translate(), "Planets.OceanType_Waterworld".Translate(), "Planets.OceanType_Barren".Translate(), 1f));
 			if (Planets_GameComponent.worldType != worldTypeCheck) { this.worldPreset = "Planets.Custom"; }
 			TooltipHandler.TipRegion(new Rect(0f, single, rect6.xMax, rect6.height), "Planets.OceanTypeTip".Translate());
 			//
@@ -345,40 +345,6 @@ namespace Planets_Code
 			this.temperature = OverallTemperature.Normal;
 			this.population = OverallPopulation.Normal;
 		}
-
-		public void RandomPopulation()
-		{
-			float randPop = Rand.Value;
-			if (randPop > 0.86)
-			{
-				this.population = OverallPopulation.AlmostNone;
-			}
-			else if (randPop > 0.72)
-			{
-				this.population = OverallPopulation.Little;
-			}
-			else if (randPop > 0.58)
-			{
-				this.population = OverallPopulation.LittleBitLess;
-			}
-			else if (randPop > 0.42)
-			{
-				this.population = OverallPopulation.Normal;
-			}
-			else if (randPop > 0.28)
-			{
-				this.population = OverallPopulation.LittleBitMore;
-			}
-			else if (randPop > 0.14)
-			{
-				this.population = OverallPopulation.High;
-			}
-			else
-			{
-				this.population = OverallPopulation.VeryHigh;
-			}
-		}
-
 		public void Randomize() {
 			this.seedString = GenText.RandomSeedString();
 			float randTilt = Rand.Value;
@@ -409,8 +375,6 @@ namespace Planets_Code
 			else if (randTemp > 0.28) { this.temperature = OverallTemperature.LittleBitWarmer; }
 			else if (randTemp > 0.14) { this.temperature = OverallTemperature.Hot; }
 			else { this.temperature = OverallTemperature.VeryHot; }
-			RandomPopulation();
-
 			Controller.Settings.randomPlanet = true;
 			if (this.CanDoNext()) {
 				this.DoNext();
