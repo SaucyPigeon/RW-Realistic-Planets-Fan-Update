@@ -43,7 +43,7 @@ namespace Planets_Code
 				case WorldType.VeryDry:
 					return "Planets.SeaLevel_Low";
 				case WorldType.Barren:
-					return "Planets.Sealevel_VeryLow";
+					return "Planets.SeaLevel_VeryLow";
 				default:
 					break;
 			}
