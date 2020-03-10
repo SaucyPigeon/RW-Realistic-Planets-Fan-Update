@@ -300,6 +300,14 @@ namespace Planets_Code
 			//
 			// BOTTOM BUTTONS
 			//
+			if (Controller.FactionControlSettingsMI != null)
+			{
+				Text.Font = GameFont.Small;
+				if (Widgets.ButtonText(new Rect(0, rect.yMax - 78f, 150, 32), "RFC.FactionControlName".Translate()))
+				{
+					Controller.FactionControlSettingsMI.Invoke(null, null);
+				}
+			}
 			base.DoBottomButtons(rect, "WorldGenerate".Translate(), "Planets.Random".Translate(), new Action(this.Randomize), true, true);
 		}
 
