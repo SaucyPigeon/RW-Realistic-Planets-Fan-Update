@@ -1,6 +1,8 @@
 ﻿using HarmonyLib;
 using RimWorld;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using Verse;
@@ -13,6 +15,8 @@ namespace Planets_Code
 		public static double maxFactionSprawl = 0;
 		public static double minFactionSeparation = 0;
 		public static Settings Settings;
+		public static MethodInfo FactionControlSettingsMI = null;
+
 		public override string SettingsCategory() { return "Planets.ModName".Translate(); }
 		public override void DoSettingsWindowContents(Rect canvas) { Settings.DoWindowContents(canvas); }
 
@@ -31,7 +35,30 @@ namespace Planets_Code
 			var harmony = new Harmony(Id);
 			harmony.PatchAll( Assembly.GetExecutingAssembly() );
 			Settings = GetSettings<Settings>();
+			LongEventHandler.QueueLongEvent(new Action(Init), "LibraryStartup", false, null);
+		}
+
+		private void Init()
+		{
+			// Get FactionControl's settings button for use on the Create World page
+			foreach (ModContentPack pack in LoadedModManager.RunningMods)
+			{
+				if (pack.PackageId == "factioncontrol.kv.rw")
+				{
+					foreach (Assembly assembly in pack.assemblies.loadedAssemblies)
+					{
+						var dialog = assembly.GetType("FactionControl.Patch_Page_CreateWorldParams_DoWindowContents");
+						if (dialog != null)
+						{
+							FactionControlSettingsMI = dialog.GetMethod("OpenSettingsWindow", BindingFlags.Public | BindingFlags.Static);
+							break;
+						}
+					}
+					if (FactionControlSettingsMI == null)
+						Log.Warning("unable to find SettingsDialogWindow in FactionControl mod");
+					break;
+				}
+			}
 		}
 	}
-	
 }

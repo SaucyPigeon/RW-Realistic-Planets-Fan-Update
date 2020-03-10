@@ -292,14 +292,26 @@ namespace Planets_Code
 				single += 40f;
 				DoAxialTiltSlider(single);
 
-				single += 40f;
-				DoPopulationSlider(single);
+				// Faction Control will override population, so disable this slider if Faction Control is enabled
+				if (Controller.FactionControlSettingsMI == null)
+				{
+					single += 40f;
+					DoPopulationSlider(single);
+				}
 			}
 			GUI.EndGroup();
 
 			//
 			// BOTTOM BUTTONS
 			//
+			if (Controller.FactionControlSettingsMI != null)
+			{
+				Text.Font = GameFont.Small;
+				if (Widgets.ButtonText(new Rect(0, rect.yMax - 78f, 150, 32), "RFC.FactionControlName".Translate()))
+				{
+					Controller.FactionControlSettingsMI.Invoke(null, null);
+				}
+			}
 			base.DoBottomButtons(rect, "WorldGenerate".Translate(), "Planets.Random".Translate(), new Action(this.Randomize), true, true);
 		}
 
