@@ -292,8 +292,12 @@ namespace Planets_Code
 				single += 40f;
 				DoAxialTiltSlider(single);
 
-				single += 40f;
-				DoPopulationSlider(single);
+				// Faction Control will override population, so disable this slider if Faction Control is enabled
+				if (Controller.FactionControlSettingsMI == null)
+				{
+					single += 40f;
+					DoPopulationSlider(single);
+				}
 			}
 			GUI.EndGroup();
 
