@@ -304,6 +304,7 @@ namespace Planets_Code
 			//
 			// BOTTOM BUTTONS
 			//
+			// Add Faction Control button
 			if (Controller.FactionControlSettingsMI != null)
 			{
 				Text.Font = GameFont.Small;

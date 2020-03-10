@@ -37,7 +37,7 @@ namespace Planets_Code
 			Settings = GetSettings<Settings>();
 			LongEventHandler.QueueLongEvent(new Action(Init), "LibraryStartup", false, null);
 		}
-
+		
 		private void Init()
 		{
 			// Get FactionControl's settings button for use on the Create World page
@@ -45,17 +45,22 @@ namespace Planets_Code
 			{
 				if (pack.PackageId == "factioncontrol.kv.rw")
 				{
+					const string typeName = "FactionControl.Patch_Page_CreateWorldParams_DoWindowContents";
+					const string methodName = "OpenSettingsWindow";
+
 					foreach (Assembly assembly in pack.assemblies.loadedAssemblies)
 					{
-						var dialog = assembly.GetType("FactionControl.Patch_Page_CreateWorldParams_DoWindowContents");
+						var dialog = assembly.GetType(typeName);
 						if (dialog != null)
 						{
-							FactionControlSettingsMI = dialog.GetMethod("OpenSettingsWindow", BindingFlags.Public | BindingFlags.Static);
+							FactionControlSettingsMI = dialog.GetMethod(methodName, BindingFlags.Public | BindingFlags.Static);
 							break;
 						}
 					}
 					if (FactionControlSettingsMI == null)
-						Log.Warning("unable to find SettingsDialogWindow in FactionControl mod");
+					{
+						Log.Warning($"Realistic Planets - Fan Update was unable to find {typeName}::{methodName} in mod Faction Control. Please ensure that both mods have been updated to their latest versions. Otherwise, report this issue to both mod authors.");
+					}
 					break;
 				}
 			}
