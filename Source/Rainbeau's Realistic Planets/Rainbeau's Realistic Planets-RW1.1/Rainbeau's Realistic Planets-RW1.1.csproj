@@ -98,11 +98,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.1.2566</Version>
+      <Version>1.1.2573</Version>
     </PackageReference>
     <PackageReference Include="Lib.Harmony">
       <Version>2.0.0.8</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="PreBuild.targets" />
 </Project>
