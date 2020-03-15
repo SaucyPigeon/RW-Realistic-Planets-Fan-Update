@@ -658,7 +658,7 @@
 		<plantDensity>0.13</plantDensity> 
 		<settlementSelectionWeight>0.25</settlementSelectionWeight>
 		<movementDifficulty>1</movementDifficulty>
-		<texture>Grassland</texture>
+		<texture>Oasis</texture>
 		<forageability>0.75</forageability> 
 		<foragedFood>RawAgave</foragedFood>
 		<wildPlantRegrowDays>25</wildPlantRegrowDays>
