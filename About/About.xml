@@ -10,9 +10,7 @@
 	</supportedVersions>
 	
 	<packageId>SaucyPigeon.RealisticPlanets</packageId>
-	
-	<!-- Will truly require Harmony in next release -->
-	
+		
 	<modDependenciesByVersion>
 		<v1.1>
 			<li>
