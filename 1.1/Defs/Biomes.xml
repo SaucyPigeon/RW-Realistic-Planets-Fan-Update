@@ -141,6 +141,10 @@
 			<Elk>0.1</Elk>
 			<Emu>0.1</Emu>
 			<Ostrich>0.1</Ostrich>
+			<Bison>0.45</Bison>
+			<Horse>0.3</Horse>
+			<GuineaPig>0.4</GuineaPig>
+			<Donkey>0.2</Donkey>
 		</wildAnimals>
 		<allowedPackAnimals>
 			<li>Muffalo</li>
@@ -295,6 +299,10 @@
 			<Ostrich>0.5</Ostrich>
 			<Fox_Fennec>0.05</Fox_Fennec>
 			<Turkey>0.1</Turkey>
+			<Bison>0.4</Bison>
+			<Horse>0.1</Horse>
+			<GuineaPig>0.4</GuineaPig>
+			<Donkey>0.3</Donkey>
 		</wildAnimals>
 		<allowedPackAnimals>
 			<li>Muffalo</li>
@@ -415,6 +423,9 @@
 			<Bear_Grizzly>0.05</Bear_Grizzly>
 			<Boomalope>0.2</Boomalope>
 			<Boomrat>0.5</Boomrat>
+			<Bison>0.05</Bison>
+			<Horse>0.5</Horse>
+			<Yak>0.05</Yak>
 		</wildAnimals>
 		<allowedPackAnimals>
 			<li>Muffalo</li>
@@ -528,6 +539,9 @@
 			<Iguana>0.6</Iguana>
 			<Fox_Fennec>0.05</Fox_Fennec>
 			<Gazelle>0.3</Gazelle>
+			<Horse>0.05</Horse>
+			<GuineaPig>0.1</GuineaPig>
+			<Donkey>0.1</Donkey>
 		</wildAnimals>
 		<allowedPackAnimals>
 			<li>Muffalo</li>
@@ -804,6 +818,7 @@
 			<Boomrat>0.15</Boomrat>
 			<Hare>0.5</Hare>
 			<Megasloth>0.05</Megasloth>
+			<Donkey>0.15</Donkey>
 		</wildAnimals>
 		<allowedPackAnimals>
 			<li>Dromedary</li>
