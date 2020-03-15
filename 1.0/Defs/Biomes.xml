@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+	<!--
+	
+	List of biomes added by Realistic Planets:
+	
+	<li>RRP_Grassland</li>
+	<li>RRP_Savanna</li>
+	<li>RRP_Steppes</li>
+	<li>RRP_TemperateDesert</li>
+	<li>RRP_Permafrost</li>
+	<li>RRP_Oasis</li>
+	
+	-->
+
 	<BiomeDef>
 		<defName>RRP_Grassland</defName>
 		<label>grassland</label>
@@ -658,7 +671,7 @@
 		<plantDensity>0.13</plantDensity> 
 		<settlementSelectionWeight>0.25</settlementSelectionWeight>
 		<movementDifficulty>1</movementDifficulty>
-		<texture>Grassland</texture>
+		<texture>Oasis</texture>
 		<forageability>0.75</forageability> 
 		<foragedFood>RawAgave</foragedFood>
 		<wildPlantRegrowDays>25</wildPlantRegrowDays>
