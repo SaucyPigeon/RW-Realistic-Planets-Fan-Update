@@ -72,6 +72,8 @@
     <Compile Include="BiomeWorkers\BiomeWorker_TrRaUrban.cs" />
     <Compile Include="BiomeWorkers\BiomeWorker_TrSwUrban.cs" />
     <Compile Include="Controller.cs" />
+    <Compile Include="ModMethodData.cs" />
+    <Compile Include="ModMethodDataExtensions.cs" />
     <Compile Include="Patches\FactionGenerator_GenerateFactionsIntoWorld.cs" />
     <Compile Include="Patches\FactionGenerator_NewGeneratedFaction.cs" />
     <Compile Include="Patches\GenTemperature_SeasonalShiftAmplitudeAt.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Patches\PageUtility_StitchedPages.cs" />
     <Compile Include="Patches\PlanetShapeGenerator_DoGenerate.cs" />
     <Compile Include="Patches\SavedGameLoaderNow_LoadGameFromSaveFileNow.cs" />
+    <Compile Include="Patches\SaveOurShip\WorldSwitchUtility_SwitchToNewWorld.cs" />
     <Compile Include="Patches\TileFinder_RandomSettlementTileFor.cs" />
     <Compile Include="Patches\WITab_Planet_Desc.cs" />
     <Compile Include="Patches\WorldGenStep_Terrain_SetupElevationNoise.cs" />
