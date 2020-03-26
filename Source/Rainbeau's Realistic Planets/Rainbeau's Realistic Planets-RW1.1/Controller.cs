@@ -9,7 +9,8 @@ using Verse;
 
 namespace Planets_Code
 {
-	public class Controller : Mod {
+	public class Controller : Mod
+	{
 		public static Dictionary<Faction, int> factionCenters = new Dictionary<Faction, int>();
 		public static Dictionary<Faction, int> failureCount = new Dictionary<Faction, int>();
 		public static double maxFactionSprawl = 0;
@@ -17,10 +18,18 @@ namespace Planets_Code
 		public static Settings Settings;
 		public static MethodInfo FactionControlSettingsMI = null;
 
-		public override string SettingsCategory() { return "Planets.ModName".Translate(); }
-		public override void DoSettingsWindowContents(Rect canvas) { Settings.DoWindowContents(canvas); }
+		public override string SettingsCategory()
+		{
+			return "Planets.ModName".Translate();
+		}
 
-		public Controller(ModContentPack content) : base(content) {
+		public override void DoSettingsWindowContents(Rect canvas)
+		{
+			Settings.DoWindowContents(canvas);
+		}
+
+		public Controller(ModContentPack content) : base(content)
+		{
 			const bool Debug = false;
 			const string Id = "net.rainbeau.rimworld.mod.realisticplanets";
 
@@ -39,15 +48,12 @@ namespace Planets_Code
 		private void Init()
 		{
 			// Faction Control's button for CreateWorld page.
-			var data = new ModMethodData(
+			var fcData = new ModMethodData(
 				packageId: "factioncontrol.kv.rw",
 				typeName: "FactionControl.Patch_Page_CreateWorldParams_DoWindowContents",
 				methodName: "OpenSettingsWindow");
 
-			if (data.ModIsLoaded())
-			{
-				FactionControlSettingsMI = data.GetMethod();
-			}
+			FactionControlSettingsMI = fcData.GetMethodIfLoaded();
 		}
 	}
 }

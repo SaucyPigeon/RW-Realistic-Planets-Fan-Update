@@ -42,5 +42,14 @@ namespace Planets_Code
 
 			return null;
 		}
+
+		public static MethodInfo GetMethodIfLoaded(this ModMethodData modMethodData)
+		{
+			if (ModIsLoaded(modMethodData))
+			{
+				return GetMethod(modMethodData);
+			}
+			return null;
+		}
 	}
 }

@@ -168,7 +168,6 @@ namespace Planets_Code
 			EditPlantDefs();
 			EditAnimalDefs();
 			IncreasePlanetTabWinSize();
-
 		}
 	}
 }
