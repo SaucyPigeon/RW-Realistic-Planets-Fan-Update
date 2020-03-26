@@ -38,6 +38,7 @@ namespace Planets_Code
 		
 		private void Init()
 		{
+			// Faction Control's button for CreateWorld page.
 			var data = new ModMethodData(
 				packageId: "factioncontrol.kv.rw",
 				typeName: "FactionControl.Patch_Page_CreateWorldParams_DoWindowContents",
