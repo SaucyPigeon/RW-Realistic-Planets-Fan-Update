@@ -3,16 +3,21 @@ using Verse;
 
 namespace Planets_Code
 {
-	public class Settings : ModSettings {
+	public class Settings : ModSettings
+	{
+		// Biome
 		public bool otherGrassland = false;
 		public bool otherSavanna = false;
 		public bool otherOasis = false;
+
+		// Generation
 		public bool usingMLP = false;
 		public bool usingFactionControl = false;
 		public bool randomPlanet = false;
+
+		// Mod settings page
 		public bool checkTemp = true;
 		public float factionGrouping = 2.5f;
-
 
 		public void DoWindowContents(Rect canvas)
 		{
@@ -42,7 +47,9 @@ namespace Planets_Code
 			}
 			list.End();
 		}
-		public override void ExposeData() {
+
+		public override void ExposeData()
+		{
 			base.ExposeData();
 			Scribe_Values.Look(ref checkTemp, "checkTemp", true);
 			Scribe_Values.Look(ref factionGrouping, "factionGrouping", 2.5f);
