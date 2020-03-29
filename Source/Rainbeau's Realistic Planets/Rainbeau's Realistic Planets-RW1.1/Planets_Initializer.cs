@@ -131,6 +131,10 @@ namespace Planets_Code
 
 		private static void IncreasePlanetTabWinSize()
 		{
+#if DEBUG
+			Log.Warning("Increasing planet tab win size.");
+#endif
+
 			var winSizeField = AccessTools.Field(typeof(WITab_Planet), "WinSize");
 			var winSize = (Vector2)winSizeField.GetValue(null);
 			winSize.y *= 2;
@@ -139,6 +143,10 @@ namespace Planets_Code
 
 		static Planets_Initializer()
 		{
+#if DEBUG
+			Log.Warning("Planets_Initializer running.");
+#endif
+
 			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("My Little Planet")))
 			{
 				Controller.Settings.usingMLP = true;

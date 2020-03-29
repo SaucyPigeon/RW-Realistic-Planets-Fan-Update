@@ -85,6 +85,7 @@
     <Compile Include="Patches\TileFinder_RandomSettlementTileFor.cs" />
     <Compile Include="Patches\WITab_Planet_Desc.cs" />
     <Compile Include="Patches\WorldGenStep_Terrain_SetupElevationNoise.cs" />
+    <Compile Include="Patches\WorldInspectPane_TileInspectString.cs" />
     <Compile Include="Planets_CreateWorldParams.cs" />
     <Compile Include="Planets_GameComponent.cs" />
     <Compile Include="Planets_Initializer.cs" />

@@ -18,6 +18,8 @@ namespace Planets_Code
 		public static Settings Settings;
 		public static MethodInfo FactionControlSettingsMI = null;
 
+		public const bool Debug = true;
+
 		public override string SettingsCategory()
 		{
 			return "Planets.ModName".Translate();
@@ -29,8 +31,7 @@ namespace Planets_Code
 		}
 
 		public Controller(ModContentPack content) : base(content)
-		{
-			const bool Debug = false;
+		{ 
 			const string Id = "net.rainbeau.rimworld.mod.realisticplanets";
 
 			if (Debug)
