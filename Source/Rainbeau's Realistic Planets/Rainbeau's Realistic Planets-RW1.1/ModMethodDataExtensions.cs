@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Verse;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace Planets_Code
 {
@@ -17,21 +18,41 @@ namespace Planets_Code
 
 		public static bool ModIsLoaded(this ModMethodData modMethodData)
 		{
+#if DEBUG
+			Log.Warning("Printing packageIds of running mods:");
+			foreach (var mod in LoadedModManager.RunningMods)
+			{
+				Log.Warning(mod.PackageId);
+			}
+#endif
+
+			return LoadedModManager.RunningMods.Any(x => x.PackageIdPlayerFacing == modMethodData.PackageId);
+
 			return LoadedModManager.RunningMods.Any(x => x.PackageId == modMethodData.PackageId);
 		}
 
 		public static MethodInfo GetMethod(this ModMethodData modMethodData)
 		{
-			var mod = LoadedModManager.RunningMods.FirstOrDefault(x => x.PackageId == modMethodData.PackageId);
+			if (modMethodData == null)
+				throw new ArgumentNullException(nameof(modMethodData));
+
+			var mod = LoadedModManager.RunningMods.FirstOrDefault(x => x.PackageIdPlayerFacing == modMethodData.PackageId);
 
 			if (mod == null)
 			{
 				throw new ArgumentException($"Tried to get method in mod that is not loaded. Target packageId={modMethodData.PackageId}.");
 			}
 
+#if DEBUG
+			Log.Warning($"Loaded assemblies found: {mod.assemblies.loadedAssemblies.Count}");
+#endif
+
+			Debug.Assert(mod.assemblies.loadedAssemblies.Count > 0);
+
 			foreach (var assembly in mod.assemblies.loadedAssemblies)
 			{
 				var dialog = assembly.GetType(modMethodData.TypeName);
+
 				if (dialog != null)
 				{
 					return dialog.GetMethod(modMethodData.MethodName, BindingFlags.Public | BindingFlags.Static);

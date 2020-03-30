@@ -55,6 +55,15 @@ namespace Planets_Code
 				methodName: "OpenSettingsWindow");
 
 			FactionControlSettingsMI = fcData.GetMethodIfLoaded();
+#if DEBUG
+			Log.Warning($"Realistic Planets found Faction Control: {Settings.usingFactionControl}");
+			Log.Warning($"Realistic Planets found Faction Control methodInfo: {FactionControlSettingsMI != null}");
+#endif
+
+			if (Settings.usingFactionControl && FactionControlSettingsMI == null)
+			{
+				throw new MissingMethodException("Realistic Planets was unable to find necessary Faction Control method info.");
+			}
 		}
 	}
 }
