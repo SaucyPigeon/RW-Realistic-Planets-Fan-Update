@@ -135,10 +135,22 @@ namespace Planets_Code
 			Log.Warning("Increasing planet tab win size.");
 #endif
 
+			// Dummy construct to initialize static
+			var _ = new WITab_Planet();
+
 			var winSizeField = AccessTools.Field(typeof(WITab_Planet), "WinSize");
 			var winSize = (Vector2)winSizeField.GetValue(null);
+#if DEBUG
+			Log.Warning($"WinSize (before): {winSize}");
+#endif
 			winSize.y *= 2;
 			winSizeField.SetValue(null, winSize);
+
+#if DEBUG
+			Log.Warning($"WinSize (after): {winSize}");
+			winSize = (Vector2)winSizeField.GetValue(null);
+			Log.Warning($"WinSize (after, checked): {winSize}");
+			#endif
 		}
 
 		static Planets_Initializer()

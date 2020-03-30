@@ -27,8 +27,6 @@ namespace Planets_Code
 #endif
 
 			return LoadedModManager.RunningMods.Any(x => x.PackageIdPlayerFacing == modMethodData.PackageId);
-
-			return LoadedModManager.RunningMods.Any(x => x.PackageId == modMethodData.PackageId);
 		}
 
 		public static MethodInfo GetMethod(this ModMethodData modMethodData)
