@@ -7,6 +7,7 @@ using HarmonyLib;
 using RimWorld.Planet;
 using RimWorld;
 using Verse;
+using UnityEngine;
 
 namespace Planets_Code.Patches
 {
@@ -14,12 +15,20 @@ namespace Planets_Code.Patches
 	[HarmonyPatch("Desc", MethodType.Getter)]
 	public static class WITab_Planet_Desc
 	{
-		private static void Append(this StringBuilder stringBuilder, string key, string value)
+		/*
+		Had to move increase of planet tab win size to HarmonyPrepare().
+		This is because the static constructor of Planets_Initializer is called after
+		the constructor of WITab_Planet, which is called in WorldInspectPane.
+		*/
+		[HarmonyPrepare]
+		public static void Prepare()
 		{
-			stringBuilder.Append(key.Translate());
-			stringBuilder.Append(": ");
-			stringBuilder.Append(value.Translate());
-			stringBuilder.Append("\n");
+			var winSizeField = AccessTools.Field(typeof(WITab_Planet), "WinSize");
+			var winSizeValue = (Vector2)winSizeField.GetValue(obj: null);
+
+			winSizeValue.y *= 2;
+
+			winSizeField.SetValue(obj: null, winSizeValue);
 		}
 
 		[HarmonyPostfix]

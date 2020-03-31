@@ -141,5 +141,13 @@ namespace Planets_Code
 			}
 			throw new ArgumentOutOfRangeException(nameof(Find.World.info.overallPopulation));
 		}
+
+		public static void Append(this StringBuilder stringBuilder, string key, string value)
+		{
+			stringBuilder.Append(key.Translate());
+			stringBuilder.Append(": ");
+			stringBuilder.Append(value.Translate());
+			stringBuilder.Append("\n");
+		}
 	}
 }
