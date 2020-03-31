@@ -18,14 +18,6 @@ namespace Planets_Code
 
 		public static bool ModIsLoaded(this ModMethodData modMethodData)
 		{
-#if DEBUG
-			Log.Warning("Printing packageIds of running mods:");
-			foreach (var mod in LoadedModManager.RunningMods)
-			{
-				Log.Warning(mod.PackageId);
-			}
-#endif
-
 			return LoadedModManager.RunningMods.Any(x => x.PackageIdPlayerFacing == modMethodData.PackageId);
 		}
 
@@ -40,10 +32,6 @@ namespace Planets_Code
 			{
 				throw new ArgumentException($"Tried to get method in mod that is not loaded. Target packageId={modMethodData.PackageId}.");
 			}
-
-#if DEBUG
-			Log.Warning($"Loaded assemblies found: {mod.assemblies.loadedAssemblies.Count}");
-#endif
 
 			Debug.Assert(mod.assemblies.loadedAssemblies.Count > 0);
 

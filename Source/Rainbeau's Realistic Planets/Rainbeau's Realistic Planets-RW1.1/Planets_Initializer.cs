@@ -132,19 +132,12 @@ namespace Planets_Code
 
 		static Planets_Initializer()
 		{
-#if DEBUG
-			Log.Warning("Planets_Initializer running.");
-#endif
-
 			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("My Little Planet")))
 			{
 				Controller.Settings.usingMLP = true;
 			}
 			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("Faction Control")))
 			{
-#if DEBUG
-				Log.Warning("Faction Control detected.");
-#endif
 				Controller.Settings.usingFactionControl = true;
 			}
 			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("Nature's Pretty Sweet")))

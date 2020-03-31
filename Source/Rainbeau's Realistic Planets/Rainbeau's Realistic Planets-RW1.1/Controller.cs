@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using Verse;
+using System.Diagnostics;
 
 namespace Planets_Code
 {
@@ -18,7 +19,7 @@ namespace Planets_Code
 		public static Settings Settings;
 		public static MethodInfo FactionControlSettingsMI = null;
 
-		public const bool Debug = true;
+		public const bool Debug = false;
 
 		public override string SettingsCategory()
 		{
@@ -32,7 +33,7 @@ namespace Planets_Code
 
 		public Controller(ModContentPack content) : base(content)
 		{ 
-			const string Id = "net.rainbeau.rimworld.mod.realisticplanets";
+			const string Id = "net.saucypigeon.rimworld.mod.realisticplanets";
 
 			if (Debug)
 			{
@@ -55,10 +56,6 @@ namespace Planets_Code
 				methodName: "OpenSettingsWindow");
 
 			FactionControlSettingsMI = fcData.GetMethodIfLoaded();
-#if DEBUG
-			Log.Warning($"Realistic Planets found Faction Control: {Settings.usingFactionControl}");
-			Log.Warning($"Realistic Planets found Faction Control methodInfo: {FactionControlSettingsMI != null}");
-#endif
 
 			if (Settings.usingFactionControl && FactionControlSettingsMI == null)
 			{

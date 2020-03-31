@@ -32,11 +32,7 @@ namespace Planets_Code.Patches
 		}
 
 		[HarmonyPostfix]
-#if DEBUG
-		public static void Postfix(ref string __result, WITab_Planet __instance)
-#else
 		public static void Postfix(ref string __result)
-#endif
 		{
 			var sb = new StringBuilder(__result);
 			{
@@ -55,25 +51,6 @@ namespace Planets_Code.Patches
 				sb.Append("PlanetPopulation", population);
 			}
 			__result = sb.ToString();
-
-#if DEBUG
-			// Check value of static field.
-			// For some reason it is not applying in initializer...
-
-			try
-			{
-				var field = AccessTools.Field(typeof(WITab_Planet), "WinSize");
-				var value = field.GetValue(null);
-			Log.Warning($"Value of winSize (static): {value}");
-				field = AccessTools.Field(typeof(WITab_Planet), "size");
-				value = field.GetValue(__instance);
-				Log.Warning($"Value of size (instance): {value}");
-			}
-			catch (Exception e)
-			{
-				Log.Warning("Failed to get RimWorld.Planet.WITab_Planet::WinSize");
-			}
-#endif
 		}
 	}
 }
