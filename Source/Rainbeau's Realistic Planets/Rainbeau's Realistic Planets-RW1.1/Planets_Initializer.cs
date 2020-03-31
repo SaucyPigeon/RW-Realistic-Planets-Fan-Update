@@ -130,51 +130,6 @@ namespace Planets_Code
 			}
 		}
 
-		private static void IncreasePlanetTabWinSize()
-		{
-			/*
-			It is possible that WITab_Planet is constructed before field inits under
-			RimWorld.Planet.WorldInspectPane::TileTabs
-			*/
-
-			//try
-			//{
-			//	var f = AccessTools.Field(typeof(WorldInspectPane), name: "TileTabs");
-			//	var v = (WITab[])f.GetValue(null);
-
-			//	var witab_planet = v[1];
-			//	f = AccessTools.Field(typeof(WITab), name: "size");
-			//	var v1 = (Vector2)f.GetValue(witab_planet);
-			//	v1.y *= 2;
-			//	f.SetValue(witab_planet, v1);
-			//}
-			//catch (Exception e)
-			//{
-			//	Log.Warning($"Realistic Planets - Fan Update has received an exception when trying to increase planet tab win size. Exception={e.ToString()}");
-			//}
-
-/*#if DEBUG
-			Log.Warning("Increasing planet tab win size.");
-#endif
-
-			// Dummy construct to initialize static
-			var _ = new WITab_Planet();
-
-			var winSizeField = AccessTools.Field(typeof(WITab_Planet), "WinSize");
-			var winSize = (Vector2)winSizeField.GetValue(null);
-#if DEBUG
-			Log.Warning($"WinSize (before): {winSize}");
-#endif
-			winSize.y *= 2;
-			winSizeField.SetValue(null, winSize);
-
-#if DEBUG
-			Log.Warning($"WinSize (after): {winSize}");
-			winSize = (Vector2)winSizeField.GetValue(null);
-			Log.Warning($"WinSize (after, checked): {winSize}");
-			#endif*/
-		}
-
 		static Planets_Initializer()
 		{
 #if DEBUG
@@ -212,7 +167,6 @@ namespace Planets_Code
 			}
 			EditPlantDefs();
 			EditAnimalDefs();
-			IncreasePlanetTabWinSize();
 		}
 	}
 }
