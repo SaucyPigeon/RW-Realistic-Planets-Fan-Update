@@ -21,14 +21,18 @@ namespace Planets_Code.Patches
 		the constructor of WITab_Planet, which is called in WorldInspectPane.
 		*/
 		[HarmonyPrepare]
-		public static void Prepare()
+		public static bool Prepare()
 		{
 			var winSizeField = AccessTools.Field(typeof(WITab_Planet), "WinSize");
 			var winSizeValue = (Vector2)winSizeField.GetValue(obj: null);
 
-			winSizeValue.y *= 2;
-
-			winSizeField.SetValue(obj: null, winSizeValue);
+			// Increase size of window to fit added contents of desc.
+			if (winSizeValue.y <= 200f)
+			{
+				winSizeValue.y *= 1.5f;
+				winSizeField.SetValue(obj: null, winSizeValue);
+			}
+			return true;
 		}
 
 		[HarmonyPostfix]
