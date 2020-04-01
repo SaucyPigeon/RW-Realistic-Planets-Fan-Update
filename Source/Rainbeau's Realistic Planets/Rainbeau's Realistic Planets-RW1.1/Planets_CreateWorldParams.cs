@@ -69,57 +69,7 @@ namespace Planets_Code
 			{
 				return false;
 			}
-			#region RainfallModifiers
-			if (Planets_GameComponent.worldType == WorldType.Waterworld) {
-				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.LittleBitMore; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.High; }
-				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.VeryHigh; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.VeryHigh; }
-				else { this.rainfall = OverallRainfall.VeryHigh; }
-			}
-			else if (Planets_GameComponent.worldType == WorldType.Islands) {
-				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.Normal; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.LittleBitMore; }
-				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.High; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.VeryHigh; }
-				else { this.rainfall = OverallRainfall.VeryHigh; }
-			}
-			else if (Planets_GameComponent.worldType == WorldType.Earthlike) {
-				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.LittleBitLess; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.Normal; }
-				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.LittleBitMore; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.High; }
-				else { this.rainfall = OverallRainfall.VeryHigh; }
-			}
-			else if (Planets_GameComponent.worldType == WorldType.Vanilla) {
-				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.Little; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.LittleBitLess; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.LittleBitMore; }
-				else if (this.rainfallMod == RainfallModifier.High) { this.rainfall = OverallRainfall.High; }
-				else { this.rainfall = OverallRainfall.Normal; }
-			}
-			else if (Planets_GameComponent.worldType == WorldType.Dry) {
-				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.AlmostNone; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.Little; }
-				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.LittleBitLess; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.Normal; }
-				else { this.rainfall = OverallRainfall.LittleBitMore; }
-			}
-			else if (Planets_GameComponent.worldType == WorldType.VeryDry) {
-				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.AlmostNone; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.AlmostNone; }
-				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.Little; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.LittleBitLess; }
-				else { this.rainfall = OverallRainfall.Normal; }
-			}
-			else {
-				if (this.rainfallMod == RainfallModifier.Little) { this.rainfall = OverallRainfall.AlmostNone; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitLess) { this.rainfall = OverallRainfall.AlmostNone; }
-				else if (this.rainfallMod == RainfallModifier.Normal) { this.rainfall = OverallRainfall.AlmostNone; }
-				else if (this.rainfallMod == RainfallModifier.LittleBitMore) { this.rainfall = OverallRainfall.Little; }
-				else { this.rainfall = OverallRainfall.LittleBitLess; }
-			}
-			#endregion
+			this.rainfall = RainfallModifierUtility.GetModifiedRainfall(Planets_GameComponent.worldType, this.rainfallMod);
 			Planets_TemperatureTuning.SetSeasonalCurve();
 			string generationString = "GeneratingWorld";
 			if (Controller.Settings.randomPlanet.Equals(true)) {
