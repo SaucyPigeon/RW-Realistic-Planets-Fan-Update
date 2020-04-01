@@ -141,12 +141,22 @@ namespace Planets_Code
 			}
 			throw new ArgumentOutOfRangeException(nameof(Find.World.info.overallPopulation));
 		}
-
-		public static void Append(this StringBuilder stringBuilder, string key, string value)
+			
+		public static void Append(this StringBuilder stringBuilder, string key, string value, bool translate = true)
 		{
-			stringBuilder.Append(key.Translate());
+			if (key == null)
+				throw new ArgumentNullException(nameof(key));
+			if (value == null)
+				throw new ArgumentNullException(nameof(value));
+
+			if (translate)
+			{
+				key = key.Translate();
+				value = value.Translate();
+			}
+			stringBuilder.Append(key);
 			stringBuilder.Append(": ");
-			stringBuilder.Append(value.Translate());
+			stringBuilder.Append(value);
 			stringBuilder.Append("\n");
 		}
 	}

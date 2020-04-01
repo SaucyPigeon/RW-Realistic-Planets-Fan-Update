@@ -10,18 +10,25 @@ using Verse;
 
 namespace Planets_Code.Patches
 {
+	/*
+	Adds the following to the world inspect pane:
+	- Growing quadrums
+	*/
 	[HarmonyPatch(typeof(WorldInspectPane))]
-	[HarmonyPatch(MethodType.Getter)]
-	[HarmonyPatch("TileInspectString")]
+	[HarmonyPatch("TileInspectString", MethodType.Getter)]
 	public static class WorldInspectPane_TileInspectString
 	{
 		[HarmonyPostfix]
 		public static void Postfix(ref string __result)
 		{
 			var sb = new StringBuilder(__result);
-			sb.AppendLine();
-			int selTileID = Find.WorldSelector.selectedTile;
-			sb.Append(Zone_Growing.GrowingQuadrumsDescription(selTileID));
+			{
+				// Growing quadrums description
+				sb.AppendLine();
+				int selTileID = Find.WorldSelector.selectedTile;
+
+				sb.Append("OutdoorGrowingPeriod".Translate(), Zone_Growing.GrowingQuadrumsDescription(selTileID), translate: false);
+			}
 			__result = sb.ToString();
 		}
 	}
