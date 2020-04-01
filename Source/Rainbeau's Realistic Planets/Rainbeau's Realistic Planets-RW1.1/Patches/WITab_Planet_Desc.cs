@@ -11,6 +11,17 @@ using UnityEngine;
 
 namespace Planets_Code.Patches
 {
+	/*
+	Add the following the the Planet tab description:
+	- world preset
+	- world type
+	- rainfall
+	- temperature
+	- axial tilt
+	- population
+
+	Also increase height of tab to fit contents.
+	*/
 	[HarmonyPatch(typeof(WITab_Planet))]
 	[HarmonyPatch("Desc", MethodType.Getter)]
 	public static class WITab_Planet_Desc

@@ -3,12 +3,8 @@ using RimWorld;
 using System;
 using Verse;
 
-namespace Planets_Code
+namespace Planets_Code.Factions
 {
-	//
-	// FACTION GENERATION CHANGES
-	//
-
 	[HarmonyPatch(typeof(FactionGenerator), "GenerateFactionsIntoWorld", null)]
 	public static class FactionGenerator_GenerateFactionsIntoWorld {
 		[HarmonyPriority(Priority.High)]

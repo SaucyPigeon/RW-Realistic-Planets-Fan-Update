@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
-namespace Planets_Code
+namespace Planets_Code.Factions
 {
 
 	[HarmonyPatch(typeof(TileFinder), "RandomSettlementTileFor", null)]
