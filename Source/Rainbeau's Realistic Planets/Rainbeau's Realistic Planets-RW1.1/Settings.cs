@@ -15,9 +15,13 @@ namespace Planets_Code
 		public bool usingFactionControl = false;
 		public bool randomPlanet = false;
 
-		// Mod settings page
+		// Factions
 		public bool checkTemp = true;
 		public float factionGrouping = 2.5f;
+
+		// Added descriptions
+		public bool showGrowingPeriod = true;
+		
 
 		public void DoWindowContents(Rect canvas)
 		{
@@ -25,6 +29,7 @@ namespace Planets_Code
 			list.ColumnWidth = canvas.width;
 			list.Begin(canvas);
 			list.Gap(24);
+			// Faction settings
 			if (Controller.Settings.usingFactionControl.Equals(true)) {
 				list.Label("Planets.SettingsDisabled".Translate());
 			}
@@ -45,6 +50,9 @@ namespace Planets_Code
 					list.Label("Planets.FactionGrouping".Translate()+"  "+"Planets.FactionGroupingVeryTight".Translate());
 				}
 			}
+			// Show growing period in world inspect pane
+			list.Gap(24);
+			list.CheckboxLabeled("Planets.ShowGrowingPeriod".Translate(), ref showGrowingPeriod, "Planets.ShowGrowingPeriodTip".Translate());
 			list.End();
 		}
 
@@ -53,6 +61,7 @@ namespace Planets_Code
 			base.ExposeData();
 			Scribe_Values.Look(ref checkTemp, "checkTemp", true);
 			Scribe_Values.Look(ref factionGrouping, "factionGrouping", 2.5f);
+			Scribe_Values.Look(ref showGrowingPeriod, "showGrowingPeriod", true);
 		}
 	}
 	

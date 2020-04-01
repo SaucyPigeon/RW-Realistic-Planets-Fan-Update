@@ -18,6 +18,9 @@
 	<Planets.FactionGroupingTight>Tight. The settlements belonging to any particular faction group will be in reasonably close proximity to each other, and except for pirate band faction groups, there won't be a large amount of overlap. There will be a distinct sense of actual nations existing on the world map, albeit with very rough borders.</Planets.FactionGroupingTight>
 	<Planets.FactionGroupingVeryTight>Very tight. Except for pirate band faction groups, each faction group's settlements will be very closely clumped. There won't be much overlap at all, but there may be large "open" spaces of unoccupied territory between them.</Planets.FactionGroupingVeryTight>
 
+	<Planets.ShowGrowingPeriod>Show growing period in world inspect pane.</Planets.ShowGrowingPeriod>
+	<Planets.ShowGrowingPeriodTip>Toggles the display of a tile's growing period in the world view's inspect pane.</Planets.ShowGrowingPeriodTip>
+
 	<!-- Generation -->
 
 	<Planets.MessageLowPlanetCoverageWarning>Warning: At very low coverage settings, there may not be enough land for all the faction settlements the game tries to generate.</Planets.MessageLowPlanetCoverageWarning>

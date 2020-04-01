@@ -24,10 +24,12 @@ namespace Planets_Code.Patches
 			var sb = new StringBuilder(__result);
 			{
 				// Growing quadrums description
-				sb.AppendLine();
-				int selTileID = Find.WorldSelector.selectedTile;
-
-				sb.Append("OutdoorGrowingPeriod".Translate(), Zone_Growing.GrowingQuadrumsDescription(selTileID), translate: false);
+				if (Controller.Settings.showGrowingPeriod)
+				{
+					sb.AppendLine();
+					int selTileID = Find.WorldSelector.selectedTile;
+					sb.Append("OutdoorGrowingPeriod".Translate(), Zone_Growing.GrowingQuadrumsDescription(selTileID), translate: false);
+				}
 			}
 			__result = sb.ToString();
 		}
