@@ -41,7 +41,8 @@ namespace Planets_Code.Factions
 					if (extraValidator != null && !extraValidator(x)) {
 						return 0f;
 					}
-					if (Controller.Settings.checkTemp.Equals(true)) {
+					if (Controller.Settings.checkTemp.CurrentValue.Equals(true))
+					{ 
 						if (i < 1000) {
 							if (item.temperature < (minTemp-45) || item.temperature > (maxTemp+45)) {
 								return 0f;

@@ -24,7 +24,7 @@ namespace Planets_Code.Patches
 			var sb = new StringBuilder(__result);
 			{
 				// Growing quadrums description
-				if (Controller.Settings.showGrowingPeriod)
+				if (Controller.Settings.showGrowingPeriod.CurrentValue)
 				{
 					sb.AppendLine();
 					int selTileID = Find.WorldSelector.selectedTile;

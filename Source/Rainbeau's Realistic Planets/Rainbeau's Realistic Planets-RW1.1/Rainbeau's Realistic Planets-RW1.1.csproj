@@ -96,6 +96,8 @@
     <Compile Include="RainfallModifier.cs" />
     <Compile Include="RainfallModifierUtility.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="SettingsValue.cs" />
+    <Compile Include="SettingsValueExtensions.cs" />
     <Compile Include="TempCheck.cs" />
     <Compile Include="Presets\WorldPreset.cs" />
     <Compile Include="Presets\WorldPresetBuilder.cs" />
