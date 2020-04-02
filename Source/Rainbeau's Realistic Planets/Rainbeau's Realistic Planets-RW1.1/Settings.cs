@@ -20,7 +20,9 @@ namespace Planets_Code
 		public SettingsValue<float> factionGrouping = new SettingsValue<float>(defaultValue: 2.5f, name: "factionGrouping");
 
 		// Descriptions
-		public SettingsValue<bool> showGrowingPeriod = new SettingsValue<bool>(defaultValue: true, name: "showGrowingPeriod");		
+		public SettingsValue<bool> showStoneTypes = new SettingsValue<bool>(defaultValue: false, name: "showStoneTypes");
+		public SettingsValue<bool> showGrowingPeriod = new SettingsValue<bool>(defaultValue: true, name: "showGrowingPeriod");
+		public SettingsValue<bool> showDiseaseFrequency = new SettingsValue<bool>(defaultValue: false, name: "showDiseaseFrequency");
 
 		public void DoWindowContents(Rect canvas)
 		{
@@ -49,15 +51,26 @@ namespace Planets_Code
 					list.Label("Planets.FactionGrouping".Translate()+"  "+"Planets.FactionGroupingVeryTight".Translate());
 				}
 			}
-			// Show growing period in world inspect pane
-			list.Gap(24);
+			// World inspect pane information
+			const float wipInfoGap = 12f;
+
+			list.Gap(wipInfoGap);
+			list.CheckboxLabeled("Planets.ShowStoneTypes".Translate(), ref showStoneTypes.CurrentValue, "Planets.ShowStoneTypesTip".Translate());
+
+			list.Gap(wipInfoGap);
 			list.CheckboxLabeled("Planets.ShowGrowingPeriod".Translate(), ref showGrowingPeriod.CurrentValue, "Planets.ShowGrowingPeriodTip".Translate());
 
-			if (list.ButtonText("Planets.ResetToDefault"))
+			list.Gap(wipInfoGap);
+			list.CheckboxLabeled("Planets.ShowDiseaseFrequency".Translate(), ref showDiseaseFrequency.CurrentValue, "Planets.ShowDiseaseFrequencyTip".Translate());
+
+			list.Gap(24);
+			if (list.ButtonText("Planets.ResetToDefault".Translate()))
 			{
 				this.checkTemp.ResetToDefault();
 				this.factionGrouping.ResetToDefault();
+				this.showStoneTypes.ResetToDefault();
 				this.showGrowingPeriod.ResetToDefault();
+				this.showDiseaseFrequency.ResetToDefault();
 			}
 			list.End();
 		}
@@ -65,9 +78,11 @@ namespace Planets_Code
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref checkTemp.CurrentValue, checkTemp.Name, checkTemp.DefaultValue);
-			Scribe_Values.Look(ref factionGrouping.CurrentValue, factionGrouping.Name, factionGrouping.DefaultValue);
-			Scribe_Values.Look(ref showGrowingPeriod.CurrentValue, showGrowingPeriod.Name, showGrowingPeriod.DefaultValue);
+			Planets_Scribe_Values.Look(checkTemp);
+			Planets_Scribe_Values.Look(factionGrouping);
+			Planets_Scribe_Values.Look(showStoneTypes);
+			Planets_Scribe_Values.Look(showGrowingPeriod);
+			Planets_Scribe_Values.Look(showDiseaseFrequency);
 		}
 	}
 }

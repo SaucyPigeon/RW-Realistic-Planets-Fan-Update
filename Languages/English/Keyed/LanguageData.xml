@@ -9,7 +9,7 @@
 	
 	<Planets.SettingsDisabled>Since you're also using "Faction Control," the faction placement options in "Realistic Planets" have been disabled to avoid conflicts.</Planets.SettingsDisabled>
 	
-	<Planets.CheckTemp>Consider Temperature When Placing Factions.</Planets.CheckTemp>
+	<Planets.CheckTemp>Consider temperature when placing factions.</Planets.CheckTemp>
 	<Planets.CheckTempTip>If this option is checked, faction settlements will tend to be located in regions of the planet where the faction's race would consider the temperature to be the most comfortable (or perhaps just "the least uncomfortable"). If it is unchecked, settlements will be placed randomly, as in the vanilla game.</Planets.CheckTempTip>
 
 	<Planets.FactionGrouping>"Nation Building":</Planets.FactionGrouping>
@@ -18,8 +18,16 @@
 	<Planets.FactionGroupingTight>Tight. The settlements belonging to any particular faction group will be in reasonably close proximity to each other, and except for pirate band faction groups, there won't be a large amount of overlap. There will be a distinct sense of actual nations existing on the world map, albeit with very rough borders.</Planets.FactionGroupingTight>
 	<Planets.FactionGroupingVeryTight>Very tight. Except for pirate band faction groups, each faction group's settlements will be very closely clumped. There won't be much overlap at all, but there may be large "open" spaces of unoccupied territory between them.</Planets.FactionGroupingVeryTight>
 
+	<Planets.ShowStoneTypes>Show stone types in world inspect pane.</Planets.ShowStoneTypes>
+	<Planets.ShowStoneTypesTip>Toggles the display of the stone types in a tile in the world view's inspect pane.</Planets.ShowStoneTypesTip>
+
 	<Planets.ShowGrowingPeriod>Show growing period in world inspect pane.</Planets.ShowGrowingPeriod>
 	<Planets.ShowGrowingPeriodTip>Toggles the display of a tile's growing period in the world view's inspect pane.</Planets.ShowGrowingPeriodTip>
+	
+	<Planets.ShowDiseaseFrequency>Show average disease frequency in world inspect pane.</Planets.ShowDiseaseFrequency>
+	<Planets.ShowDiseaseFrequencyTip>Toggles the display of the average disease frequency of a tile in the world view's inspect pane.</Planets.ShowDiseaseFrequencyTip>
+
+	<Planets.ResetToDefault>Reset to default</Planets.ResetToDefault>
 
 	<!-- Generation -->
 

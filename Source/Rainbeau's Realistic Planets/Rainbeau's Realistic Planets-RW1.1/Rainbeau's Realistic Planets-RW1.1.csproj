@@ -90,6 +90,7 @@
     <Compile Include="Planets_GameComponent.cs" />
     <Compile Include="Planets_Initializer.cs" />
     <Compile Include="Planets_Random.cs" />
+    <Compile Include="Planets_Scribe_Values.cs" />
     <Compile Include="Planets_Strings.cs" />
     <Compile Include="Planets_TemperatureTuning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
