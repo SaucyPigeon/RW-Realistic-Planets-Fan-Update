@@ -6,10 +6,12 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using Verse;
+using System.Diagnostics;
 
 namespace Planets_Code
 {
-	public class Controller : Mod {
+	public class Controller : Mod
+	{
 		public static Dictionary<Faction, int> factionCenters = new Dictionary<Faction, int>();
 		public static Dictionary<Faction, int> failureCount = new Dictionary<Faction, int>();
 		public static double maxFactionSprawl = 0;
@@ -17,12 +19,21 @@ namespace Planets_Code
 		public static Settings Settings;
 		public static MethodInfo FactionControlSettingsMI = null;
 
-		public override string SettingsCategory() { return "Planets.ModName".Translate(); }
-		public override void DoSettingsWindowContents(Rect canvas) { Settings.DoWindowContents(canvas); }
+		public const bool Debug = false;
 
-		public Controller(ModContentPack content) : base(content) {
-			const bool Debug = false;
-			const string Id = "net.rainbeau.rimworld.mod.realisticplanets";
+		public override string SettingsCategory()
+		{
+			return "Planets.ModName".Translate();
+		}
+
+		public override void DoSettingsWindowContents(Rect canvas)
+		{
+			Settings.DoWindowContents(canvas);
+		}
+
+		public Controller(ModContentPack content) : base(content)
+		{ 
+			const string Id = "net.saucypigeon.rimworld.mod.realisticplanets";
 
 			if (Debug)
 			{
@@ -38,29 +49,17 @@ namespace Planets_Code
 		
 		private void Init()
 		{
-			// Get FactionControl's settings button for use on the Create World page
-			foreach (ModContentPack pack in LoadedModManager.RunningMods)
-			{
-				if (pack.PackageId == "factioncontrol.kv.rw")
-				{
-					const string typeName = "FactionControl.Patch_Page_CreateWorldParams_DoWindowContents";
-					const string methodName = "OpenSettingsWindow";
+			// Faction Control's button for CreateWorld page.
+			var fcData = new ModMethodData(
+				packageId: "factioncontrol.kv.rw",
+				typeName: "FactionControl.Patch_Page_CreateWorldParams_DoWindowContents",
+				methodName: "OpenSettingsWindow");
 
-					foreach (Assembly assembly in pack.assemblies.loadedAssemblies)
-					{
-						var dialog = assembly.GetType(typeName);
-						if (dialog != null)
-						{
-							FactionControlSettingsMI = dialog.GetMethod(methodName, BindingFlags.Public | BindingFlags.Static);
-							break;
-						}
-					}
-					if (FactionControlSettingsMI == null)
-					{
-						Log.Warning($"Realistic Planets - Fan Update was unable to find {typeName}::{methodName} in mod Faction Control. Please ensure that both mods have been updated to their latest versions. Otherwise, report this issue to both mod authors.");
-					}
-					break;
-				}
+			FactionControlSettingsMI = fcData.GetMethodIfLoaded();
+
+			if (Settings.usingFactionControl && FactionControlSettingsMI == null)
+			{
+				throw new MissingMethodException("Realistic Planets was unable to find necessary Faction Control method info.");
 			}
 		}
 	}

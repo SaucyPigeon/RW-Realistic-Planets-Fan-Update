@@ -7,19 +7,43 @@ using HarmonyLib;
 using RimWorld.Planet;
 using RimWorld;
 using Verse;
+using UnityEngine;
 
 namespace Planets_Code.Patches
 {
+	/*
+	Add the following the the Planet tab description:
+	- world preset
+	- world type
+	- rainfall
+	- temperature
+	- axial tilt
+	- population
+
+	Also increase height of tab to fit contents.
+	*/
 	[HarmonyPatch(typeof(WITab_Planet))]
 	[HarmonyPatch("Desc", MethodType.Getter)]
 	public static class WITab_Planet_Desc
 	{
-		private static void Append(this StringBuilder stringBuilder, string key, string value)
+		/*
+		Had to move increase of planet tab win size to HarmonyPrepare().
+		This is because the static constructor of Planets_Initializer is called after
+		the constructor of WITab_Planet, which is called in WorldInspectPane.
+		*/
+		[HarmonyPrepare]
+		public static bool Prepare()
 		{
-			stringBuilder.Append(key.Translate());
-			stringBuilder.Append(": ");
-			stringBuilder.Append(value.Translate());
-			stringBuilder.Append("\n");
+			var winSizeField = AccessTools.Field(typeof(WITab_Planet), "WinSize");
+			var winSizeValue = (Vector2)winSizeField.GetValue(obj: null);
+
+			// Increase size of window to fit added contents of desc.
+			if (winSizeValue.y <= 200f)
+			{
+				winSizeValue.y *= 1.5f;
+				winSizeField.SetValue(obj: null, winSizeValue);
+			}
+			return true;
 		}
 
 		[HarmonyPostfix]

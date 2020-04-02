@@ -4,6 +4,7 @@ using Verse;
 using HarmonyLib;
 using RimWorld.Planet;
 using UnityEngine;
+using System;
 
 namespace Planets_Code
 {
@@ -129,14 +130,6 @@ namespace Planets_Code
 			}
 		}
 
-		private static void IncreasePlanetTabWinSize()
-		{
-			var winSizeField = AccessTools.Field(typeof(WITab_Planet), "WinSize");
-			var winSize = (Vector2)winSizeField.GetValue(null);
-			winSize.y *= 2;
-			winSizeField.SetValue(null, winSize);
-		}
-
 		static Planets_Initializer()
 		{
 			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("My Little Planet")))
@@ -167,8 +160,6 @@ namespace Planets_Code
 			}
 			EditPlantDefs();
 			EditAnimalDefs();
-			IncreasePlanetTabWinSize();
-
 		}
 	}
 }

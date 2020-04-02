@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using Verse;
 
-namespace Planets_Code
+namespace Planets_Code.Factions
 {
 	[HarmonyPatch(typeof(FactionGenerator), "NewGeneratedFaction", new Type[] { typeof(FactionDef) })]
 	public static class FactionGenerator_NewGeneratedFaction {

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
-namespace Planets_Code
+namespace Planets_Code.Factions
 {
 
 	[HarmonyPatch(typeof(TileFinder), "RandomSettlementTileFor", null)]
@@ -41,7 +41,8 @@ namespace Planets_Code
 					if (extraValidator != null && !extraValidator(x)) {
 						return 0f;
 					}
-					if (Controller.Settings.checkTemp.Equals(true)) {
+					if (Controller.Settings.checkTemp.CurrentValue.Equals(true))
+					{ 
 						if (i < 1000) {
 							if (item.temperature < (minTemp-45) || item.temperature > (maxTemp+45)) {
 								return 0f;
