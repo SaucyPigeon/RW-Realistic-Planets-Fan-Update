@@ -44,7 +44,6 @@ namespace Planets_Code.Patches
 
 		private static void Append_DiseaseFrequency(this StringBuilder stringBuilder)
 		{
-
 			int selTileID = Find.WorldSelector.selectedTile;
 			var selTile = Find.WorldGrid[selTileID];
 			string key = "AverageDiseaseFrequency".Translate();

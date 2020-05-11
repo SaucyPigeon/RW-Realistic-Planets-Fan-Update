@@ -12,6 +12,7 @@ namespace Planets_Code.Patches.TileFinder
 {
 	using TileFinder = RimWorld.Planet.TileFinder;
 
+	// Behold...
 	[HarmonyPatch(typeof(TileFinder))]
 	[HarmonyPatch(nameof(TileFinder.RandomSettlementTileFor))]
 	static class TileFinder_RandomSettlementTileFor
@@ -65,6 +66,28 @@ namespace Planets_Code.Patches.TileFinder
 				}
 			}
 			return false;
+		}
+
+		static void AddFailureForFaction(Faction faction)
+		{
+			if (Controller.failureCount.ContainsKey(faction))
+			{
+				Controller.failureCount[faction]++;
+				if (Controller.failureCount[faction] == 10)
+				{
+					Controller.failureCount.Remove(faction);
+					if (Controller.factionCenters.ContainsKey(faction))
+					{
+						Controller.factionCenters.Remove(faction);
+						Log.Warning("  Relocating faction center.");
+					}
+				}
+			}
+			else
+			{
+				Log.Warning("  Retrying.");
+				Controller.failureCount.Add(faction, 1);
+			}
 		}
 
 		static IEnumerable<CodeInstruction> Transpiler_SetStateCounter(IEnumerable<CodeInstruction> instructions)
@@ -149,6 +172,28 @@ namespace Planets_Code.Patches.TileFinder
 
 		}
 
+		static IEnumerable<CodeInstruction> Transpiler_AddFailureForFaction(IEnumerable<CodeInstruction> instructions)
+		{
+			// Target: Call void Verse.Log::Error(String, Boolean)
+			// (call Log.Error)
+			// ldarg.0 (faction)
+			// call AddFailureForFaction(Faction)
+
+			var mi_Log_Error = AccessTools.Method(typeof(Log), nameof(Log.Error));
+			var mi_AddFailureForFaction = AccessTools.Method(typeof(TileFinder_RandomSettlementTileFor), nameof(AddFailureForFaction));
+
+			foreach (var instruction in instructions)
+			{
+				yield return instruction;
+
+				if (instruction.Calls(mi_Log_Error))
+				{
+					yield return new CodeInstruction(OpCodes.Ldarg_0);
+					yield return new CodeInstruction(OpCodes.Call, mi_AddFailureForFaction);
+				}
+			}
+		}
+
 		#endregion
 
 		[HarmonyPrefix]
@@ -185,6 +230,7 @@ namespace Planets_Code.Patches.TileFinder
 			instructions = Transpiler_SetStateCounter(instructions);
 			instructions = Transpiler_IncreaseLoopCounter(instructions);
 			instructions = Transpiler_GetFactionSprawlTile(instructions, ilGenerator);
+			instructions = Transpiler_AddFailureForFaction(instructions);
 			return instructions;
 		}
 	}

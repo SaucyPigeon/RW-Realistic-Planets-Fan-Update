@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
+using System.Diagnostics;
 
 namespace Planets_Code.Patches.TileFinder
 {
@@ -18,19 +19,26 @@ namespace Planets_Code.Patches.TileFinder
 
 		internal static TileFinderState Global;
 
+		[Conditional("DEBUG")]
+		internal void Log()
+		{
+			DebugLogger.Message("Logging tileFinderState");
+			DebugLogger.Message(i.ToString());
+			DebugLogger.Message(minTemp.ToString());
+			DebugLogger.Message(maxTemp.ToString());
+
+		}
+
 		public bool ExcludedByTemperature(Tile tile)
 		{
-			DebugLogger.Message($"Calculated status for {tile.ToString()}: ExcludedByTemperature");
-			DebugLogger.Message($"Value of i: {i.Value}");
+			this.Log();
 
 			if (Controller.Settings.usingFactionControl)
 			{
-				DebugLogger.Message("Faction Control detected. Returning false.");
 				return false;
 			}
 			if (!Controller.Settings.checkTemp)
 			{
-				DebugLogger.Message($"Check temperature setting was false. Aborting check.");
 				return false;
 			}
 
@@ -140,7 +148,6 @@ namespace Planets_Code.Patches.TileFinder
 					}
 				}
 			}
-			DebugLogger.Message($"Could not find value. Returning false.");
 			return false;
 		}
 
@@ -160,7 +167,7 @@ namespace Planets_Code.Patches.TileFinder
 			{
 				if (!faction.IsPlayer)
 				{
-					if (faction.leader == null)
+					if (faction.leader != null)
 					{
 						minTemp = faction.leader.def.GetStatValueAbstract(StatDefOf.ComfyTemperatureMin, null);
 						maxTemp = faction.leader.def.GetStatValueAbstract(StatDefOf.ComfyTemperatureMax, null);

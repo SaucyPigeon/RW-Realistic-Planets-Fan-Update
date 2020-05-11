@@ -80,23 +80,6 @@ namespace Planets_Code.Patches.TileFinder
 					instruction.labels.Add(methodEnd);
 				}
 				yield return instruction;
-				//if (instruction == targetInstruction)
-				//{
-				//	var jumpToBlockEnd = ilGenerator.DefineLabel();
-				//	yield return new CodeInstruction(OpCodes.Ldloc_0) { labels = instruction.labels.ListFullCopy() };
-				//	instruction.labels.Clear();
-				//	yield return new CodeInstruction(OpCodes.Call, mi_ExcludedByTemperature);
-				//	yield return new CodeInstruction(OpCodes.Brfalse_S, jumpToBlockEnd);
-
-				//	yield return new CodeInstruction(OpCodes.Ldc_R4, operand: 0.0f);
-				//	yield return new CodeInstruction(OpCodes.Br, lastLabel);
-
-				//	yield return new CodeInstruction(OpCodes.Nop) { labels = new List<Label>() { jumpToBlockEnd } };
-				//}
-				//if (instruction == lastInstruction)
-				//{
-				//	instruction.labels.Add(lastLabel);
-				//}
 			}
 		}
 	}

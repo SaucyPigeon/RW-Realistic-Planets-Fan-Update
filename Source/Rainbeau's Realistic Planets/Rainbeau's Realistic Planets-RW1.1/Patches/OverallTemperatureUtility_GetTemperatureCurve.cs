@@ -5,10 +5,14 @@ using Verse;
 namespace Planets_Code
 {
 	[HarmonyPatch(typeof(OverallTemperatureUtility), "GetTemperatureCurve", null)]
-	public static class OverallTemperatureUtility_GetTemperatureCurve {
-		public static void Postfix(this OverallTemperature overallTemperature, ref SimpleCurve __result) {
-			if (overallTemperature == OverallTemperature.VeryCold) {
-				SimpleCurve Curve_VeryCold_Revised = new SimpleCurve {
+	public static class OverallTemperatureUtility_GetTemperatureCurve
+	{
+		public static void Postfix(this OverallTemperature overallTemperature, ref SimpleCurve __result)
+		{
+			if (overallTemperature == OverallTemperature.VeryCold)
+			{
+				SimpleCurve Curve_VeryCold_Revised = new SimpleCurve
+				{
 					{ new CurvePoint(-9999f, -9999f), true },
 					{ new CurvePoint(-50f, -90f), true },
 					{ new CurvePoint(-40f, -75f), true },
@@ -20,8 +24,10 @@ namespace Planets_Code
 				};
 				__result = Curve_VeryCold_Revised;
 			}
-			if (overallTemperature == OverallTemperature.Cold) {
-				SimpleCurve Curve_Cold_Revised = new SimpleCurve {
+			if (overallTemperature == OverallTemperature.Cold)
+			{
+				SimpleCurve Curve_Cold_Revised = new SimpleCurve
+				{
 					{ new CurvePoint(-9999f, -9999f), true },
 					{ new CurvePoint(-50f, -78f), true },
 					{ new CurvePoint(-25f, -48f), true },
@@ -33,8 +39,10 @@ namespace Planets_Code
 				};
 				__result = Curve_Cold_Revised;
 			}
-			if (overallTemperature == OverallTemperature.LittleBitColder) {
-				SimpleCurve Curve_LittleBitColder_Revised = new SimpleCurve {
+			if (overallTemperature == OverallTemperature.LittleBitColder)
+			{
+				SimpleCurve Curve_LittleBitColder_Revised = new SimpleCurve
+				{
 					{ new CurvePoint(-9999f, -9999f), true },
 					{ new CurvePoint(-20f, -25f), true },
 					{ new CurvePoint(-15f, -18f), true },
@@ -44,8 +52,10 @@ namespace Planets_Code
 				};
 				__result = Curve_LittleBitColder_Revised;
 			}
-			if (overallTemperature == OverallTemperature.LittleBitWarmer) {
-				SimpleCurve Curve_LittleBitWarmer_Revised = new SimpleCurve {
+			if (overallTemperature == OverallTemperature.LittleBitWarmer)
+			{
+				SimpleCurve Curve_LittleBitWarmer_Revised = new SimpleCurve
+				{
 					{ new CurvePoint(-9999f, -9999f), true },
 					{ new CurvePoint(-45f, -32f), true },
 					{ new CurvePoint(40f, 53f), true },
@@ -54,8 +64,10 @@ namespace Planets_Code
 				};
 				__result = Curve_LittleBitWarmer_Revised;
 			}
-			if (overallTemperature == OverallTemperature.Hot) {
-				SimpleCurve Curve_Hot_Revised = new SimpleCurve {
+			if (overallTemperature == OverallTemperature.Hot)
+			{
+				SimpleCurve Curve_Hot_Revised = new SimpleCurve
+				{
 					{ new CurvePoint(-45f, -14f), true },
 					{ new CurvePoint(-25f, -4f), true },
 					{ new CurvePoint(-22f, 10f), true },
@@ -66,8 +78,10 @@ namespace Planets_Code
 				};
 				__result = Curve_Hot_Revised;
 			}
-			if (overallTemperature == OverallTemperature.VeryHot) {
-				SimpleCurve Curve_VeryHot_Revised = new SimpleCurve {
+			if (overallTemperature == OverallTemperature.VeryHot)
+			{
+				SimpleCurve Curve_VeryHot_Revised = new SimpleCurve
+				{
 					{ new CurvePoint(-45f, 40f), true },
 					{ new CurvePoint(0f, 55f), true },
 					{ new CurvePoint(33f, 95f), true },
