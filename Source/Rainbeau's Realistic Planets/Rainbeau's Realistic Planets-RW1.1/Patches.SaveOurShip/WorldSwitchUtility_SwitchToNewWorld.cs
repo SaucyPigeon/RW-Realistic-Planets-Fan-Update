@@ -21,7 +21,7 @@ namespace Planets_Code.Patches.SaveOurShip
 		[HarmonyPrepare]
 		public static bool Prepare()
 		{
-			return modMethodData.ModIsLoaded();
+			return modMethodData.IsLoaded();
 		}
 
 		[HarmonyTargetMethod]

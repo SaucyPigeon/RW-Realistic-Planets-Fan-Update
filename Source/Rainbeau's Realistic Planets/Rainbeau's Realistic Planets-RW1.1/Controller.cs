@@ -19,7 +19,11 @@ namespace Planets_Code
 		public static Settings Settings;
 		public static MethodInfo FactionControlSettingsMI = null;
 
+#if DEBUG
+		public const bool Debug = true;
+#else
 		public const bool Debug = false;
+#endif
 
 		public override string SettingsCategory()
 		{
@@ -32,7 +36,7 @@ namespace Planets_Code
 		}
 
 		public Controller(ModContentPack content) : base(content)
-		{ 
+		{
 			const string Id = "net.saucypigeon.rimworld.mod.realisticplanets";
 
 			if (Debug)

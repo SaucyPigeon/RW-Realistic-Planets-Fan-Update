@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Verse;
+using System.Diagnostics;
 
 namespace Planets_Code
 {
@@ -16,13 +17,24 @@ namespace Planets_Code
 		public bool randomPlanet = false;
 
 		// Factions
-		public SettingsValue<bool> checkTemp = new SettingsValue<bool>(defaultValue: true, name: "checkTemp");
-		public SettingsValue<float> factionGrouping = new SettingsValue<float>(defaultValue: 2.5f, name: "factionGrouping");
+		public SettingsValue<bool> checkTemp = SettingsValue<bool>.Create("checkTemp", true);
+		public SettingsValue<float> factionGrouping = SettingsValue<float>.Create("factionGrouping", 2.5f);
 
 		// Descriptions
-		public SettingsValue<bool> showStoneTypes = new SettingsValue<bool>(defaultValue: false, name: "showStoneTypes");
-		public SettingsValue<bool> showGrowingPeriod = new SettingsValue<bool>(defaultValue: true, name: "showGrowingPeriod");
-		public SettingsValue<bool> showDiseaseFrequency = new SettingsValue<bool>(defaultValue: false, name: "showDiseaseFrequency");
+		public SettingsValue<bool> showStoneTypes = SettingsValue<bool>.Create("showStoneTypes", false);
+		public SettingsValue<bool> showGrowingPeriod = SettingsValue<bool>.Create("showGrowingPeriod", true);
+		public SettingsValue<bool> showDiseaseFrequency = SettingsValue<bool>.Create("showDiseaseFrequency", false);
+		
+		[Conditional("DEBUG")]
+		internal void LogSettings()
+		{
+			DebugLogger.Message("Current settings:");
+			DebugLogger.Message(checkTemp.ToString());
+			DebugLogger.Message(factionGrouping.ToString());
+			DebugLogger.Message(showStoneTypes.ToString());
+			DebugLogger.Message(showGrowingPeriod.ToString());
+			DebugLogger.Message(showDiseaseFrequency.ToString());
+		}
 
 		public void DoWindowContents(Rect canvas)
 		{
@@ -66,11 +78,11 @@ namespace Planets_Code
 			list.Gap(24);
 			if (list.ButtonText("Planets.ResetToDefault".Translate()))
 			{
-				this.checkTemp.ResetToDefault();
-				this.factionGrouping.ResetToDefault();
-				this.showStoneTypes.ResetToDefault();
-				this.showGrowingPeriod.ResetToDefault();
-				this.showDiseaseFrequency.ResetToDefault();
+				this.checkTemp.Reset();
+				this.factionGrouping.Reset();
+				this.showStoneTypes.Reset();
+				this.showGrowingPeriod.Reset();
+				this.showDiseaseFrequency.Reset();
 			}
 			list.End();
 		}
