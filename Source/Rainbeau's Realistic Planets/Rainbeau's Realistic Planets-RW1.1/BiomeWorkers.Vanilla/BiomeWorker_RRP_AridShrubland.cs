@@ -3,9 +3,6 @@ using RimWorld.Planet;
 
 namespace Planets_Code
 {
-	//
-	// REPLACEMENT BIOMEWORKERS FOR VANILLA BIOMES
-	//
 	public class BiomeWorker_RRP_AridShrubland : BiomeWorker
 		{
 			public BiomeWorker_RRP_AridShrubland() { }

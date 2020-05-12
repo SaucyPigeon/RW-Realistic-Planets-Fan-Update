@@ -70,6 +70,11 @@ namespace Planets_Code.Patches.TileFinder
 
 		static void AddFailureForFaction(Faction faction)
 		{
+			if (Controller.Settings.usingFactionControl)
+			{
+				return;
+			}
+
 			if (Controller.failureCount.ContainsKey(faction))
 			{
 				Controller.failureCount[faction]++;

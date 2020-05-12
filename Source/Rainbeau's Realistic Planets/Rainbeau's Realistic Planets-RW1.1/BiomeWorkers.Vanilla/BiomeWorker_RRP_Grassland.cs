@@ -3,10 +3,6 @@ using RimWorld.Planet;
 
 namespace Planets_Code
 {
-	//
-	// BIOMEWORKERS FOR NEW BIOMES
-	//
-
 	public class BiomeWorker_RRP_Grassland : BiomeWorker
 		{
 			public BiomeWorker_RRP_Grassland() { }
