@@ -73,6 +73,7 @@
     <Compile Include="BiomeWorkers.Urban\BiomeWorker_TrSwUrban.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="DebugLogger.cs" />
+    <Compile Include="HillinessModifier.cs" />
     <Compile Include="ModMethodData.cs" />
     <Compile Include="Patches.Factions\FactionGenerator_GenerateFactionsIntoWorld.cs" />
     <Compile Include="Patches.Factions\FactionGenerator_NewGeneratedFaction.cs" />
@@ -86,7 +87,10 @@
     <Compile Include="Patches\SavedGameLoaderNow_LoadGameFromSaveFileNow.cs" />
     <Compile Include="Patches.SaveOurShip\WorldSwitchUtility_SwitchToNewWorld.cs" />
     <Compile Include="Patches\WITab_Planet_Desc.cs" />
+    <Compile Include="Patches\WorldGenStep_Terrain_FreqMultiplier.cs" />
+    <Compile Include="Patches\WorldGenStep_Terrain_GenerateTileFor.cs" />
     <Compile Include="Patches\WorldGenStep_Terrain_SetupElevationNoise.cs" />
+    <Compile Include="Patches\WorldGenStep_Terrain_SetupHillinessNoise.cs" />
     <Compile Include="Patches\WorldInspectPane_TileInspectString.cs" />
     <Compile Include="Planets_CreateWorldParams.cs" />
     <Compile Include="Planets_GameComponent.cs" />
@@ -95,6 +99,7 @@
     <Compile Include="Planets_Scribe_Values.cs" />
     <Compile Include="Planets_Strings.cs" />
     <Compile Include="Planets_TemperatureTuning.cs" />
+    <Compile Include="Planets_Widgets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RainfallModifier.cs" />
     <Compile Include="RainfallModifierUtility.cs" />

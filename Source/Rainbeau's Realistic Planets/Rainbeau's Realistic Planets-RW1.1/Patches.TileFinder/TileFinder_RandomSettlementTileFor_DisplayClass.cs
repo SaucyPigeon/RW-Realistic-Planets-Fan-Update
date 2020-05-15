@@ -21,8 +21,6 @@ namespace Planets_Code.Patches.TileFinder
 
 		static bool ExcludedByTemperature(Tile tile)
 		{
-			DebugLogger.Message("Checking excluded temperature status.");
-
 			return TileFinderState.Global.ExcludedByTemperature(tile);
 		}
 
@@ -40,8 +38,6 @@ namespace Planets_Code.Patches.TileFinder
 		[HarmonyTranspiler]
 		static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator ilGenerator)
 		{
-			DebugLogger.Message("TileFinder RandomSettlementTileFor DisplayClass (auto-generated) transpiler.");
-
 			// Target: last ldloc.0 instruction
 			// Add:
 			// [copy labels]

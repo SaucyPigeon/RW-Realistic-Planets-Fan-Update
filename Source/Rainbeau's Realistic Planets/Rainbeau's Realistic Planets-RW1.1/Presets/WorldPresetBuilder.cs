@@ -15,6 +15,7 @@ namespace Planets_Code.Presets
 		public RainfallModifier? rainfallModifier;
 		public OverallTemperature? temperature;
 		public OverallPopulation? population;
+		public HillinessModifier hillinessModifier;
 
 		public WorldPresetBuilder Name(string value)
 		{
@@ -52,6 +53,12 @@ namespace Planets_Code.Presets
 			return this;
 		}
 
+		public WorldPresetBuilder HillinessModifier(HillinessModifier value)
+		{
+			this.hillinessModifier = value;
+			return this;
+		}
+
 		public WorldPreset Build()
 		{
 			if (name == null)
@@ -66,7 +73,9 @@ namespace Planets_Code.Presets
 				throw new ArgumentNullException(nameof(temperature));
 			if (!population.HasValue)
 				throw new ArgumentNullException(nameof(population));
-			return new WorldPreset(name, worldType.Value, axialTilt.Value, rainfallModifier.Value, temperature.Value, population.Value);
+			if (hillinessModifier == null)
+				throw new ArgumentNullException(nameof(hillinessModifier));
+			return new WorldPreset(name, worldType.Value, axialTilt.Value, rainfallModifier.Value, temperature.Value, population.Value, hillinessModifier);
 		}
 
 		public WorldPresetBuilder()

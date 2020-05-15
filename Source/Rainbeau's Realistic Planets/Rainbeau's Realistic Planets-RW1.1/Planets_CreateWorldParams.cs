@@ -166,6 +166,9 @@ namespace Planets_Code
 				single += 40f;
 				DoAxialTiltSlider(single);
 
+				single += 40f;
+				DoHillinessSlider(single);
+
 				// Faction Control will override population, so disable this slider if Faction Control is enabled
 				if (Controller.FactionControlSettingsMI == null)
 				{
@@ -256,7 +259,10 @@ namespace Planets_Code
 			Rect rect = new Rect(200f, single, 200f, 30f);
 			RainfallModifier rainfallModCheck = this.rainfallMod;
 			this.rainfallMod = (RainfallModifier)Mathf.RoundToInt(Widgets.HorizontalSlider(rect, (float)this.rainfallMod, 0f, (float)(RainfallModifierUtility.EnumValuesCount - 1), true, "PlanetRainfall_Normal".Translate(), "PlanetRainfall_Low".Translate(), "PlanetRainfall_High".Translate(), 1f));
-			if (this.rainfallMod != rainfallModCheck) { this.CurrentWorldPreset = "Planets.Custom"; }
+			if (this.rainfallMod != rainfallModCheck)
+			{
+				this.CurrentWorldPreset = "Planets.Custom";
+			}
 			TooltipHandler.TipRegion(new Rect(0f, single, rect.xMax, rect.height), "Planets.RainfallTip".Translate());
 		}
 
@@ -266,7 +272,10 @@ namespace Planets_Code
 			Rect rect = new Rect(200f, single, 200f, 30f);
 			OverallTemperature temperatureCheck = this.temperature;
 			this.temperature = (OverallTemperature)Mathf.RoundToInt(Widgets.HorizontalSlider(rect, (float)this.temperature, 0f, (float)(OverallTemperatureUtility.EnumValuesCount - 1), true, "PlanetTemperature_Normal".Translate(), "PlanetTemperature_Low".Translate(), "PlanetTemperature_High".Translate(), 1f));
-			if (this.temperature != temperatureCheck) { this.CurrentWorldPreset = "Planets.Custom"; }
+			if (this.temperature != temperatureCheck)
+			{
+				this.CurrentWorldPreset = "Planets.Custom";
+			}
 		}
 
 		private void DoAxialTiltSlider(float single)
@@ -275,8 +284,36 @@ namespace Planets_Code
 			Rect rect = new Rect(200f, single, 200f, 30f);
 			AxialTilt axialTiltCheck = Planets_GameComponent.axialTilt;
 			Planets_GameComponent.axialTilt = (AxialTilt)Mathf.RoundToInt(Widgets.HorizontalSlider(rect, (float)Planets_GameComponent.axialTilt, 0f, (float)(AxialTiltUtility.EnumValuesCount - 1), true, "Planets.AxialTilt_Normal".Translate(), "Planets.AxialTilt_Low".Translate(), "Planets.AxialTilt_High".Translate(), 1f));
-			if (Planets_GameComponent.axialTilt != axialTiltCheck) { this.CurrentWorldPreset = "Planets.Custom"; }
+			if (Planets_GameComponent.axialTilt != axialTiltCheck)
+			{
+				this.CurrentWorldPreset = "Planets.Custom";
+			}
 			TooltipHandler.TipRegion(new Rect(0f, single, rect.xMax, rect.height), "Planets.AxialTiltTip".Translate());
+		}
+
+		private void DoHillinessSlider(float single)
+		{
+			Widgets.Label(new Rect(0f, single, 200f, 30f), "Planets.Hilliness".Translate());
+			Rect rect = new Rect(200f, single, 200f, 30f);
+			var hillinessCheck = Planets_GameComponent.hillinessModifier;
+			var minHilliness = HillinessModifier.Values.Min();
+			var maxHilliness = HillinessModifier.Values.Max();
+
+			var sliderParams = new Planets_Widgets.SliderParams()
+			{
+				MiddleAlignment = true,
+				Label = "Planets.Hilliness_Normal".Translate(),
+				LeftAlignedLabel = "Planets.Hilliness_Low".Translate(),
+				RightAlignedLabel = "Planets.Hilliness_High".Translate()
+			};
+
+			Planets_GameComponent.hillinessModifier = Planets_Widgets.HorizontalSlider(rect, Planets_GameComponent.hillinessModifier, minHilliness, maxHilliness, sliderParams);
+
+			if (Planets_GameComponent.hillinessModifier != hillinessCheck)
+			{
+				this.CurrentWorldPreset = "Planets.Custom";
+			}
+			TooltipHandler.TipRegion(new Rect(0f, single, rect.xMax, rect.height), "Planets.HillinessTip".Translate());
 		}
 
 		private void DoPopulationSlider(float single)
@@ -311,13 +348,9 @@ namespace Planets_Code
 		{
 			this.seedString = GenText.RandomSeedString();
 			this.planetCoverage = 0.3f;
-			this.CurrentWorldPreset = "Planets.Vanilla";
-			Planets_GameComponent.axialTilt = AxialTilt.Normal;
-			Planets_GameComponent.worldType = WorldType.Vanilla;
 			Planets_GameComponent.subcount = 10;
-			this.rainfallMod = RainfallModifier.Normal;
-			this.temperature = OverallTemperature.Normal;
-			this.population = OverallPopulation.Normal;
+
+			ApplyWorldPreset(WorldPresetUtility.WorldPreset_Vanilla());
 		}
 
 		public void Randomize()

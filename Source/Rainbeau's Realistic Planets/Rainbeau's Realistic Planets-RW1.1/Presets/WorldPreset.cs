@@ -15,8 +15,9 @@ namespace Planets_Code.Presets
 		public RainfallModifier RainfallModifier { get; }
 		public OverallTemperature Temperature { get; }
 		public OverallPopulation Population { get; }
+		public HillinessModifier HillinessModifier { get; }
 
-		public WorldPreset(string name, WorldType worldType, AxialTilt axialTilt, RainfallModifier rainfallModifier, OverallTemperature temperature, OverallPopulation population)
+		public WorldPreset(string name, WorldType worldType, AxialTilt axialTilt, RainfallModifier rainfallModifier, OverallTemperature temperature, OverallPopulation population, HillinessModifier hillinessModifier)
 		{
 			Name = name ?? throw new ArgumentNullException(nameof(name));
 			WorldType = worldType;
@@ -24,6 +25,7 @@ namespace Planets_Code.Presets
 			RainfallModifier = rainfallModifier;
 			Temperature = temperature;
 			Population = population;
+			HillinessModifier = hillinessModifier;
 		}
 	}
 }

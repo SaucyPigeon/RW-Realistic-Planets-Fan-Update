@@ -104,8 +104,6 @@ namespace Planets_Code.Patches.TileFinder
 			//	ldloc 2
 			//	call void TileFinder_RandomSettlementTileFor::SetCounter(int)
 
-			DebugLogger.Message("Transpiler, set state counter.");
-
 			var fi_State = AccessTools.Field(typeof(TileFinderState), nameof(TileFinderState.Global));
 			var mi_SetCounter = AccessTools.Method(typeof(TileFinderState), nameof(TileFinderState.SetCounter));
 
@@ -204,10 +202,6 @@ namespace Planets_Code.Patches.TileFinder
 		[HarmonyPrefix]
 		static void Prefix(Faction faction)
 		{
-			DebugLogger.Message("Prefix, RandomSettlementTileFor.");
-
-			Controller.Settings.LogSettings();
-
 			if (TileFinderState.Global != null)
 			{
 				throw new InvalidOperationException($"Global {nameof(TileFinderState)} is not null. Ensure that it is set to null when finished using it.");
@@ -218,8 +212,6 @@ namespace Planets_Code.Patches.TileFinder
 		[HarmonyPostfix]
 		static void Postfix()
 		{
-			DebugLogger.Message("Postfix, RandomSettlementTileFor.");
-
 			if (TileFinderState.Global == null)
 			{
 				throw new InvalidOperationException($"Global {nameof(TileFinderState)} is null. Ensure that it is only set to null when finished using it.");
@@ -230,8 +222,6 @@ namespace Planets_Code.Patches.TileFinder
 		[HarmonyTranspiler]
 		static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator ilGenerator)
 		{
-			DebugLogger.Message("Transpiler, RandomSettlementTileFor.");
-
 			instructions = Transpiler_SetStateCounter(instructions);
 			instructions = Transpiler_IncreaseLoopCounter(instructions);
 			instructions = Transpiler_GetFactionSprawlTile(instructions, ilGenerator);

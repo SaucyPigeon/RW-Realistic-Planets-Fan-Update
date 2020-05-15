@@ -7,6 +7,7 @@ namespace Planets_Code
 		public static AxialTilt axialTilt = AxialTilt.Normal;
 		public static WorldType worldType = WorldType.Vanilla;
 		public static string worldPreset = "Planets.Vanilla";
+		public static HillinessModifier hillinessModifier = HillinessModifier.Normal;
 
 		public static int subcount = 10;
 
@@ -24,6 +25,7 @@ namespace Planets_Code
 			Scribe_Values.Look(ref worldType, "worldType", WorldType.Vanilla, true);
 			Scribe_Values.Look(ref subcount, "subcount", 10, true);
 			Scribe_Values.Look(ref worldPreset, "worldPreset", "Planets.Vanilla", true);
+			Scribe_Values.Look(ref hillinessModifier, "hillinessModifier", HillinessModifier.Normal, true);
 		}
 	}
 	

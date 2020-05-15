@@ -14,7 +14,7 @@ namespace Planets_Code.Presets
 			get;
 		}
 
-		private static WorldPreset WorldPreset_Vanilla()
+		public static WorldPreset WorldPreset_Vanilla()
 		{
 			return new WorldPresetBuilder()
 				.Name("Planets.Vanilla")
@@ -23,10 +23,11 @@ namespace Planets_Code.Presets
 				.RainfallModifier(RainfallModifier.Normal)
 				.Temperature(OverallTemperature.Normal)
 				.Population(OverallPopulation.Normal)
+				.HillinessModifier(HillinessModifier.Normal)
 				.Build();
 		}
 
-		private static WorldPreset WorldPreset_Desert()
+		public static WorldPreset WorldPreset_Desert()
 		{
 			return new WorldPresetBuilder()
 				.Name("Planets.Desert")
@@ -35,10 +36,11 @@ namespace Planets_Code.Presets
 				.RainfallModifier(RainfallModifier.LittleBitLess)
 				.Temperature(OverallTemperature.LittleBitWarmer)
 				.Population(OverallPopulation.LittleBitLess)
+				.HillinessModifier(HillinessModifier.Normal)
 				.Build();
 		}
 
-		private static WorldPreset WorldPreset_Frozen()
+		public static WorldPreset WorldPreset_Frozen()
 		{
 			return new WorldPresetBuilder()
 				.Name("Planets.Frozen")
@@ -47,10 +49,11 @@ namespace Planets_Code.Presets
 				.RainfallModifier(RainfallModifier.LittleBitLess)
 				.Temperature(OverallTemperature.Cold)
 				.Population(OverallPopulation.LittleBitLess)
+				.HillinessModifier(HillinessModifier.SlightlyFlat)
 				.Build();
 		}
 
-		private static WorldPreset WorldPreset_Earthlike()
+		public static WorldPreset WorldPreset_Earthlike()
 		{
 			return new WorldPresetBuilder()
 				.Name("Planets.Earthlike")
@@ -59,10 +62,11 @@ namespace Planets_Code.Presets
 				.RainfallModifier(RainfallModifier.Normal)
 				.Temperature(OverallTemperature.Normal)
 				.Population(OverallPopulation.Normal)
+				.HillinessModifier(HillinessModifier.Normal)
 				.Build();
 		}
 
-		private static WorldPreset WorldPreset_Forest()
+		public static WorldPreset WorldPreset_Forest()
 		{
 			return new WorldPresetBuilder()
 				.Name("Planets.Forest")
@@ -71,10 +75,11 @@ namespace Planets_Code.Presets
 				.RainfallModifier(RainfallModifier.LittleBitMore)
 				.Temperature(OverallTemperature.LittleBitColder)
 				.Population(OverallPopulation.LittleBitMore)
+				.HillinessModifier(HillinessModifier.SlightlyHilly)
 				.Build();
 		}
 
-		private static WorldPreset WorldPreset_Iceball()
+		public static WorldPreset WorldPreset_Iceball()
 		{
 			return new WorldPresetBuilder()
 				.Name("Planets.Iceball")
@@ -83,10 +88,11 @@ namespace Planets_Code.Presets
 				.RainfallModifier(RainfallModifier.Normal)
 				.Temperature(OverallTemperature.VeryCold)
 				.Population(OverallPopulation.Little)
+				.HillinessModifier(HillinessModifier.Normal)
 				.Build();
 		}
 
-		private static WorldPreset WorldPreset_Jungle()
+		public static WorldPreset WorldPreset_Jungle()
 		{
 			return new WorldPresetBuilder()
 				.Name("Planets.Jungle")
@@ -95,10 +101,11 @@ namespace Planets_Code.Presets
 				.RainfallModifier(RainfallModifier.LittleBitMore)
 				.Temperature(OverallTemperature.LittleBitWarmer)
 				.Population(OverallPopulation.High)
+				.HillinessModifier(HillinessModifier.SlightlyHilly)
 				.Build();
 		}
 
-		private static WorldPreset WorldPreset_Ocean()
+		public static WorldPreset WorldPreset_Ocean()
 		{
 			return new WorldPresetBuilder()
 				.Name("Planets.Ocean")
@@ -107,10 +114,11 @@ namespace Planets_Code.Presets
 				.RainfallModifier(RainfallModifier.Normal)
 				.Temperature(OverallTemperature.Normal)
 				.Population(OverallPopulation.AlmostNone)
+				.HillinessModifier(HillinessModifier.Flat)
 				.Build();
 		}
 
-		private static WorldPreset WorldPreset_Custom()
+		public static WorldPreset WorldPreset_Custom()
 		{
 			return new WorldPresetBuilder()
 				.Name("Planets.Custom")
@@ -119,6 +127,7 @@ namespace Planets_Code.Presets
 				.RainfallModifier(RainfallModifier.Normal)
 				.Temperature(OverallTemperature.Normal)
 				.Population(OverallPopulation.Normal)
+				.HillinessModifier(HillinessModifier.Normal)
 				.Build();
 		}
 

@@ -31,8 +31,6 @@ namespace Planets_Code.Patches.TileFinder
 
 		public bool ExcludedByTemperature(Tile tile)
 		{
-			this.Log();
-
 			if (Controller.Settings.usingFactionControl)
 			{
 				return false;
@@ -153,8 +151,6 @@ namespace Planets_Code.Patches.TileFinder
 
 		public void SetCounter(int value)
 		{
-			DebugLogger.Message($"Setting counter value to {value}");
-
 			i = value;
 		}
 

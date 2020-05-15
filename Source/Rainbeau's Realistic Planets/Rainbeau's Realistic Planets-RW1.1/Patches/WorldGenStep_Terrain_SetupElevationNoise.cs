@@ -1,12 +1,16 @@
 ﻿using HarmonyLib;
 using RimWorld.Planet;
 using Verse;
+using System;
+using System.Collections.Generic;
+using System.Reflection.Emit;
 
 namespace Planets_Code
 {
 	[HarmonyPatch(typeof(WorldGenStep_Terrain), "SetupElevationNoise", null)]
 	public static class WorldGenStep_Terrain_SetupElevationNoise
 	{
+		[HarmonyPrefix]
 		public static bool Prefix(ref FloatRange ___ElevationRange)
 		{
 			if (Planets_GameComponent.worldType == WorldType.Waterworld)
