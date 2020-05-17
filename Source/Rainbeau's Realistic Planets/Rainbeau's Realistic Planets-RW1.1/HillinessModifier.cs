@@ -10,7 +10,15 @@ namespace Planets_Code
 {
 	public sealed class HillinessModifier : IExposable, IComparable<HillinessModifier>
 	{
-		int id;
+		int value;
+
+		public string Label
+		{
+			get
+			{
+				return "Planets.Hilliness_" + GetLabelSuffix();
+			}
+		}
 
 		public static readonly HillinessModifier VeryFlat		= new HillinessModifier(-3);
 		public static readonly HillinessModifier Flat			= new HillinessModifier(-2);
@@ -26,9 +34,9 @@ namespace Planets_Code
 		{
 			return String.Concat(
 				"HillinessModifier(",
-				"id=",
-				id,
-				", value=",
+				"value=",
+				value,
+				", as float=",
 				(float)this,
 				")"
 				);
@@ -36,25 +44,48 @@ namespace Planets_Code
 
 		public void ExposeData()
 		{
-			Scribe_Values.Look(ref id, "id", 0, true);
+			Scribe_Values.Look(ref value, "value", 0, true);
 		}
 
 		public int CompareTo(HillinessModifier other)
 		{
-			return id.CompareTo(other.id);
+			return value.CompareTo(other.value);
 		}
 
-		public static implicit operator int(HillinessModifier value) => value.id;
+		private string GetLabelSuffix()
+		{
+			switch (value)
+			{
+				case -3:
+					return "VeryLow";
+				case -2:
+					return "Low";
+				case -1:
+					return "SlightlyLow";
+				case 0:
+					return "Normal";
+				case +1:
+					return "SlightlyHigh";
+				case +2:
+					return "High";
+				case +3:
+					return "VeryHigh";
+				default:
+					throw new ArgumentOutOfRangeException(nameof(value), $"Value of {nameof(value)} ({value}) does not have a defined label suffix.");
+			}
+		}
+
+		public static implicit operator int(HillinessModifier value) => value.value;
 		public static implicit operator HillinessModifier(int value) => new HillinessModifier(value, recordValue: false);
 
 		public static explicit operator float(HillinessModifier value)
 		{
-			return 1.0f + (value.id * 0.1f);
+			return 1.0f + (value.value * 0.1f);
 		}
 
-		HillinessModifier(int id, bool recordValue = true)
+		HillinessModifier(int value, bool recordValue = true)
 		{
-			this.id = id;
+			this.value = value;
 			
 			if (recordValue)
 			{
@@ -62,7 +93,7 @@ namespace Planets_Code
 				{
 					Values = new List<int>();
 				}
-				Values.Add(id);
+				Values.Add(value);
 			}
 		}
 	}

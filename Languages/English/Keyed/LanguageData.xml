@@ -107,6 +107,19 @@
 	<Planets.Population_High>High</Planets.Population_High>
 	<Planets.Population_VeryHigh>Very high</Planets.Population_VeryHigh>
 	
+	<!-- Hilliness -->
+	
+	<Planets.Hilliness>Hilliness</Planets.Hilliness>
+	<Planets.HillinessTip>Affects the hilliness of the planet. A low setting results in a world with few mountains, whereas a high setting creates a world with many mountainous regions that are difficult to traverse.</Planets.HillinessTip>
+	
+	<Planets.Hilliness_VeryLow>Very low</Planets.Hilliness_VeryLow>
+	<Planets.Hilliness_Low>Low</Planets.Hilliness_Low>
+	<Planets.Hilliness_SlightlyLow>Slightly low</Planets.Hilliness_SlightlyLow>
+	<Planets.Hilliness_Normal>Normal</Planets.Hilliness_Normal>
+	<Planets.Hilliness_SlightlyHigh>Slightly high</Planets.Hilliness_SlightlyHigh>
+	<Planets.Hilliness_High>High</Planets.Hilliness_High>
+	<Planets.Hilliness_VeryHigh>Very high</Planets.Hilliness_VeryHigh>
+
 	<!-- For compatibility with 1.0 -->
 	<!-- Please do not remove -->
 	

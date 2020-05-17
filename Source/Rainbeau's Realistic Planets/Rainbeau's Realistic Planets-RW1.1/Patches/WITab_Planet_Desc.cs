@@ -19,6 +19,7 @@ namespace Planets_Code.Patches
 	- temperature
 	- axial tilt
 	- population
+	- hilliness modifier
 
 	Also increase height of tab to fit contents.
 	*/
@@ -57,6 +58,7 @@ namespace Planets_Code.Patches
 				var temperature = Planets_Strings.GetTemperature();
 				var axialTilt = Planets_Strings.GetAxialTilt();
 				var population = Planets_Strings.GetPopulation();
+				var hilliness = Planets_GameComponent.hillinessModifier.Label;
 
 				sb.Append("Planets.WorldPresets", preset);
 				sb.Append("Planets.OceanType", worldType);
@@ -64,6 +66,7 @@ namespace Planets_Code.Patches
 				sb.Append("PlanetTemperature", temperature);
 				sb.Append("Planets.AxialTilt", axialTilt);
 				sb.Append("PlanetPopulation", population);
+				sb.Append("Planets.Hilliness", hilliness);
 			}
 			__result = sb.ToString();
 		}
