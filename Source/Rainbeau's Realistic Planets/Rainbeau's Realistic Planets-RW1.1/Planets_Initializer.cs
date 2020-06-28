@@ -5,12 +5,39 @@ using HarmonyLib;
 using RimWorld.Planet;
 using UnityEngine;
 using System;
+using System.Diagnostics;
 
 namespace Planets_Code
 {
 	[StaticConstructorOnStartup]
 	internal static class Planets_Initializer
 	{
+		public class Foo
+		{
+			public class Bar
+			{
+				public class Baz
+				{
+
+				}
+			}
+		}
+
+		[Conditional("DEBUG")]
+		private static void Debug_HarmonyRecursiveTest()
+		{
+			var bazSearch = AccessTools.FirstInner(typeof(Foo), (Type x) => { return x.Name.Contains("Baz"); });
+
+			if (bazSearch == null)
+			{
+				throw new Exception("FirstInner does not perform recursive search.");
+			}
+			else
+			{
+				throw new Exception("FirstInner DOES perform recursive search.");
+			}
+		}
+
 		private static void EditPlantDefs()
 		{
 			foreach (ThingDef current in DefDatabase<ThingDef>.AllDefsListForReading)
@@ -160,6 +187,8 @@ namespace Planets_Code
 			}
 			EditPlantDefs();
 			EditAnimalDefs();
+
+			Debug_HarmonyRecursiveTest();
 		}
 	}
 }
