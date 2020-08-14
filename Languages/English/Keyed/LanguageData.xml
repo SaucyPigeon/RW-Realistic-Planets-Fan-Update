@@ -12,7 +12,7 @@
 	<Planets.CheckTemp>Consider temperature when placing factions.</Planets.CheckTemp>
 	<Planets.CheckTempTip>If this option is checked, faction settlements will tend to be located in regions of the planet where the faction's race would consider the temperature to be the most comfortable (or perhaps just "the least uncomfortable"). If it is unchecked, settlements will be placed randomly, as in the vanilla game.</Planets.CheckTempTip>
 
-	<Planets.FactionGrouping>"Nation Building":</Planets.FactionGrouping>
+	<Planets.FactionGrouping>Faction grouping:</Planets.FactionGrouping>
 	<Planets.FactionGroupingNone>None. (Vanilla behavior.) Faction group settlements will be scattered throughout the world randomly.</Planets.FactionGroupingNone>
 	<Planets.FactionGroupingLoose>Loose. A faction group's settlements will tend to be in the same general region of the world map, but there will still be extensive overlap between the territories occupied by various groups.</Planets.FactionGroupingLoose>
 	<Planets.FactionGroupingTight>Tight. The settlements belonging to any particular faction group will be in reasonably close proximity to each other, and except for pirate band faction groups, there won't be a large amount of overlap. There will be a distinct sense of actual nations existing on the world map, albeit with very rough borders.</Planets.FactionGroupingTight>
