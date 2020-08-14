@@ -8,5 +8,4 @@
 		LittleBitMore,
 		High
 	}
-	
 }

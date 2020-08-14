@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Planets_Code</RootNamespace>
-    <AssemblyName>Rainbeau%27s Realistic Planets-RW1.0</AssemblyName>
+    <AssemblyName>Rainbeau%27s Realistic Planets</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
