@@ -1,0 +1,18 @@
+<!-- Put LoadFolders.xml in root of mod, not in About. -->
+<loadFolders>
+
+	<!-- Load Empire defs for simplicity. -->
+
+	<v1.1>
+		<li>/</li>
+		<li>1.1</li>
+		<li IfModActive="Saakra.FactionColonies">Empire</li>
+	</v1.1>
+	
+	<v1.2>
+		<li>/</li>
+		<li>1.2</li>
+		<li IfModActive="Saakra.FactionColonies">Empire</li>
+	</v1.2>
+
+</loadFolders>

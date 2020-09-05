@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--
+	
+	List of biomes added by Realistic Planets:
+	
+	<li>RRP_Grassland</li>
+	<li>RRP_Savanna</li>
+	<li>RRP_Steppes</li>
+	<li>RRP_TemperateDesert</li>
+	<li>RRP_Permafrost</li>
+	<li>RRP_Oasis</li>
+	
+	-->
+
+	<FactionColonies.BiomeResourceDef>
+		<defName>RRP_Grassland</defName>
+		<label>grassland</label>
+		<canSettle>true</canSettle>
+		<BaseProductionAdditive> <!-- 0 is default -->
+			<li>1.25</li> <!-- Food -->
+			<li>1</li> <!-- Weapons -->
+			<li>1</li> <!-- Apparel -->
+			<li>1.25</li> <!-- Animals -->
+			<li>0.25</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionAdditive>
+		<BaseProductionMultiplicative> <!-- li is default -->
+			<li>1</li> <!-- Food -->
+			<li>1</li> <!-- Weapons -->
+			<li>1</li> <!-- Apparel -->
+			<li>1</li> <!-- Animals -->
+			<li>1</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionMultiplicative>
+	</FactionColonies.BiomeResourceDef>
+	
+	<FactionColonies.BiomeResourceDef>
+		<defName>RRP_Savanna</defName>
+		<label>savanna</label>
+		<canSettle>true</canSettle>
+		<BaseProductionAdditive> <!-- 0 is default -->
+			<li>1.25</li> <!-- Food -->
+			<li>1</li> <!-- Weapons -->
+			<li>1</li> <!-- Apparel -->
+			<li>1.25</li> <!-- Animals -->
+			<li>0.5</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionAdditive>
+		<BaseProductionMultiplicative> <!-- li is default -->
+			<li>1</li> <!-- Food -->
+			<li>1</li> <!-- Weapons -->
+			<li>1</li> <!-- Apparel -->
+			<li>1</li> <!-- Animals -->
+			<li>1</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionMultiplicative>
+	</FactionColonies.BiomeResourceDef>
+	
+	<FactionColonies.BiomeResourceDef>
+		<defName>RRP_Steppes</defName>
+		<label>steppes</label>
+		<canSettle>true</canSettle>
+		<BaseProductionAdditive> <!-- 0 is default -->
+			<li>0.8</li> <!-- Food -->
+			<li>1</li> <!-- Weapons -->
+			<li>1</li> <!-- Apparel -->
+			<li>1.1</li> <!-- Animals -->
+			<li>0.25</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionAdditive>
+		<BaseProductionMultiplicative> <!-- li is default -->
+			<li>1</li> <!-- Food -->
+			<li>1</li> <!-- Weapons -->
+			<li>1</li> <!-- Apparel -->
+			<li>1</li> <!-- Animals -->
+			<li>1</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionMultiplicative>
+	</FactionColonies.BiomeResourceDef>
+	
+	<FactionColonies.BiomeResourceDef>
+		<defName>RRP_TemperateDesert</defName>
+		<label>temperate desert</label>
+		<canSettle>true</canSettle>
+		<BaseProductionAdditive> <!-- 0 is default -->
+			<li>0.75</li> <!-- Food -->
+			<li>1</li> <!-- Weapons -->
+			<li>1</li> <!-- Apparel -->
+			<li>0.75</li> <!-- Animals -->
+			<li>0</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionAdditive>
+		<BaseProductionMultiplicative> <!-- li is default -->
+			<li>1</li> <!-- Food -->
+			<li>1</li> <!-- Weapons -->
+			<li>1</li> <!-- Apparel -->
+			<li>1</li> <!-- Animals -->
+			<li>1</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionMultiplicative>
+	</FactionColonies.BiomeResourceDef>
+	
+	<FactionColonies.BiomeResourceDef>
+		<defName>RRP_Permafrost</defName>
+		<label>permafrost</label>
+		<canSettle>true</canSettle>
+		<BaseProductionAdditive> <!-- 0 is default -->
+			<li>0.25</li> <!-- Food -->
+			<li>0.75</li> <!-- Weapons -->
+			<li>0.75</li> <!-- Apparel -->
+			<li>0.5</li> <!-- Animals -->
+			<li>0.25</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionAdditive>
+		<BaseProductionMultiplicative> <!-- li is default -->
+			<li>1</li> <!-- Food -->
+			<li>1</li> <!-- Weapons -->
+			<li>1</li> <!-- Apparel -->
+			<li>1</li> <!-- Animals -->
+			<li>1</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionMultiplicative>
+	</FactionColonies.BiomeResourceDef>
+
+	<FactionColonies.BiomeResourceDef>
+		<defName>RRP_Oasis</defName>
+		<label>oasis</label>
+		<canSettle>true</canSettle>
+		<BaseProductionAdditive> <!-- 0 is default -->
+			<li>1</li> <!-- Food -->
+			<li>1</li> <!-- Weapons -->
+			<li>1</li> <!-- Apparel -->
+			<li>1</li> <!-- Animals -->
+			<li>0.6</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionAdditive>
+		<BaseProductionMultiplicative> <!-- li is default -->
+			<li>1</li> <!-- Food -->
+			<li>1</li> <!-- Weapons -->
+			<li>1</li> <!-- Apparel -->
+			<li>1</li> <!-- Animals -->
+			<li>1</li> <!-- Logging -->
+			<li>1</li> <!-- Mining -->
+		</BaseProductionMultiplicative>
+	</FactionColonies.BiomeResourceDef>
+
+</Defs>
