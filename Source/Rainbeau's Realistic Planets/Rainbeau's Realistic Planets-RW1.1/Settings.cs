@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using Verse;
+using System;
+using System.Collections.Generic;
 
 namespace Planets_Code
 {
@@ -24,6 +26,10 @@ namespace Planets_Code
 		public SettingsValue<bool> showGrowingPeriod = new SettingsValue<bool>(defaultValue: true, name: "showGrowingPeriod");
 		public SettingsValue<bool> showDiseaseFrequency = new SettingsValue<bool>(defaultValue: false, name: "showDiseaseFrequency");
 
+
+		private readonly List<SettingsValue<bool>> boolSettings = new List<SettingsValue<bool>>();
+		private readonly List<SettingsValue<float>> floatSettings = new List<SettingsValue<float>>();
+
 		public void DoWindowContents(Rect canvas)
 		{
 			Listing_Standard list = new Listing_Standard();
@@ -37,7 +43,7 @@ namespace Planets_Code
 			}
 			else
 			{
-				list.CheckboxLabeled("Planets.CheckTemp".Translate(), ref checkTemp.CurrentValue, "Planets.CheckTempTip".Translate());
+				list.CheckboxBool(checkTemp);
 				list.Gap(24);
 				factionGrouping.CurrentValue = list.Slider(factionGrouping.CurrentValue, 0, 3.99f);
 				if (factionGrouping.CurrentValue < 1)
@@ -61,22 +67,25 @@ namespace Planets_Code
 			const float wipInfoGap = 12f;
 
 			list.Gap(wipInfoGap);
-			list.CheckboxLabeled("Planets.ShowStoneTypes".Translate(), ref showStoneTypes.CurrentValue, "Planets.ShowStoneTypesTip".Translate());
+			list.CheckboxBool(this.showStoneTypes);
 
 			list.Gap(wipInfoGap);
-			list.CheckboxLabeled("Planets.ShowGrowingPeriod".Translate(), ref showGrowingPeriod.CurrentValue, "Planets.ShowGrowingPeriodTip".Translate());
+			list.CheckboxBool(this.showGrowingPeriod);
 
 			list.Gap(wipInfoGap);
-			list.CheckboxLabeled("Planets.ShowDiseaseFrequency".Translate(), ref showDiseaseFrequency.CurrentValue, "Planets.ShowDiseaseFrequencyTip".Translate());
+			list.CheckboxBool(this.showDiseaseFrequency);
 
 			list.Gap(24);
 			if (list.ButtonText("Planets.ResetToDefault".Translate()))
 			{
-				this.checkTemp.ResetToDefault();
-				this.factionGrouping.ResetToDefault();
-				this.showStoneTypes.ResetToDefault();
-				this.showGrowingPeriod.ResetToDefault();
-				this.showDiseaseFrequency.ResetToDefault();
+				foreach (var setting in boolSettings)
+				{
+					setting.ResetToDefault();
+				}
+				foreach (var setting in floatSettings)
+				{
+					setting.ResetToDefault();
+				}
 			}
 			list.End();
 		}
@@ -84,11 +93,26 @@ namespace Planets_Code
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Planets_Scribe_Values.Look(checkTemp);
-			Planets_Scribe_Values.Look(factionGrouping);
-			Planets_Scribe_Values.Look(showStoneTypes);
-			Planets_Scribe_Values.Look(showGrowingPeriod);
-			Planets_Scribe_Values.Look(showDiseaseFrequency);
+			foreach (var setting in boolSettings)
+			{
+				Planets_Scribe_Values.Look<bool>(setting);
+			}
+			foreach (var setting in floatSettings)
+			{
+				Planets_Scribe_Values.Look<float>(setting);
+			}
+		}
+
+		public Settings() : base()
+		{
+			// Register settings
+
+			this.boolSettings.Add(checkTemp);
+			this.boolSettings.Add(showStoneTypes);
+			this.boolSettings.Add(showGrowingPeriod);
+			this.boolSettings.Add(showDiseaseFrequency);
+
+			this.floatSettings.Add(factionGrouping);
 		}
 	}
 }
