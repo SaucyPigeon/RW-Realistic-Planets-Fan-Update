@@ -18,7 +18,8 @@ namespace Planets_Code.Presets
 
 		public WorldPreset(string name, WorldType worldType, AxialTilt axialTilt, RainfallModifier rainfallModifier, OverallTemperature temperature, OverallPopulation population)
 		{
-			Name = name ?? throw new ArgumentNullException(nameof(name));
+			Guard.OnArgumentNull(name, nameof(name));
+			Name = name;
 			WorldType = worldType;
 			AxialTilt = axialTilt;
 			RainfallModifier = rainfallModifier;

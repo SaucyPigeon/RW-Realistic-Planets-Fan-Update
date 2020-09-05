@@ -144,10 +144,8 @@ namespace Planets_Code
 
 		public static void Append(this StringBuilder stringBuilder, string key, string value, bool translate = true)
 		{
-			if (key == null)
-				throw new ArgumentNullException(nameof(key));
-			if (value == null)
-				throw new ArgumentNullException(nameof(value));
+			Guard.OnArgumentNull(key, nameof(key));
+			Guard.OnArgumentNull(value, nameof(value));
 
 			if (translate)
 			{

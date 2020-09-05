@@ -12,8 +12,7 @@ namespace Planets_Code
 	{
 		public static void Look<T>(this SettingsValue<T> settingsValue)
 		{
-			if (settingsValue == null)
-				throw new ArgumentNullException(nameof(settingsValue));
+			Guard.OnArgumentNull(settingsValue, nameof(settingsValue));
 
 			Scribe_Values.Look(ref settingsValue.CurrentValue, settingsValue.Name, settingsValue.DefaultValue);
 		}

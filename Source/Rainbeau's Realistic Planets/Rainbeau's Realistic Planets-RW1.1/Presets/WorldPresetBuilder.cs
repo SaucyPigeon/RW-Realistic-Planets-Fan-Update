@@ -54,18 +54,13 @@ namespace Planets_Code.Presets
 
 		public WorldPreset Build()
 		{
-			if (name == null)
-				throw new ArgumentNullException(nameof(name));
-			if (!worldType.HasValue)
-				throw new ArgumentNullException(nameof(worldType));
-			if (!axialTilt.HasValue)
-				throw new ArgumentNullException(nameof(axialTilt));
-			if (!rainfallModifier.HasValue)
-				throw new ArgumentNullException(nameof(rainfallModifier));
-			if (!temperature.HasValue)
-				throw new ArgumentNullException(nameof(temperature));
-			if (!population.HasValue)
-				throw new ArgumentNullException(nameof(population));
+			Guard.OnArgumentNull(name, nameof(name));
+			Guard.OnArgumentNull(worldType, nameof(worldType));
+			Guard.OnArgumentNull(axialTilt, nameof(axialTilt));
+			Guard.OnArgumentNull(rainfallModifier, nameof(rainfallModifier));
+			Guard.OnArgumentNull(temperature, nameof(temperature));
+			Guard.OnArgumentNull(population, nameof(population));
+
 			return new WorldPreset(name, worldType.Value, axialTilt.Value, rainfallModifier.Value, temperature.Value, population.Value);
 		}
 
