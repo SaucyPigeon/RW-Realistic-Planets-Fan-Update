@@ -17,7 +17,7 @@
 	<BiomeDef>
 		<defName>RRP_Grassland</defName>
 		<label>grassland</label>
-		<description>Grasslands, as the name suggests, are areas where the vegetation is dominated by grasses and shrubs. The soil is fertile, but there is little protection from the elements.</description>
+		<description>Grasslands are areas where the vegetation is dominated by grasses and shrubs. The soil is fertile, but there is little protection from the elements.</description>
 		<workerClass>Planets_Code.BiomeWorker_RRP_Grassland</workerClass>
 		<animalDensity>2.0</animalDensity>
 		<plantDensity>0.5</plantDensity>
@@ -679,7 +679,7 @@
 	<BiomeDef>
 		<defName>RRP_Oasis</defName>
 		<label>oasis</label>
-		<description>Oases are vibrant, isolated bits of life and color. In even the harshest of deserts, after all, groundwater occasionally manages to make it to the surface, and where it does, life blooms. Plants grow around small ponds, and animals gather in search of water and shade.</description>
+		<description>Oases are vibrant islands of life and color. These fertile areas are formed when groundwater manages to reach the desert surface. Plants grow around small ponds, and animals gather in search of water and shade.</description>
 		<workerClass>Planets_Code.BiomeWorker_RRP_Oasis</workerClass>
 		<animalDensity>0.9</animalDensity>
 		<plantDensity>0.13</plantDensity> 
