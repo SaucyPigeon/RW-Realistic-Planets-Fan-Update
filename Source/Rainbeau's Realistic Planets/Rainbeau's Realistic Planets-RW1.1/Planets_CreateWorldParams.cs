@@ -44,8 +44,8 @@ namespace Planets_Code
 
 		static Planets_CreateWorldParams()
 		{
-			Planets_CreateWorldParams.PlanetCoverages = new float[] { 
-				0.05f, 0.1f, 0.15f, 0.2f, 0.25f, 0.3f, 0.35f, 0.4f, 0.45f, 0.5f, 
+			Planets_CreateWorldParams.PlanetCoverages = new float[] {
+				0.05f, 0.1f, 0.15f, 0.2f, 0.25f, 0.3f, 0.35f, 0.4f, 0.45f, 0.5f,
 				0.55f, 0.6f, 0.65f, 0.7f, 0.75f, 0.8f, 0.85f, 0.9f, 0.95f, 1f
 			};
 			WorldPresets = WorldPresetUtility.WorldPresets.ToArray();
@@ -71,16 +71,20 @@ namespace Planets_Code
 			this.rainfall = RainfallModifierUtility.GetModifiedRainfall(Planets_GameComponent.worldType, this.rainfallMod);
 			Planets_TemperatureTuning.SetSeasonalCurve();
 			string generationString = "GeneratingWorld";
-			if (Controller.Settings.randomPlanet.Equals(true)) {
+			if (Controller.Settings.randomPlanet.Equals(true))
+			{
 				generationString = "Planets.GeneratingRandom";
 				Controller.Settings.randomPlanet = false;
 			}
-			LongEventHandler.QueueLongEvent(() => {
+			LongEventHandler.QueueLongEvent(() =>
+			{
 				Find.GameInitData.ResetWorldRelatedMapInitData();
 
 				Current.Game.World = WorldGenerator.GenerateWorld(this.planetCoverage, this.seedString, this.rainfall, this.temperature, this.population);
-				LongEventHandler.ExecuteWhenFinished(() => {
-					if (this.next != null) {
+				LongEventHandler.ExecuteWhenFinished(() =>
+				{
+					if (this.next != null)
+					{
 						Find.WindowStack.Add(this.next);
 					}
 					MemoryUtility.UnloadUnusedUnityAssets();
@@ -105,14 +109,16 @@ namespace Planets_Code
 			this.seedString = Widgets.TextField(rect1, this.seedString);
 			single += 40f;
 			Rect rect2 = new Rect(200f, single, 200f, 30f);
-			if (Widgets.ButtonText(rect2, "RandomizeSeed".Translate(), true, false, true)) {
+			if (Widgets.ButtonText(rect2, "RandomizeSeed".Translate(), true, false, true))
+			{
 				SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(null);
 				this.seedString = GenText.RandomSeedString();
 			}
 			//
 			// PLANET SIZE (IF "MY LITTLE PLANET" IS IN USE)
 			//
-			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("My Little Planet"))) {
+			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("My Little Planet")))
+			{
 				single += 80f;
 				Widgets.Label(new Rect(0f, single, 200f, 30f), "MLPWorldPlanetSize".Translate());
 				Rect rect7 = new Rect(200f, single, 200f, 30f);
@@ -124,19 +130,25 @@ namespace Planets_Code
 			single += 80f;
 			Widgets.Label(new Rect(0f, single, 200f, 30f), "PlanetCoverage".Translate());
 			Rect rect3 = new Rect(200f, single, 200f, 30f);
-			if (Widgets.ButtonText(rect3, this.planetCoverage.ToStringPercent(), true, false, true)) {
+			if (Widgets.ButtonText(rect3, this.planetCoverage.ToStringPercent(), true, false, true))
+			{
 				List<FloatMenuOption> floatMenuOptions = new List<FloatMenuOption>();
 				float[] singleArray = Planets_CreateWorldParams.PlanetCoverages;
-				for (int i = 0; i < (int)singleArray.Length; i++) {
+				for (int i = 0; i < (int)singleArray.Length; i++)
+				{
 					float single1 = singleArray[i];
 					string stringPercent = single1.ToStringPercent();
-					FloatMenuOption floatMenuOption = new FloatMenuOption(stringPercent, () => {
-						if (this.planetCoverage != single1) {
+					FloatMenuOption floatMenuOption = new FloatMenuOption(stringPercent, () =>
+					{
+						if (this.planetCoverage != single1)
+						{
 							this.planetCoverage = single1;
-							if (this.planetCoverage < 0.15f) {
+							if (this.planetCoverage < 0.15f)
+							{
 								Messages.Message("Planets.MessageLowPlanetCoverageWarning".Translate(), MessageTypeDefOf.CautionInput, false);
 							}
-							if (this.planetCoverage > 0.7f) {
+							if (this.planetCoverage > 0.7f)
+							{
 								Messages.Message("MessageMaxPlanetCoveragePerformanceWarning".Translate(), MessageTypeDefOf.CautionInput, false);
 							}
 						}
@@ -339,5 +351,5 @@ namespace Planets_Code
 			}
 		}
 	}
-	
+
 }

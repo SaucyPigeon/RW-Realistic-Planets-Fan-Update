@@ -4,25 +4,33 @@ using RimWorld;
 namespace Planets_Code
 {
 	[HarmonyPatch(typeof(PageUtility), "StitchedPages", null)]
-	public static class PageUtility_StitchedPages {
+	public static class PageUtility_StitchedPages
+	{
 		[HarmonyPriority(Priority.High)]
-		public static void Postfix(ref Page __result) {
-			if (__result == null) {
+		public static void Postfix(ref Page __result)
+		{
+			if (__result == null)
+			{
 				return;
 			}
-			if (TutorSystem.TutorialMode) {
+			if (TutorSystem.TutorialMode)
+			{
 				return;
 			}
 			Page _Result = __result;
-			while (true) {
+			while (true)
+			{
 				Page page = _Result.next;
-				if (page == null) {
+				if (page == null)
+				{
 					break;
 				}
-				if (!(page is Page_CreateWorldParams)) {
+				if (!(page is Page_CreateWorldParams))
+				{
 					_Result = page;
 				}
-				else {
+				else
+				{
 					Page page1 = page.next;
 					Page page2 = page.prev;
 					Planets_CreateWorldParams createWorldParam = new Planets_CreateWorldParams();
@@ -34,6 +42,6 @@ namespace Planets_Code
 				}
 			}
 		}
-	}	
-	
+	}
+
 }

@@ -141,7 +141,7 @@ namespace Planets_Code
 			}
 			throw new ArgumentOutOfRangeException(nameof(Find.World.info.overallPopulation));
 		}
-			
+
 		public static void Append(this StringBuilder stringBuilder, string key, string value, bool translate = true)
 		{
 			if (key == null)

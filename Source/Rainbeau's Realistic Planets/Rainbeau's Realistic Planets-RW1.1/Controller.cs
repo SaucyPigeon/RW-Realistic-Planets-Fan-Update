@@ -32,7 +32,7 @@ namespace Planets_Code
 		}
 
 		public Controller(ModContentPack content) : base(content)
-		{ 
+		{
 			const string Id = "net.saucypigeon.rimworld.mod.realisticplanets";
 
 			if (Debug)
@@ -42,11 +42,11 @@ namespace Planets_Code
 			}
 
 			var harmony = new Harmony(Id);
-			harmony.PatchAll( Assembly.GetExecutingAssembly() );
+			harmony.PatchAll(Assembly.GetExecutingAssembly());
 			Settings = GetSettings<Settings>();
 			LongEventHandler.QueueLongEvent(new Action(Init), "LibraryStartup", false, null);
 		}
-		
+
 		private void Init()
 		{
 			// Faction Control's button for CreateWorld page.

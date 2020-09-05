@@ -17,7 +17,7 @@ namespace Planets_Code
 				}
 				return RainfallModifierUtility.cachedEnumValuesCount;
 			}
-		}	
+		}
 
 		public static OverallRainfall GetModifiedRainfall(WorldType worldType, RainfallModifier modifier)
 		{
@@ -41,7 +41,7 @@ namespace Planets_Code
 					break;
 			}
 			throw new ArgumentOutOfRangeException(nameof(worldType));
-		
+
 		}
 
 		private static OverallRainfall GetModifiedRainfall_Waterworld(RainfallModifier modifier)

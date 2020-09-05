@@ -7,7 +7,8 @@ using Verse;
 
 namespace Planets_Code
 {
-	public class Controller : Mod {
+	public class Controller : Mod
+	{
 		public static Dictionary<Faction, int> factionCenters = new Dictionary<Faction, int>();
 		public static Dictionary<Faction, int> failureCount = new Dictionary<Faction, int>();
 		public static double maxFactionSprawl = 0;
@@ -15,11 +16,12 @@ namespace Planets_Code
 		public static Settings Settings;
 		public override string SettingsCategory() { return "Planets.ModName".Translate(); }
 		public override void DoSettingsWindowContents(Rect canvas) { Settings.DoWindowContents(canvas); }
-		public Controller(ModContentPack content) : base(content) {
+		public Controller(ModContentPack content) : base(content)
+		{
 			HarmonyInstance harmony = HarmonyInstance.Create("net.rainbeau.rimworld.mod.realisticplanets");
-			harmony.PatchAll( Assembly.GetExecutingAssembly() );
+			harmony.PatchAll(Assembly.GetExecutingAssembly());
 			Settings = GetSettings<Settings>();
 		}
 	}
-	
+
 }

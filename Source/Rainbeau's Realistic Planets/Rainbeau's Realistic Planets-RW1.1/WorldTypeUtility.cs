@@ -16,6 +16,6 @@ namespace Planets_Code
 				}
 				return WorldTypeUtility.cachedEnumValuesCount;
 			}
-		}	
+		}
 	}
 }

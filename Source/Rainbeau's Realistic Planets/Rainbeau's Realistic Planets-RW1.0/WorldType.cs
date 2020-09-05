@@ -4,7 +4,8 @@
 	// NEW PLANET SETTINGS STUFF
 	//
 
-	public enum WorldType {
+	public enum WorldType
+	{
 		Waterworld,
 		Islands,
 		Earthlike,
@@ -13,5 +14,5 @@
 		VeryDry,
 		Barren
 	}
-	
+
 }

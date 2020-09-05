@@ -31,24 +31,30 @@ namespace Planets_Code
 			list.Begin(canvas);
 			list.Gap(24);
 			// Faction settings
-			if (Controller.Settings.usingFactionControl.Equals(true)) {
+			if (Controller.Settings.usingFactionControl.Equals(true))
+			{
 				list.Label("Planets.SettingsDisabled".Translate());
 			}
-			else {
-				list.CheckboxLabeled( "Planets.CheckTemp".Translate(), ref checkTemp.CurrentValue, "Planets.CheckTempTip".Translate() );
+			else
+			{
+				list.CheckboxLabeled("Planets.CheckTemp".Translate(), ref checkTemp.CurrentValue, "Planets.CheckTempTip".Translate());
 				list.Gap(24);
 				factionGrouping.CurrentValue = list.Slider(factionGrouping.CurrentValue, 0, 3.99f);
-				if (factionGrouping.CurrentValue < 1) {
-					list.Label("Planets.FactionGrouping".Translate()+"  "+"Planets.FactionGroupingNone".Translate());
+				if (factionGrouping.CurrentValue < 1)
+				{
+					list.Label("Planets.FactionGrouping".Translate() + "  " + "Planets.FactionGroupingNone".Translate());
 				}
-				else if (factionGrouping.CurrentValue < 2 ) {
-					list.Label("Planets.FactionGrouping".Translate()+"  "+"Planets.FactionGroupingLoose".Translate());
+				else if (factionGrouping.CurrentValue < 2)
+				{
+					list.Label("Planets.FactionGrouping".Translate() + "  " + "Planets.FactionGroupingLoose".Translate());
 				}
-				else if (factionGrouping.CurrentValue < 3) {
-					list.Label("Planets.FactionGrouping".Translate()+"  "+"Planets.FactionGroupingTight".Translate());
+				else if (factionGrouping.CurrentValue < 3)
+				{
+					list.Label("Planets.FactionGrouping".Translate() + "  " + "Planets.FactionGroupingTight".Translate());
 				}
-				else {
-					list.Label("Planets.FactionGrouping".Translate()+"  "+"Planets.FactionGroupingVeryTight".Translate());
+				else
+				{
+					list.Label("Planets.FactionGrouping".Translate() + "  " + "Planets.FactionGroupingVeryTight".Translate());
 				}
 			}
 			// World inspect pane information
