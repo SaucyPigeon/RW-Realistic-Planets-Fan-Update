@@ -110,6 +110,8 @@
 	<Planets.Population_High>High</Planets.Population_High>
 	<Planets.Population_VeryHigh>Very high</Planets.Population_VeryHigh>
 	
+	<Planets.PopulationSliderDisabledTip>The population slider is disabled because Faction Control overrides its functionality. Use the "Faction Base Density" slider in the Faction Control menu instead.</Planets.PopulationSliderDisabledTip>
+	
 	<!-- For compatibility with 1.0 -->
 	<!-- Please do not remove -->
 	

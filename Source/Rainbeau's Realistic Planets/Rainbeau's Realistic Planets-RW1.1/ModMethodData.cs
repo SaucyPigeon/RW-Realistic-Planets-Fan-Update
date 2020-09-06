@@ -22,12 +22,13 @@ namespace Planets_Code
 
 		public bool ModIsLoaded()
 		{
-			return LoadedModManager.RunningMods.Any(x => x.PackageIdPlayerFacing == this.PackageId);
+			// Pesky packageid name change between steam and local copies...
+			return LoadedModManager.RunningMods.Any(x => x.PackageIdPlayerFacing.StartsWith(this.PackageId));
 		}
 
 		private MethodInfo GetMethod()
 		{
-			var mod = LoadedModManager.RunningMods.FirstOrDefault(x => x.PackageIdPlayerFacing == this.PackageId);
+			var mod = LoadedModManager.RunningMods.FirstOrDefault(x => x.PackageIdPlayerFacing.StartsWith(this.PackageId));
 
 			if (mod == null)
 			{

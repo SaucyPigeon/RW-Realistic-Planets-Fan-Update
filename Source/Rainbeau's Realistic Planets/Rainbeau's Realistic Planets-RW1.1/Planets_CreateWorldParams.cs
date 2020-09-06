@@ -178,12 +178,8 @@ namespace Planets_Code
 				single += 40f;
 				DoAxialTiltSlider(single);
 
-				// Faction Control will override population, so disable this slider if Faction Control is enabled
-				if (Controller.FactionControlSettingsMI == null)
-				{
-					single += 40f;
-					DoPopulationSlider(single);
-				}
+				single += 40f;
+				DoPopulationSlider(single);
 			}
 			GUI.EndGroup();
 
@@ -313,7 +309,15 @@ namespace Planets_Code
 
 		private void DoPopulationSlider(float single)
 		{
+			// Faction Control will override population, so disable this slider if Faction Control is enabled
+			bool disableSlider = !(Controller.FactionControlSettingsMI == null);
+
 			Planets_Log.Message("Creating population slider.");
+
+			if (disableSlider)
+			{
+				GUI.enabled = false;
+			}
 
 			Widgets.Label(new Rect(0f, single, 200f, 30f), "PlanetPopulation".Translate());
 			Rect rect = new Rect(200f, single, 200f, 30f);
@@ -323,8 +327,16 @@ namespace Planets_Code
 			{
 				this.CurrentWorldPreset = "Planets.Custom";
 			}
+			if (disableSlider)
+			{
+				GUI.enabled = true;
+				TooltipHandler.TipRegion(new Rect(0f, single, rect.xMax, rect.height), "Planets.PopulationSliderDisabledTip".Translate());
+
+			}
+
 
 			Planets_Log.Message("Finished creating population slider.");
+			
 		}
 
 		public override void PostOpen()
