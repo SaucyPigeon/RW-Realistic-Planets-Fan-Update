@@ -27,6 +27,9 @@
 	<Planets.ShowDiseaseFrequency>Show average disease frequency in world inspect pane.</Planets.ShowDiseaseFrequency>
 	<Planets.ShowDiseaseFrequencyTip>Toggles the display of the average disease frequency of a tile in the world view's inspect pane.</Planets.ShowDiseaseFrequencyTip>
 
+	<Planets.EnableDebugLogging>Enable debug logging</Planets.EnableDebugLogging>
+	<Planets.EnableDebugLoggingTip>Enables debug logging for Realistic Planets - Fan Update. This option is visible because developer mode is enabled.</Planets.EnableDebugLoggingTip>
+
 	<Planets.ResetToDefault>Reset to default</Planets.ResetToDefault>
 
 	<!-- Generation -->

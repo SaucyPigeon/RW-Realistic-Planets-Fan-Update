@@ -25,6 +25,7 @@ namespace Planets_Code
 		public SettingsValue<bool> showStoneTypes = new SettingsValue<bool>(defaultValue: false, name: "showStoneTypes");
 		public SettingsValue<bool> showGrowingPeriod = new SettingsValue<bool>(defaultValue: true, name: "showGrowingPeriod");
 		public SettingsValue<bool> showDiseaseFrequency = new SettingsValue<bool>(defaultValue: false, name: "showDiseaseFrequency");
+		public SettingsValue<bool> enableDebugLogging = new SettingsValue<bool>(defaultValue: false, name: "enableDebugLogging");
 
 
 		private readonly List<SettingsValue<bool>> boolSettings = new List<SettingsValue<bool>>();
@@ -75,6 +76,12 @@ namespace Planets_Code
 			list.Gap(wipInfoGap);
 			list.CheckboxBool(this.showDiseaseFrequency);
 
+			if (Prefs.DevMode)
+			{
+				list.Gap(wipInfoGap);
+				list.CheckboxBool(this.enableDebugLogging);
+			}
+
 			list.Gap(24);
 			if (list.ButtonText("Planets.ResetToDefault".Translate()))
 			{
@@ -111,6 +118,7 @@ namespace Planets_Code
 			this.boolSettings.Add(showStoneTypes);
 			this.boolSettings.Add(showGrowingPeriod);
 			this.boolSettings.Add(showDiseaseFrequency);
+			this.boolSettings.Add(enableDebugLogging);
 
 			this.floatSettings.Add(factionGrouping);
 		}

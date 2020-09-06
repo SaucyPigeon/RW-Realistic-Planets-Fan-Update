@@ -73,6 +73,7 @@
     <Compile Include="BiomeWorkers\BiomeWorker_TrSwUrban.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Guard.cs" />
+    <Compile Include="Planets_Log.cs" />
     <Compile Include="ModMethodData.cs" />
     <Compile Include="ModMethodDataExtensions.cs" />
     <Compile Include="Patches\Factions\FactionGenerator_GenerateFactionsIntoWorld.cs" />
