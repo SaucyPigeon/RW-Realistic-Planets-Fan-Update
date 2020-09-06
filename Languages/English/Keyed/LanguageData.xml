@@ -7,7 +7,7 @@
 	
 	<!-- Settings -->
 	
-	<Planets.SettingsDisabled>Since you're also using "Faction Control," the faction placement options in "Realistic Planets" have been disabled to avoid conflicts.</Planets.SettingsDisabled>
+	<Planets.SettingsDisabled>Since you're also using Faction Control, the faction placement options in Realistic Planets - Fan Update have been disabled to avoid conflicts.</Planets.SettingsDisabled>
 	
 	<Planets.CheckTemp>Consider temperature when placing factions.</Planets.CheckTemp>
 	<Planets.CheckTempTip>If this option is checked, faction settlements will tend to be located in regions of the planet where the faction's race would consider the temperature to be the most comfortable (or perhaps just "the least uncomfortable"). If it is unchecked, settlements will be placed randomly, as in the vanilla game.</Planets.CheckTempTip>
