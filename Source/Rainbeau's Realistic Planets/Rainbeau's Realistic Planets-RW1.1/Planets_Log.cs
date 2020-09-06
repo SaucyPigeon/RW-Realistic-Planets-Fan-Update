@@ -12,7 +12,13 @@ namespace Planets_Code
 
 		public static void Message(string value)
 		{
-			if (Controller.Settings.enableDebugLogging.Equals(true))
+			Guard.OnArgumentNull(value, nameof(value));
+			if (Controller.Settings == null)
+			{
+				throw new InvalidOperationException($"Cannot call this method without settings initialized.");
+			}
+
+			if (Controller.Settings.enableDebugLogging.CurrentValue.Equals(true))
 			{
 				var sb = new StringBuilder();
 				sb.Append("[");

@@ -41,10 +41,29 @@ namespace Planets_Code
 				Harmony.DEBUG = Debug;
 			}
 
+
 			var harmony = new Harmony(Id);
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
+
 			Settings = GetSettings<Settings>();
+
+			Planets_Log.Message("Mod settings acquired.");
+			Planets_Log.Message("Found following settings:");
+			foreach (var setting in Settings.boolSettings)
+			{
+				Planets_Log.Message(setting.ToString());
+			}
+			foreach (var setting in Settings.floatSettings)
+			{
+				Planets_Log.Message(setting.ToString());
+			}
+
+
+			Planets_Log.Message("Initializing mod method data retrieval for Faction Control...");
+
 			LongEventHandler.QueueLongEvent(new Action(Init), "LibraryStartup", false, null);
+
+			Planets_Log.Message("Retrieval completed.");
 		}
 
 		private void Init()

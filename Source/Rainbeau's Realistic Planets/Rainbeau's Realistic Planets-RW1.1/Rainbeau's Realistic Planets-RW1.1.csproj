@@ -75,7 +75,6 @@
     <Compile Include="Guard.cs" />
     <Compile Include="Planets_Log.cs" />
     <Compile Include="ModMethodData.cs" />
-    <Compile Include="ModMethodDataExtensions.cs" />
     <Compile Include="Patches\Factions\FactionGenerator_GenerateFactionsIntoWorld.cs" />
     <Compile Include="Patches\Factions\FactionGenerator_NewGeneratedFaction.cs" />
     <Compile Include="Patches\GenTemperature_SeasonalShiftAmplitudeAt.cs" />

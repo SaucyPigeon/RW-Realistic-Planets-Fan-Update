@@ -28,8 +28,8 @@ namespace Planets_Code
 		public SettingsValue<bool> enableDebugLogging = new SettingsValue<bool>(defaultValue: false, name: "enableDebugLogging");
 
 
-		private readonly List<SettingsValue<bool>> boolSettings = new List<SettingsValue<bool>>();
-		private readonly List<SettingsValue<float>> floatSettings = new List<SettingsValue<float>>();
+		public readonly List<SettingsValue<bool>> boolSettings = new List<SettingsValue<bool>>();
+		public readonly List<SettingsValue<float>> floatSettings = new List<SettingsValue<float>>();
 
 		public void DoWindowContents(Rect canvas)
 		{
