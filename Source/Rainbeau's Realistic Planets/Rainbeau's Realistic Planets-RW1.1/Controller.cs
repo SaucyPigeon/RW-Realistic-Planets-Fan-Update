@@ -17,7 +17,11 @@ namespace Planets_Code
 		public static double maxFactionSprawl = 0;
 		public static double minFactionSeparation = 0;
 		public static Settings Settings;
+
+		// Targetting other mods
 		public static MethodInfo FactionControlSettingsMI = null;
+		public static FieldInfo MoreVanillaBiomesGrasslandsSettingFI = null;
+		public static FieldInfo MoreVanillaBiomesOasisSettingFI = null;
 
 		public const bool Debug = false;
 
@@ -60,6 +64,29 @@ namespace Planets_Code
 			if (Settings.usingFactionControl && FactionControlSettingsMI == null)
 			{
 				throw new MissingMethodException("Realistic Planets was unable to find necessary Faction Control method info.");
+			}
+
+			// More Vanilla Biomes - get access to their settings so we can
+			// emulate their enable/disable feature.
+
+			var mbvGrasslandsSetting = new ModFieldData(
+				packageId: "zylle.MoreVanillaBiomes",
+				typeName: "VanillaBiomes.BiomeSettings",
+				fieldName: "spawnGrasslands"
+				);
+
+			var mbvOasisSetting = new ModFieldData(
+				packageId: "zylle.MoreVanillaBiomes",
+				typeName: "VanillaBiomes.BiomeSettings",
+				fieldName: "spawnDesertOasis"
+				);
+
+			MoreVanillaBiomesGrasslandsSettingFI = mbvGrasslandsSetting.GetFieldIfLoaded();
+			MoreVanillaBiomesOasisSettingFI = mbvOasisSetting.GetFieldIfLoaded();
+
+			if (Settings.usingMoreVanillaBiomes && (MoreVanillaBiomesGrasslandsSettingFI == null || MoreVanillaBiomesOasisSettingFI == null))
+			{
+				throw new MissingFieldException("Realistic Planets was unable to find necessary More Vanilla Biomes field info.");
 			}
 		}
 	}

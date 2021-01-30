@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Planets_Code
 {
 	/// <summary>
-	/// Represents data for another mod's method. Use this to "piggyback" off
-	/// another mod's code for compatibility. See <see cref="ModFieldData"/>
-	/// for accessing fields instead.
+	/// Represents data for another mod's field. Use this to "piggyback" off 
+	/// another mod's code for compatibility. See <see cref="ModMethodData"/>
+	/// for accessing methods instead.
 	/// </summary>
-	public class ModMethodData
+	public class ModFieldData
 	{
 		/// <summary>
 		/// The package ID of the mod. Often in the format of Author.ModName.
@@ -19,15 +23,15 @@ namespace Planets_Code
 		/// </summary>
 		public string TypeName { get; }
 		/// <summary>
-		/// The name of the target method. 
+		/// The name of the target field. 
 		/// </summary>
-		public string MethodName { get; }
+		public string FieldName { get; }
 
-		public ModMethodData(string packageId, string typeName, string methodName)
+		public ModFieldData(string packageId, string typeName, string fieldName)
 		{
 			PackageId = packageId ?? throw new ArgumentNullException(nameof(packageId));
 			TypeName = typeName ?? throw new ArgumentNullException(nameof(typeName));
-			MethodName = methodName ?? throw new ArgumentNullException(nameof(methodName));
+			FieldName = fieldName ?? throw new ArgumentNullException(nameof(fieldName));
 		}
 	}
 }

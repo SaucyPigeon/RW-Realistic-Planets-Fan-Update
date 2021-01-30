@@ -155,6 +155,8 @@ namespace Planets_Code
 			}
 			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("More Vanilla Biomes")))
 			{
+				Controller.Settings.usingMoreVanillaBiomes = true;
+				// Keep these settings in place. Grasslands and oases may be used by other mods.
 				Controller.Settings.otherGrassland = true;
 				Controller.Settings.otherOasis = true;
 			}
