@@ -13,6 +13,7 @@ namespace Planets_Code
 		// Generation
 		public bool usingMLP = false;
 		public bool usingFactionControl = false;
+		public bool usingRimWar = false;
 		public bool usingMoreVanillaBiomes = false;
 		public bool randomPlanet = false;
 

@@ -15,7 +15,7 @@ namespace Planets_Code
 		/// </summary>
 		public string PackageId { get; }
 		/// <summary>
-		/// The target type's name. This includes the namespace.
+		/// The target type's name. This includes the namespace. Note that nested types use "+" rather than ".".
 		/// </summary>
 		public string TypeName { get; }
 		/// <summary>

@@ -105,14 +105,16 @@ namespace Planets_Code
 			this.seedString = Widgets.TextField(rect1, this.seedString);
 			single += 40f;
 			Rect rect2 = new Rect(200f, single, 200f, 30f);
-			if (Widgets.ButtonText(rect2, "RandomizeSeed".Translate(), true, false, true)) {
+			if (Widgets.ButtonText(rect2, "RandomizeSeed".Translate(), true, false, true))
+			{
 				SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(null);
 				this.seedString = GenText.RandomSeedString();
 			}
 			//
 			// PLANET SIZE (IF "MY LITTLE PLANET" IS IN USE)
 			//
-			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("My Little Planet"))) {
+			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("My Little Planet")))
+			{
 				single += 80f;
 				Widgets.Label(new Rect(0f, single, 200f, 30f), "MLPWorldPlanetSize".Translate());
 				Rect rect7 = new Rect(200f, single, 200f, 30f);
@@ -124,19 +126,24 @@ namespace Planets_Code
 			single += 80f;
 			Widgets.Label(new Rect(0f, single, 200f, 30f), "PlanetCoverage".Translate());
 			Rect rect3 = new Rect(200f, single, 200f, 30f);
-			if (Widgets.ButtonText(rect3, this.planetCoverage.ToStringPercent(), true, false, true)) {
+			if (Widgets.ButtonText(rect3, this.planetCoverage.ToStringPercent(), true, false, true))
+			{
 				List<FloatMenuOption> floatMenuOptions = new List<FloatMenuOption>();
 				float[] singleArray = Planets_CreateWorldParams.PlanetCoverages;
-				for (int i = 0; i < (int)singleArray.Length; i++) {
+				for (int i = 0; i < (int)singleArray.Length; i++)
+				{
 					float single1 = singleArray[i];
 					string stringPercent = single1.ToStringPercent();
 					FloatMenuOption floatMenuOption = new FloatMenuOption(stringPercent, () => {
-						if (this.planetCoverage != single1) {
+						if (this.planetCoverage != single1)
+						{
 							this.planetCoverage = single1;
-							if (this.planetCoverage < 0.15f) {
+							if (this.planetCoverage < 0.15f)
+							{
 								Messages.Message("Planets.MessageLowPlanetCoverageWarning".Translate(), MessageTypeDefOf.CautionInput, false);
 							}
-							if (this.planetCoverage > 0.7f) {
+							if (this.planetCoverage > 0.7f)
+							{
 								Messages.Message("MessageMaxPlanetCoveragePerformanceWarning".Translate(), MessageTypeDefOf.CautionInput, false);
 							}
 						}
@@ -187,6 +194,17 @@ namespace Planets_Code
 					Controller.FactionControlSettingsMI.Invoke(null, null);
 				}
 			}
+			// Add Rim War button
+			if (Controller.RimWarSettingsMI != null)
+			{
+				Text.Font = GameFont.Small;
+				if (Widgets.ButtonText(new Rect(0, rect.yMax - 118f, 150, 32), "RW_RimWar".Translate()))
+				{
+					Controller.RimWarSettingsMI.Invoke(obj: null, parameters: new[] { this });
+				}
+			}
+
+
 			base.DoBottomButtons(rect, "WorldGenerate".Translate(), "Planets.Random".Translate(), new Action(this.Randomize), true, true);
 		}
 
