@@ -57,12 +57,11 @@ namespace Planets_Code
 
 			foreach (var assembly in mod.assemblies.loadedAssemblies)
 			{
-				foreach (var type in assembly.GetTypes())
+				var dialog = assembly.GetType(modMethodData.TypeName);
+
+				if (dialog != null)
 				{
-					if (type != null && type.FullName == modMethodData.TypeName)
-					{
-						return type.GetMethod(modMethodData.MethodName, BindingFlags.Public | BindingFlags.Static);
-					}
+					return dialog.GetMethod(modMethodData.MethodName, BindingFlags.Public | BindingFlags.Static);
 				}
 			}
 

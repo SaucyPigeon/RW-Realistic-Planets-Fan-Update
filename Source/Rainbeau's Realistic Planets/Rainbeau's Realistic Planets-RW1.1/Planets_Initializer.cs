@@ -160,10 +160,6 @@ namespace Planets_Code
 				Controller.Settings.otherGrassland = true;
 				Controller.Settings.otherOasis = true;
 			}
-			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("Rim War")))
-			{
-				Controller.Settings.usingRimWar = true;
-			}
 			EditPlantDefs();
 			EditAnimalDefs();
 		}

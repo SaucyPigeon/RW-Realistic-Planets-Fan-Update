@@ -20,7 +20,6 @@ namespace Planets_Code
 
 		// Targetting other mods
 		public static MethodInfo FactionControlSettingsMI = null;
-		public static MethodInfo RimWarSettingsMI = null;
 		public static FieldInfo MoreVanillaBiomesGrasslandsSettingFI = null;
 		public static FieldInfo MoreVanillaBiomesOasisSettingFI = null;
 
@@ -55,7 +54,6 @@ namespace Planets_Code
 		private void Init()
 		{
 			// Faction Control's button for CreateWorld page.
-
 			var fcData = new ModMethodData(
 				packageId: "factioncontrol.kv.rw",
 				typeName: "FactionControl.Patch_Page_CreateWorldParams_DoWindowContents",
@@ -67,22 +65,6 @@ namespace Planets_Code
 			{
 				throw new MissingMethodException("Realistic Planets was unable to find necessary Faction Control method info.");
 			}
-
-
-			// Rim War's button for CreateWorld page.
-
-			var rwData = new ModMethodData(
-				packageId: "Torann.RimWar",
-				typeName: "RimWar.Harmony.RimWarMod+Patch_Page_CreateWorldParams_DoWindowContents",
-				methodName: "OpenSettingsWindow");
-
-			RimWarSettingsMI = rwData.GetMethodIfLoaded();
-
-			if (Settings.usingRimWar && RimWarSettingsMI == null)
-			{
-				throw new MissingMethodException("Realistic Planets was unable to find necessary Rim War method info.");
-			}
-
 
 			// More Vanilla Biomes - get access to their settings so we can
 			// emulate their enable/disable feature.
