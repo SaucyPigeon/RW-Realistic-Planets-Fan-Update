@@ -6,7 +6,7 @@ namespace Planets_Code
 	/// <summary>
 	/// The BiomeWorker for modded grassland biomes. Although this mod adds its
 	/// own version, it disables that one in favour of those from other mods.
-	/// Mods affected are More Vanilla Biomes and Nature's Pretty Sweet. 
+	/// Currently only Nature's Pretty Sweet is affected. 
 	/// </summary>
 	public class BiomeWorker_RRP_Grassland_Mod : BiomeWorker
 	{
@@ -17,6 +17,7 @@ namespace Planets_Code
 
 		public override float GetScore(Tile tile, int tileID)
 		{
+			// This mimics More Vanilla Biome's enable/disable function.
 			if (Controller.Settings.usingMoreVanillaBiomes)
 			{
 				if (!(bool)Controller.MoreVanillaBiomesGrasslandsSettingFI.GetValue(null))

@@ -130,34 +130,60 @@ namespace Planets_Code
 			}
 		}
 
+		private static bool ModLoaded(string name)
+		{
+			return ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains(name));
+		}
+
 		static Planets_Initializer()
 		{
-			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("My Little Planet")))
+			/* A useful table showing which mods have overridden biomes:
+
+									| Grasslands	| Savanna	| Oasis
+			-----------------------------------------------------------
+			Nature's Pretty Sweet	| YES			| YES		| no
+			Terra Project (Core)	| no			| YES		| no
+			Advanced Biomes			| no			| YES		| no
+			More Vanilla Biomes		| no*"			| no		| YES*
+
+
+				* can be disabled via that mod's settings
+
+				" this mod has its own grasslands biome which is like a wet
+					savannah. Keep Realistic Planets' own grasslands biome
+					enabled (assuming no other mods) and use a special
+					BiomeWorker replacing More Vanilla Biomes' grasslands.
+
+					If Nature's Pretty Sweet is enabled, this shouldn't affect
+					anything; RP's grasslands will be replaced by NPS's own,
+					and MVB's grasslands will have its own special behavior.
+
+			*/
+			if (ModLoaded("My Little Planet"))
 			{
 				Controller.Settings.usingMLP = true;
 			}
-			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("Faction Control")))
+			if (ModLoaded("Faction Control"))
 			{
 				Controller.Settings.usingFactionControl = true;
 			}
-			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("Nature's Pretty Sweet")))
+			if (ModLoaded("Nature's Pretty Sweet"))
 			{
 				Controller.Settings.otherGrassland = true;
 				Controller.Settings.otherSavanna = true;
 			}
-			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("Terra Project (Core)")))
+			if (ModLoaded("Terra Project (Core)"))
 			{
 				Controller.Settings.otherSavanna = true;
 			}
-			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("Advanced Biomes")))
+			if (ModLoaded("Advanced Biomes"))
 			{
 				Controller.Settings.otherSavanna = true;
 			}
-			if (ModsConfig.ActiveModsInLoadOrder.Any(mod => mod.Name.Contains("More Vanilla Biomes")))
+			if (ModLoaded("More Vanilla Biomes"))
 			{
 				Controller.Settings.usingMoreVanillaBiomes = true;
-				// Keep these settings in place. Grasslands and oases may be used by other mods.
-				Controller.Settings.otherGrassland = true;
+				// Keep this setting in place. Oases may be used by other mods.
 				Controller.Settings.otherOasis = true;
 			}
 			EditPlantDefs();

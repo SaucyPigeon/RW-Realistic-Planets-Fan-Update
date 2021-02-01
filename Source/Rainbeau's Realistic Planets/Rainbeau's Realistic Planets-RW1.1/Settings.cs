@@ -13,6 +13,15 @@ namespace Planets_Code
 		// Generation
 		public bool usingMLP = false;
 		public bool usingFactionControl = false;
+
+		/// <summary>
+		/// Mimics More Vanilla Biomes' enable/disable behaviour for grasslands
+		/// and oases. Note that, if Realistic Planets and MVB are both
+		/// enabled, there will be two grasslands at the same time (RP's dry
+		/// and MVB's wet). The enable/disable behaviour will apply to both
+		/// versions. MVB should rename its grasslands biome to another name
+		/// (intended).
+		/// </summary>
 		public bool usingMoreVanillaBiomes = false;
 		public bool randomPlanet = false;
 

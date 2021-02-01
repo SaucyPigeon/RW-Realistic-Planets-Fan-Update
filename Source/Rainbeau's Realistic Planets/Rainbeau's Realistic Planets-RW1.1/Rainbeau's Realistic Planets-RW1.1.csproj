@@ -46,6 +46,7 @@
     <Compile Include="AxialTilt.cs" />
     <Compile Include="AxialTiltUtility.cs" />
     <Compile Include="BiomeWorkers\BiomeWorker_BoFoUrban.cs" />
+    <Compile Include="BiomeWorkers\BiomeWorker_MVB_StormyGrasslands.cs" />
     <Compile Include="BiomeWorkers\BiomeWorker_NPS_Oasis.cs" />
     <Compile Include="BiomeWorkers\BiomeWorker_NPS_SaltFlats.cs" />
     <Compile Include="BiomeWorkers\BiomeWorker_RRP_AridShrubland.cs" />
