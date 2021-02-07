@@ -26,5 +26,4 @@ namespace Planets_Code
 			Scribe_Values.Look(ref worldPreset, "worldPreset", "Planets.Vanilla", true);
 		}
 	}
-	
 }

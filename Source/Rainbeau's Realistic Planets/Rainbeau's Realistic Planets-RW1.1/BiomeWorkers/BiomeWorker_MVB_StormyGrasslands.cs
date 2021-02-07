@@ -7,7 +7,7 @@ namespace Planets_Code
 {
 	/// <summary>
 	/// The special BiomeWorker for More Vanilla Biome's grasslands. Note that
-	/// its name is intended to be changed by MVB.
+	/// the biome's name is intended to be changed by MVB.
 	/// </summary>
 	public class BiomeWorker_MVB_StormyGrasslands : BiomeWorker
 	{

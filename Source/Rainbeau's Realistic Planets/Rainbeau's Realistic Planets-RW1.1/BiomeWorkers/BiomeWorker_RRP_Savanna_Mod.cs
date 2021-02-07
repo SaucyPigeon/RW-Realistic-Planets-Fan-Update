@@ -4,7 +4,7 @@ using RimWorld.Planet;
 namespace Planets_Code
 {
 	public class BiomeWorker_RRP_Savanna_Mod : BiomeWorker
-		{
+	{
 		public BiomeWorker_RRP_Savanna_Mod()
 		{
 
